@@ -1,12 +1,23 @@
 export default class util {
 
-  constructor(toastr, sweet, mcRegExp) {
+  constructor($window, $http,toastr, sweet, mcRegExp) {
     'ngInject';
+
+    this._window = $window;
+    this._http = $http;
 
     this.toastr = toastr;
     this.sweet = sweet;
     this.mcRegExp = mcRegExp;
 
+  }
+  // 退出操作
+  logout() {
+    return this._http.get('/user/logout').then(data => {
+      if (data.data.status === 0) {
+          this._window.location.href = '/';
+      }
+    });
   }
 
   /**

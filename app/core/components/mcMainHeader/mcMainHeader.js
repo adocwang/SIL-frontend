@@ -1,9 +1,10 @@
 class McMainHeaderController {
 
-  constructor(sweet, ProfileService) {
+  constructor(sweet, utilService, ProfileService) {
     'ngInject';
 
     this._sweet = sweet;
+    this._utilService = utilService;
 
     // let {avatar} = PensionService.getInfo();
 
@@ -21,7 +22,7 @@ class McMainHeaderController {
     }, isConfirm => {
       if (isConfirm) {
         localStorage.clear();
-        // this._pensionService.logout();
+        this._utilService.logout();
       }
     });
   }
