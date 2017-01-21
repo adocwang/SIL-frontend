@@ -1,0 +1,48 @@
+//== angular validation
+//
+// ##
+
+// error message
+.validation-invalid{
+  color: @state-tip-text;
+  margin: 10px 0 0;
+  font-size: @font-size-base * .8571;
+}
+
+.validation-valid{
+  margin: 0;
+}
+
+
+// form control
+.form-control {
+  input,select,textarea{
+
+    &.ng-valid{
+      border-color: @state-success-border;
+      &:focus {
+        border-color: darken(@state-success-border, 10%);
+        @valid-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@state-success-border, 20%);
+        .box-shadow(@valid-shadow);
+      }
+    }
+
+    &.ng-invalid{
+      color: @state-tip-text;
+      border-color: @state-tip-border;
+      &:focus {
+        border-color: darken(@state-tip-border, 10%);
+        @invalid-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 6px lighten(@state-tip-border, 20%);
+        .box-shadow(@invalid-shadow);
+      }
+    }
+
+  }
+}
+
+// mc-radio
+.mc-radio{
+  &.ng-invalid{
+    .mc-radio-validation(@state-tip-bg);
+  }
+}

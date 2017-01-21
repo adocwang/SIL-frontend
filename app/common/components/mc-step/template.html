@@ -1,0 +1,6 @@
+<ul class="mc-step clearfix center-block">
+  <li ng-repeat="item in vm.stepList" ng-class="{active: item.value <= vm.currentStep }">
+    <p>{{item.name}}</p>
+    <div class="step-arrow"></div>
+  </li>
+</ul>

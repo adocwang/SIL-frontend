@@ -1,0 +1,78 @@
+// Button variants
+//
+// Easily pump out default styles, as well as :hover, :focus, :active,
+// and disabled options for all buttons
+// Color calculation site: http://blog.gyoshev.net/cuttle/
+
+.mc-button-variant(@color; @background; @focus-bg; @hover-bg; @active-bg; @disabled-bg: none) {
+  color: @color;
+  background-color: @background;
+  outline: none !important;
+
+  &:focus,
+  &.focus {
+    color: @color;
+    background-color: @focus-bg;
+  }
+  &:hover {
+    color: @color;
+    background-color: @hover-bg;
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color;
+    background-color: @active-bg;
+
+    &:hover,
+    &:focus,
+    &.focus {
+      color: @color;
+      background-color: @active-bg;
+    }
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: @background;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+// 设置特殊按钮的边框样式
+.mc-button-border-variant(@border: none; @focus-border; @hover-border; @active-border) {
+  border-color: @border;
+  &:focus,
+  &.focus {
+    border-color: @focus-border;
+  }
+  &:hover {
+    border-color: @hover-border;
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+
+    &:hover,
+    &:focus,
+    &.focus {
+      border-color: @active-border;
+    }
+
+    // border-color: @active-border;
+  }
+
+}

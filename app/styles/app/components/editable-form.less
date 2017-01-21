@@ -1,0 +1,49 @@
+[editable-form] {
+  position: relative;
+
+  .edit-item {
+    margin-bottom: 15px;
+
+    .control-label {
+      color: #a6a6a6;
+      text-align: right;
+
+      &, & + span {
+        height: 27px;
+        line-height: 27px;
+      }
+
+      & + span {
+        text-align: left;
+
+        // fix c-select
+        &.c-select {
+          padding-top: 0;
+        }
+      }
+    }
+  }
+
+  .editable-wrap {
+    .editable-controls.form-group {
+      margin-bottom: 0;
+    }
+
+    .form-control {
+      width: inherit;
+
+      // fix mc-datepicker
+      &.mc-datepicker {
+        padding: 0;
+        border: none;
+      }
+    }
+  }
+
+  .edit-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+}

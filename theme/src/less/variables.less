@@ -1,0 +1,317 @@
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+@gray-base:              #000;
+@gray-darker:            #323232;
+@gray:                   #7f7f7f;
+@gray-light:             #a6a6a6;
+
+@brand-primary:         #328eff;
+@brand-success:         #1db65e;
+@brand-warning:         #f8b238;
+@brand-danger:          #f16350;
+@brand-tip:             #ff4b37;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+@body-bg:               #f5f5f5;
+//** Global text color on `<body>`.
+@text-color:            @gray-darker;
+
+
+//========== background
+//
+// default
+@white-color: #fff;
+@white-bg: #fff;
+@default-dark-color: #f0f0f0;
+@btn-default-disabled-bg: #ebebeb;
+
+// success
+@success-color: #1db65e;
+@success-light-color: #3fc176;
+@success-dark-color: #199b50;
+@btn-success-disabled-bg: #77d39e;
+
+// primary
+@primary-color: #328eff;
+@primary-light-color: #519fff;
+@primary-dark-color: #2b79d9;
+@btn-primary-disabled-bg: #84bbff;
+
+// warning
+@warning-color: #f8b238;
+@warning-light-color: #f9bd56;
+@warning-dark-color: #da9c31;
+@btn-warning-disabled-bg: #fbd188;
+
+
+// danger
+@danger-color: #f16350;
+@danger-light-color: #f37a6a;
+@danger-dark-color: #d45746;
+@btn-danger-disabled-bg: #f7a196;
+
+
+
+//== Scaffolding
+//
+@text-color: #323232;
+@link-color: #2eb16f;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            ceil((@font-size-base * 1.14)); // ~16px
+@font-size-h6:            @font-size-base;
+
+
+//== Custom Avatar
+@base-avatar-size: 90px;
+@large-avatar-scale: 90 / @base-avatar-size;
+@middle-avatar-scale: 70 / @base-avatar-size;
+@small-avatar-scale: 48 / @base-avatar-size;
+
+
+//== Custom size button
+@basic-padding-vertical: 5px;
+@basic-padding-horizontal: 15px;
+@large-btn-font-size: @font-size-base * 16 / 14;
+@small-btn-font-size: @font-size-base;
+@large-btn-line-height: 1.4;
+@small-btn-line-height: 1.3;
+@large-btn-border-radius: 3px;
+@small-btn-border-radius: 2px;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-font-weight: normal;
+
+// .btn-default
+@btn-default-color: #323232;
+
+@btn-default-bg: @white-color;
+@btn-default-focus-bg: @white-color;
+@btn-default-hover-bg: @white-color;
+@btn-default-active-bg: @default-dark-color;
+
+@btn-default-border: #d9d9d9;
+@btn-default-focus-border: #bfbfbf;
+@btn-default-hover-border: #bfbfbf;
+@btn-default-active-border: #bfbfbf;
+
+// .btn-success
+@btn-success-color: #fff;
+
+@btn-success-bg: @success-color;
+@btn-success-focus-bg: @success-light-color;
+@btn-success-hover-bg: @success-light-color;
+@btn-success-active-bg: @success-dark-color;
+
+@btn-success-border: @success-color;
+@btn-success-focus-border: @success-light-color;
+@btn-success-hover-border: @success-light-color;
+@btn-success-active-border: @success-dark-color;
+
+// .btn-primary
+@btn-primary-color: #fff;
+
+@btn-primary-bg: @primary-color;
+@btn-primary-focus-bg: @primary-light-color;
+@btn-primary-hover-bg: @primary-light-color;
+@btn-primary-active-bg: @primary-dark-color;
+
+@btn-primary-border: @primary-color;
+@btn-primary-focus-border: @primary-light-color;
+@btn-primary-hover-border: @primary-light-color;
+@btn-primary-active-border: @primary-dark-color;
+
+// .btn-warning
+@btn-warning-color: #fff;
+
+@btn-warning-bg: @warning-color;
+@btn-warning-focus-bg: @warning-light-color;
+@btn-warning-hover-bg: @warning-light-color;
+@btn-warning-active-bg: @warning-dark-color;
+
+@btn-warning-border: @warning-color;
+@btn-warning-focus-border: @warning-light-color;
+@btn-warning-hover-border: @warning-light-color;
+@btn-warning-active-border: @warning-dark-color;
+
+// .btn-danger
+@btn-danger-color: #fff;
+
+@btn-danger-bg: @danger-color;
+@btn-danger-focus-bg: @danger-light-color;
+@btn-danger-hover-bg: @danger-light-color;
+@btn-danger-active-bg: @danger-dark-color;
+
+@btn-danger-border: @danger-color;
+@btn-danger-focus-border: @danger-light-color;
+@btn-danger-hover-border: @danger-light-color;
+@btn-danger-active-border: @danger-dark-color;
+
+
+// btn-toggle
+@btn-toggle-color: @success-color;
+@btn-toggle-border: @btn-default-border;
+@btn-toggle-bg: @white-color;
+
+@btn-toggle-active-color: @success-color;
+@btn-toggle-active-border: #73cf9a;
+@btn-toggle-active-bg: #ddf4e7;
+
+// btn-toggle-danger
+@btn-toggle-danger-color: @danger-color;
+@btn-toggle-danger-border: @btn-default-border;
+@btn-toggle-danger-bg: @white-color;
+
+@btn-toggle-danger-active-color: @danger-color;
+@btn-toggle-danger-active-border: #f16350;
+@btn-toggle-danger-active-bg: #f9e8e5;
+
+// btn-toggle-warning
+@btn-toggle-warning-color: #323232;
+@btn-toggle-warning-border: @btn-default-border;
+@btn-toggle-warning-bg: @white-color;
+
+@btn-toggle-warning-active-color: @warning-color;
+@btn-toggle-warning-active-border: #f8b238;
+@btn-toggle-warning-active-bg: #faefdd;
+
+// btn other property
+@btn-text-shadow: none;
+@btn-default-shadow: none;
+@btn-hover-shadow: 0 3px 4px rgba(0,0,0,.12);
+@btn-active-shadow: 0 2px 3px rgba(0,0,0,.12);
+@btn-group-shadow: 0 1px 2px rgba(0,0,0,.12);
+
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+@state-success-text:             #1db65e;
+@state-success-bg:               #e8f8ef;
+@state-success-border:           #1db65e;
+
+@state-warning-text:             #f8b238;
+@state-warning-bg:               #fef6e7;
+@state-warning-border:           #f8b238;
+
+@state-danger-text:              #f16350;
+@state-danger-bg:                #feefed;
+@state-danger-border:            #f16350;
+
+@state-tip-text:              #ff4b37;
+@state-tip-bg:                #ff4b37;
+@state-tip-border:            #ff4b37;
+
+//== Type
+//
+//##
+//** Page header border color
+@page-header-border-color: #ebebeb;
+
+//== Forms
+//
+//##
+//** Default `.form-control` height
+@input-height-base: (@line-height-computed + (@padding-base-vertical * 2));
+//** Text color for `<input>`s
+@input-color: @gray-darker;
+@input-border-radius: @border-radius-base / 2;
+@input-radio-border-color: #1db65e;
+
+//== Tables
+//
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+@table-cell-padding:            10px;
+
+//** Border color for table and cell borders.
+@table-border-color:            #ebebeb;
+
+
+//== Panels
+//
+//##
+
+@panel-bg:                    #fff;
+@panel-body-padding:          15px;
+@panel-heading-padding:       15px;
+@panel-footer-padding:        @panel-heading-padding;
+@panel-border-radius:         @border-radius-base * 3 / 4;
+
+//** Border color for elements within panels
+@panel-default-border:        #ececec;
+@panel-inner-border:          #ececec;
+
+//== Popovers
+//
+//##
+
+//** Popover arrow width
+@popover-arrow-width:                 7px;
+
+
+//== custom basic
+@prefix: ;
+@avatar-bg: #f5f5f5;
+@bottom-border-color: #ebebeb;
+
+
+//== Structure
+//
+//##Page styles
+
+// shadow
+@structure-shadow: 0 2px 3px rgba(0,0,0,.11);
+
+// aside
+@aside-width: 145px;
+@aside-bg: #2f3746;
+@aside-bg-active: #262c38;
+@aside-text: #828790;
+@aside-text-active: #fff;
+
+// header
+@header-bg: #fff;
+
+// body-content
+@body-content-bg: #fff;
+@body-content-border: #e9e9e9;
+
+// logo
+@logo-width: 36px;
+@logo-text-color: #38b457;
+@logo-border-color: #2e3749;
+
+// setting menu
+@menu-pop-width: 150px;
+@menu-hover-bg: #f2f2f2;
+
+
+// main menu
+@main-menu-text-color: #fff;
+@main-menu-bg: #333d51;
+@main-menu-hover-bg: #293141;
+@main-menu-icon-color: #c2c5cb;
+@main-menu-icon-hover-color: #30b652;
+

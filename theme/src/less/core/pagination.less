@@ -1,0 +1,24 @@
+.page-active-aria{
+  background: #1db65e;
+  color: #fff;
+  border-color: #1db65e;
+}
+
+.pagination{
+
+  > .active > a,
+  > .active > span{
+
+    .page-active-aria();
+
+    &:hover{
+      .page-active-aria();
+    }
+
+    &:focus{
+      .page-active-aria();
+    }
+
+  }
+
+}

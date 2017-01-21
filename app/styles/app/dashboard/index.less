@@ -1,0 +1,73 @@
+@text-color: #7f7f7f;
+@green: #33bd6e;
+@orange: #f9ba4c;
+@blue: #4699ff;
+@blue-light:#58a3ff;
+@red: #f27261;
+
+.dashbord-cards {
+  &:before, &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  .card {
+    // for bottom-border inner
+    height: 125px;
+
+    .tab-color(orange);
+    .tab-color(blue);
+    .tab-color(blue-light);
+    .tab-color(red);
+    .tab-color(green);
+
+    >.card-block {
+      color: @text-color;
+
+      .title {
+        height: 38px;
+        line-height: 38px;
+        font-size: 16px;
+      }
+
+      [class*="icon-card_"] {
+        font-size: 35px;
+      }
+
+      .number {
+        font-size: 32px;
+      }
+    }
+
+  }
+}
+
+.tab-color(@color) {
+  &.@{color} {
+      i { color: @@color }
+      &:hover, &.active {
+        background-color: #f6f7f8;
+        //border-bottom: 4px solid @@color;
+        i { color: darken(@@color, 8%);}
+      }
+    }
+}
+
+.chart-container {
+  .chart-header {
+    padding: 15px;
+    //margin-bottom: -35px;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    z-index: 1;
+
+    .chart-title {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "name": "community-pc",
+  "version": "0.1.0",
+  "author": "Frontend Team from MagiCare",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.magicare.me/web/community-pc.git"
+  },
+  "keywords": [],
+  "private": true,
+  "engines": {
+    "node": "~5.0.x"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development ./node_modules/.bin/gulp dev",
+    "build": "NODE_ENV=production ./node_modules/.bin/gulp prod",
+    "deploy": "NODE_ENV=production ./node_modules/.bin/gulp deploy",
+    "dev:sync": "NODE_ENV=development ./node_modules/.bin/gulp dev",
+    "test": "NODE_ENV=test ./node_modules/.bin/gulp test",
+    "protractor": "NODE_ENV=test ./node_modules/.bin/gulp protractor",
+    "unit": "NODE_ENV=test ./node_modules/.bin/gulp unit"
+  },
+  "dependencies": {
+    "angular": "~1.5.7",
+    "angular-block-ui": "https://github.com/huguangju/angular-block-ui/tarball/patch-1",
+    "angular-datepicker": "https://github.com/Andyczc/angular-datepicker/tarball/master",
+    "angular-dropzone": "https://github.com/tbenbrahim/angular-dropzone/tarball/master",
+    "angular-h-sweetalert": "^1.4.7",
+    "angular-moment": "^v1.0.0-beta.6",
+    "angular-slimscroll": "https://github.com/huguangju/angular-slimscroll/tarball/master",
+    "angular-toastr": "^1.7.0",
+    "angular-ui-bootstrap": "^1.3.3",
+    "angular-ui-router": "^0.3.1",
+    "angular-ui-switch": "^0.1.1",
+    "angular-validation": "^1.4.1",
+    "angular-validation-match": "^1.9.0",
+    "angular-xeditable": "^0.2.0",
+    "checklist-model": "^0.10.0",
+    "dropzone": "^4.3.0",
+    "echarts": "^3.1.10",
+    "jquery": "^3.0.0",
+    "jquery-slimscroll": "^1.3.8",
+    "moment": "^2.13.0",
+    "moment-timezone": "^0.5.4",
+    "ngCropper": "https://github.com/Andyczc/ngCropper/tarball/master",
+    "pace2": "^1.0.2",
+    "sweetalert": "~1.1.3",
+    "underscore": "^1.8.3",
+    "viewerjs": "^0.5.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.3.15",
+    "archy": "^1.0.0",
+    "babel-core": "^6.3.26",
+    "babel-eslint": "^5.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-register": "^6.5.2",
+    "babelify": "^7.2.0",
+    "brfs": "^1.2.0",
+    "browser-sync": "^2.7.6",
+    "browserify": "^13.0.0",
+    "browserify-istanbul": "^1.0.0",
+    "browserify-ngannotate": "^2.0.0",
+    "browserify-shim": "^3.8.12",
+    "bulk-require": "^0.2.1",
+    "bulkify": "^1.1.1",
+    "chalk": "^1.1.3",
+    "cz-conventional-changelog": "^1.1.6",
+    "debowerify": "^1.3.1",
+    "del": "^2.1.0",
+    "envify": "^3.4.0",
+    "eslint": "2.2.0",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.3.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-changed": "^1.0.0",
+    "gulp-connect": "^5.0.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-gzip": "^1.2.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-less": "^3.1.0",
+    "gulp-notify": "^2.0.0",
+    "gulp-protractor": "^2.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-rev": "^7.1.0",
+    "gulp-rev-collector": "^1.0.4",
+    "gulp-rev-replace": "^0.4.3",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.4.2",
+    "gulp-util": "^3.0.1",
+    "imagemin-pngcrush": "^4.1.0",
+    "isparta": "^4.0.0",
+    "karma": "^0.13.21",
+    "karma-browserify": "^5.0.2",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-coverage": "douglasduteil/karma-coverage#next",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-sauce-launcher": "^0.3.0",
+    "merge-stream": "^1.0.0",
+    "pretty-hrtime": "^1.0.1",
+    "run-sequence": "^1.1.5",
+    "semver": "^5.2.0",
+    "through2": "^2.0.3",
+    "tiny-lr": "^0.2.1",
+    "uglifyify": "^3.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "browserify-shim": {
+    "jquery": {
+      "exports": null
+    },
+    "dropzone": {
+      "exports": "Dropzone"
+    },
+    "angular-dropzone": {
+      "exports": null
+    },
+    "angular-datepicker": {
+      "exports": "datePicker"
+    }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

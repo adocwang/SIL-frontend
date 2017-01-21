@@ -1,0 +1,94 @@
+.btn {
+  .button-size(@basic-padding-vertical; @basic-padding-horizontal; @small-btn-font-size; @small-btn-line-height; @small-btn-border-radius);
+}
+
+.btn-lg {
+  .button-size(@basic-padding-vertical; @basic-padding-horizontal; @large-btn-font-size; @large-btn-line-height; @large-btn-border-radius);
+}
+
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-default {
+  .mc-button-variant(@btn-default-color; @btn-default-bg; @btn-default-focus-bg; @btn-default-hover-bg; @btn-default-active-bg; @btn-default-disabled-bg);
+  .mc-button-border-variant(@btn-default-border; @btn-default-focus-border; @btn-default-hover-border; @btn-default-active-border);
+}
+
+.btn-primary {
+  .mc-button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-focus-bg; @btn-primary-hover-bg; @btn-primary-active-bg; @btn-primary-disabled-bg);
+  .mc-button-border-variant(@btn-primary-border; @btn-primary-focus-border; @btn-primary-hover-border; @btn-primary-active-border);
+}
+
+// Success appears as green
+.btn-success {
+  .mc-button-variant(@btn-success-color; @btn-success-bg; @btn-success-focus-bg; @btn-success-hover-bg; @btn-success-active-bg; @btn-success-disabled-bg);
+  .mc-button-border-variant(@btn-success-border; @btn-success-focus-border; @btn-success-hover-border; @btn-success-active-border);
+}
+
+// Warning appears as orange
+.btn-warning {
+  .mc-button-variant(@btn-warning-color; @btn-warning-bg; @btn-warning-focus-bg; @btn-warning-hover-bg; @btn-warning-active-bg; @btn-warning-disabled-bg);
+  .mc-button-border-variant(@btn-warning-border; @btn-warning-focus-border; @btn-warning-hover-border; @btn-warning-active-border);
+
+}
+
+// Danger and error appear as red
+.btn-danger {
+  .mc-button-variant(@btn-danger-color; @btn-danger-bg; @btn-danger-focus-bg; @btn-danger-hover-bg; @btn-danger-active-bg; @btn-danger-disabled-bg);
+  .mc-button-border-variant(@btn-danger-border; @btn-danger-focus-border; @btn-danger-hover-border; @btn-danger-active-border);
+}
+
+// btn-toggle
+.btn-toggle{
+  .mc-button-variant(@btn-toggle-color; @btn-toggle-bg; @btn-toggle-bg; @btn-toggle-bg; @btn-toggle-active-bg);
+  .mc-button-border-variant(@btn-toggle-border; @btn-toggle-active-border; @btn-toggle-active-border; @btn-toggle-active-border);
+  .box-shadow(none);
+  &.active,
+  &:active{
+    .box-shadow(@btn-group-shadow);
+    border-color: @btn-toggle-active-border;
+  }
+
+  // TODO: to used in all locations
+  &.arrow{
+    position: relative;
+    .arrow(bottom; 12px);
+  }
+
+}
+
+.btn-toggle-danger {
+  .mc-button-variant(@btn-toggle-danger-color; @btn-toggle-danger-bg; @btn-toggle-danger-bg; @btn-toggle-danger-bg; @btn-toggle-danger-active-bg);
+  .mc-button-border-variant(@btn-toggle-danger-border; @btn-toggle-danger-active-border; @btn-toggle-danger-active-border; @btn-toggle-danger-active-border);
+  .box-shadow(none);
+  &.active,
+  &:active{
+    .box-shadow(@btn-group-shadow);
+    border-color: @btn-toggle-danger-active-border;
+  }
+
+  // TODO: to used in all locations
+  &.arrow{
+    position: relative;
+    .arrow(bottom; 12px);
+  }
+}
+
+.btn-toggle-warning {
+  .mc-button-variant(@btn-toggle-warning-color; @btn-toggle-warning-bg; @btn-toggle-warning-bg; @btn-toggle-warning-bg; @btn-toggle-warning-active-bg);
+  .mc-button-border-variant(@btn-toggle-warning-border; @btn-toggle-warning-active-border; @btn-toggle-warning-active-border; @btn-toggle-warning-active-border);
+  .box-shadow(none);
+  &.active,
+  &:active{
+    color: @warning-color;
+    .box-shadow(@btn-group-shadow);
+    border-color: @btn-toggle-warning-active-border;
+  }
+
+  // TODO: to used in all locations
+  &.arrow{
+    position: relative;
+    .arrow(bottom; 12px);
+  }
+}
+

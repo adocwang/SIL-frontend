@@ -1,0 +1,27 @@
+@switch-bg: #ebebeb;
+@switch-disable-fg: #d9d9d9;
+@switch-enable-fg: #32b457;
+
+.switch {
+  width: 42px;
+  height: 6px;
+  //top: 7px;
+  background-color: @switch-bg;
+
+  &.checked {
+    background-color: @switch-bg;
+    border-color: @switch-bg;
+    > small {
+      background-color: @switch-enable-fg;
+    }
+  }
+
+  > small {
+    width: 20px;
+    height:20px;
+    background-color: @switch-disable-fg;
+    top: -7px;
+    left: -1px;
+    box-shadow: none;
+  }
+}

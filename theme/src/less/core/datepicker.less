@@ -1,0 +1,87 @@
+[date-picker] .active:hover, [date-picker] .now:hover, [date-picker] .active:active, [date-picker] .now:active, [date-picker] .active.active, [date-picker] .now.active, [date-picker] .active.disabled, [date-picker] .now.disabled, [date-picker] .active[disabled], [date-picker] .now[disabled]{
+  background: #1db65e !important;
+}
+[date-picker] .now:hover, [date-picker] .now:active, [date-picker] .now.active, [date-picker] .now.disabled, [date-picker] .now[disabled]{
+  background: #f0f0f0 !important;
+  color: #4c4c4c !important;
+}
+[date-picker] .now{
+  background: #f0f0f0 !important;
+  color: #4c4c4c !important;
+}
+[date-picker]{
+  td,
+  th{
+    white-space: nowrap;
+  }
+  [ng-switch-when]{
+    >table{
+      width: 248px;
+      color: #4c4c4c;
+    }
+  }
+
+  .switch{
+    background: none;
+    width: 198px;
+    display: table-cell;
+  }
+
+  thead>tr:first-child{
+    th{
+      font-size: 14px;
+      &:first-child,&:last-child{
+        font-size: 12px;
+        position: relative;
+        &:after{
+          position: absolute;
+          line-height: 27px;
+          background: #fff;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          font-family: magicare;
+        }
+      }
+      &:first-child{
+        &:after{
+          content: "\e908";
+        }
+      }
+      &:last-child{
+        &:after{
+          content: "\e909";
+        }
+      }
+    }
+  }
+
+  [ng-switch-when="date"]{
+    th,
+    td{
+      span{
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        line-height: 28px;
+        display: inline-block;
+        float: none;
+      }
+    }
+  }
+
+  [ng-switch-when="month"]{
+    th,
+    td{
+      span{
+        width: 42px;
+        height: 42px;
+        font-size: 14px;
+        line-height: 42px;
+        margin: 3.5%;
+      }
+    }
+  }
+
+}

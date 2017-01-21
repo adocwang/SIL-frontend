@@ -1,0 +1,303 @@
+@import "../mixins.less";
+
+.page_header {
+  padding: 12px 20px;
+
+  border-bottom: 1px solid @borderColor;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+
+
+.alarm_list {
+  // padding: 20px;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-bottom: 20px;
+  }
+
+
+  .urgent {
+    .list_header {
+      background-color: @alarmUrgentColor;
+    }
+  }
+  .list_header {
+
+    color: #fff;
+
+    height: 43px;
+
+    padding: 0 20px;
+
+    font-size: 16px;
+
+    line-height: 42px;
+
+    background-color: @alarmNormalColor;
+
+    border-radius: 2px 2px 0 0;
+
+    span {
+      float: left;
+      margin-right: 10px;
+    }
+
+    em {
+      font-style: normal;
+
+      float: right;
+    }
+  }
+
+  .list_content {
+
+    position: relative;
+    padding: 16px 20px 16px 0;
+
+    border: 1px solid @borderColor;
+    border-top: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+
+    border-radius: 0 0 2px 2px;
+
+    background-color: #fff;
+
+
+    // 普通版
+    .old_avatar {
+      position: absolute;
+      width: 160px;
+
+      padding-top: 14px;
+      text-align: center;
+
+      // img {
+      //   width: 100px;
+      //   height: 100px;
+
+      //   border-radius: 50%;
+
+      //   background-color: #f1f1f1;
+      // }
+    }
+
+    .old_content {
+      padding: 14px 0px 0px 160px;
+      h3 {
+        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 15px;
+      }
+
+      p {
+        font-size: 16px;
+
+        &:first-child {
+          float: left;
+        }
+
+        &:last-child {
+          float: right;
+        }
+
+        span {
+          color: @secondFontColor;
+        }
+      }
+    }
+
+
+    // 专业版
+
+    .old_info {
+      position: absolute;
+      left: 0;
+
+      width: 180px;
+
+      text-align: center;
+
+      &:after {
+        position: absolute;
+        content: ' ';
+
+        right: 0;
+        top: 20px;
+        width: 1px;
+        height: 126px;
+
+        background-color: @borderColor;
+        overflow: hidden;
+      }
+
+      h3, p {
+        margin: 10px 0 0;
+        line-height: 1;
+      }
+
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+
+        color: @secondFontColor;
+      }
+    }
+
+    // .img img {
+    //   width: 90px;
+    //   height: 90px;
+
+    //   background-color: #f1f1f1;
+
+    //   border-radius: 50%;
+    // }
+  }
+
+
+  .timeline {
+    padding: 10px 70px 10px 210px;
+
+    p {
+      margin: 32px 0 0 0;
+      em {
+        font-style: normal;
+        color: @secondFontColor;
+      }
+    }
+  }
+
+  .timeline-box {
+    &:after {
+      content: ' ';
+      display: block;
+      clear: both;
+      overflow: hidden;
+      height: 0;
+    }
+  }
+  .timeline-item {
+    float: left;
+    position: relative;
+    width: 25%;
+    margin-top: 44px;
+    text-align: center;
+
+    &:first-child {
+      width: 0;
+
+      .info {
+        float: left;
+        margin-right: 0;
+        margin-left: -12px;
+      }
+    }
+
+    &:last-child {
+      .info {
+        margin-right: 0;
+      }
+    }
+
+    &:before, &:after {
+      content: ' ';
+
+      position: absolute;
+
+      overflow: hidden;
+
+      background-color: @timelineNormalColor;
+
+    }
+
+    &:before {
+
+      top: 5px;
+      left: 0;
+
+      width: 100%;
+
+      height: 2px;
+    }
+
+    &:after {
+
+      right: 0;
+      top: 0;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+    }
+
+    &.active {
+      &:before, &:after {
+        background-color: @timelineActiveColor;
+      }
+
+      .timelong {
+        display: inline-block;
+      }
+    }
+
+    .timelong {
+      position: absolute;
+      display: none;
+
+      top: -34px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      font-size: 14px;
+      color: #fff;
+      line-height: 22px;
+
+      padding: 0 6px;
+
+      background-color: @timelongBackgroundColor;
+      border-radius: 2px;
+
+      &:after {
+        content: ' ';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        width: 0;
+        height: 0;
+
+        margin-left: -4px;
+
+        border: 4px solid @timelongBackgroundColor;
+        border-color: @timelongBackgroundColor transparent transparent transparent;
+
+        overflow: hidden;
+
+      }
+    }
+
+    .info {
+      float: right;
+      width: 60px;
+      margin-top: 26px;
+      margin-right: -24px;
+      text-align: center;
+
+      line-height: 1.2;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+// 导出健康报告's Modal
+.modal-export-report,
+.modal-export-report-excel{
+  width: 460px;
+  top: 170px;
+
+  .modal-header {
+    border-bottom: none;
+  }
+
+  .modal-content{
+    background-color: #f5f5f5;
+
+    .exportReport {
+      margin: 10px 40px 0 40px;
+
+      .panel {
+        border-radius: 15px;
+
+        ul.month-list {
+          width: 100%;
+          padding: 0 10px;
+          list-style: none;
+          margin-top: -20px;
+
+          li {
+            float: left;
+            text-align: center;
+            margin: 10px;
+            padding: 0 2px;
+            cursor: pointer;
+
+            &.selected, &:hover {
+              box-shadow: 0px 0px 0px 4px white, 0px 0px 0px 5px #81a8ff;
+              border-radius: 4px;
+            }
+
+            a {
+              padding: 5px;
+              text-decoration: none;
+              border-radius: 4px;
+              color: #0a0b0c;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .btn{
+    padding: 3px 25px;
+  }
+}
+
+.modal-export-report-excel {
+  width: 620px;
+}

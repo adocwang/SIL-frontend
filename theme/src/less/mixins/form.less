@@ -1,0 +1,23 @@
+// Form validation states
+//
+// ##
+
+.mc-radio-validation(@bg){
+  input{
+      &[type="radio"]+span{
+        box-shadow: 0 0 0 6px #fff, 0 0 0 7px @bg;
+      }
+      &[type="radio"]:checked+span{
+        box-shadow: 0 0 0 7px @bg;
+      }
+
+      &[type="checkbox"]+i{
+        border-color: @bg;
+      }
+      &[type="checkbox"]:checked+i{
+        border-color: @bg;
+        background: @bg;
+      }
+
+    }
+}

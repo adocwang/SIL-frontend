@@ -1,0 +1,28 @@
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-success {
+  border-left: solid 3px @state-success-border;
+}
+.bg-warning {
+  border-left: solid 3px @state-warning-border;
+}
+.bg-danger {
+  border-left: solid 3px @state-danger-border;
+}
+
+
+// Page header
+// -------------------------
+
+.page-header {
+  padding: @line-height-computed (@line-height-computed * 2);
+  margin: 0;
+  border-bottom: 1px solid @page-header-border-color;
+}
+
+
+// Contextual colors
+.text-tip {
+  .text-emphasis-variant(@state-tip-text);
+}

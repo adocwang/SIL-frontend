@@ -1,0 +1,15 @@
+<header class="main-header clearfix">
+  <nav class="navbar navbar-static-top">
+    <ul class="nav navbar-nav pull-right">
+      <li><a href="javascript:;" ui-sref="setting.profile" ui-sref-active="active"><i class="icon-header_setting_ic"></i></a></li>
+      <li><a href="javascript:;" ng-click="vm.logout()"><i class="icon-header_exit_ic"></i></a></li>
+      <li class="divider"></li>
+      <li class="user-profile">
+        <a href="javascript:;" ui-sref="setting.profile">
+          <img ng-src="{{vm.info.avatar}}" alt="{{vm.info.name}}">
+          <span>{{vm.info.name}}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

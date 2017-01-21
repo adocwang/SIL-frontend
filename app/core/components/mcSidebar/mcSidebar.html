@@ -1,0 +1,40 @@
+<aside class="main-sidebar">
+  <div class="header text-center">
+    <img ng-src="{{sidebar.info.avatar}}" class="avatar-middle img-circle sidebar-logo" alt="{{sidebar.info.name}}">
+    <h6 class="m-t">{{sidebar.info.name}}</h6>
+  </div>
+
+  <!-- left sidebar menu -->
+  <ul class="sidebar-list" slimscroll="{height: '{{menuHeight}}px'}" slimscroll-watch="menuHeight">
+    <li ng-repeat="item in ::sidebar.menuItems" class="sidebar-list-item" ng-class="::{'with-sub-menu': item.subMenu}"
+        ui-sref-active="selected" mc-sidebar-toggling-item="item">
+
+      <a ng-if="::!item.subMenu" ui-state="item.stateRef || ''" ng-href="{{::(item.fixedHref ? item.fixedHref: '')}}"
+         class="sidebar-list-link">
+        <i class="icon {{ ::item.icon }}"></i><span>{{ ::item.title }}</span>
+      </a>
+
+      <a ng-if="::item.subMenu" class="sidebar-list-link" mc-ui-sref-toggler>
+        <i class="icon {{ ::item.icon }}"></i>
+        <span>{{ ::item.title }}</span>
+        <i ng-if="::item.subMenu" class="icon-angle-right" ui-sref-active="icon-angle-down"></i>
+      </a>
+
+      <!-- submenu -->
+      <ul ng-if="::item.subMenu" class="sidebar-sublist" ng-class="{'slide-right': item.slideRight}" mc-ui-sref-toggling-submenu>
+        <li ng-repeat="subitem in ::item.subMenu" ng-class="::{'with-sub-menu': subitem.subMenu}" ui-sref-active="selected"
+            mc-sidebar-toggling-item="subitem" class="sidebar-sublist-item">
+          <a ng-if="::subitem.subMenu" mc-ui-sref-toggler class="sidebar-list-link subitem-submenu-link">
+            <span>{{ ::subitem.title }}</span>
+            <i ng-if="::subitem.subMenu" ng-class="{'icon-angle-down': subitem.expanded, 'icon-angle-right': !subitem.expanded}"></i>
+          </a>
+          <a ng-if="::(!subitem.subMenu && subitem.disabled)" href class="sidebar-list-link">{{ ::subitem.title }}</a>
+          <a ng-if="::(!subitem.subMenu && !subitem.disabled)" ui-state="subitem.stateRef || ''"
+             ng-href="{{::(subitem.fixedHref ? subitem.fixedHref: '')}}">
+             {{ ::subitem.title}}
+          </a>
+        </li>
+      </ul><!-- /submenu -->
+    </li>
+  </ul><!-- /left sidebar menu -->
+</aside>

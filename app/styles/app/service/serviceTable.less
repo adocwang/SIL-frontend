@@ -1,0 +1,40 @@
+.service-tbl {
+	width: 100%;
+
+	tr {
+		th, td {
+			text-align: center;
+			padding: 10px 5px;
+			line-height: 20px;
+			border: 1px solid #e6e6e6;
+			border-collapse: collapse;
+		}
+		th {
+			background-color: #fafafa;
+		}
+		td {
+			color: #666;
+			background-color: #fff;
+		}
+	}
+}
+
+@media screen and (max-width: 1400px) {
+	.service-tbl {
+		tr {
+			td {
+				&.note {
+					max-width: 120px;
+				}
+
+				&.time {
+					max-width: 100px;
+				}
+
+				&.service-name {
+					max-width: 150px;
+				}
+			}
+		}
+	}
+}

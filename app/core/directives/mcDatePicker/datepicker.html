@@ -1,0 +1,20 @@
+<div class="btn-group mc-datepicker" ng-click="showDatePicker($event)">
+  <button type="button" class="btn btn-default" ng-show="startDate">
+        <span>{{startDate.format('YYYY') + '年'}}</span>
+        <span ng-if="minView != 'year' ">{{startDate.format('MM') + '月'}}</span>
+        <span ng-if="minView != 'year' && minView != 'month' ">{{startDate.format('DD') + '日'}}</span>
+        <span ng-if="minView != 'year' && minView != 'month' && minView != 'date' ">{{ ' ' + startDate.format('HH') }}</span>
+        <span ng-if="minView != 'year' && minView != 'month' && minView != 'date' && minView != 'hours' ">{{ ': ' + startDate.format('mm') }}</span>
+  </button>
+  <button type="button" class="btn btn-default" ng-hide="startDate">
+    <span> — </span>
+  </button>
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+    <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu" ng-click="$event.stopPropagation();" ng-mouseleave="mouseLeave($event)">
+    <!-- 注：此处的min-view由父controller定义,考虑到兼容以前的页面，所以给了一个默认的month -->
+    <div id="{{id}}" date-picker="startDate" min-date="minDate" view="{{view}}" max-date="maxDate" min-view="{{minView || 'month'}}" auto-close="true" watch-direct-changes="true"></div>
+  </div>
+</div>

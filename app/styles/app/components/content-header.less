@@ -1,0 +1,44 @@
+// 临时文件，方便调试。一旦稳定，移动theme中去
+
+@content-header-bg: #fafafa;
+@border-color:      #e3e3e3;
+@form-control-height: 28px;
+
+.content-header {
+  padding: 12px 20px;
+  background-color: @content-header-bg;
+  border-bottom: 1px solid @border-color;
+  box-shadow: 0 1px 1px 0 @border-color;
+
+  select, input {
+    height: @form-control-height;
+    box-shadow: 0 0px 1px 0 @border-color;
+
+    &:focus {
+      border-color: #66afe9;
+      outline: 0;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    }
+  }
+
+  select {
+    border-color: #d9d9d9;
+    width: 97px;
+  }
+
+  .btn {
+    padding: 4px 10px;
+  }
+
+  &.sm {
+    padding: 5px 20px;
+
+    .title {
+      margin-top: 5px;
+    }
+  }
+
+  .title {
+    line-height: 28px;
+  }
+}

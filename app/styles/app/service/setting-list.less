@@ -1,0 +1,54 @@
+.service-setting-list,
+.service-setting-records {
+  .card-header {
+    padding: 10px;
+
+    span {
+      line-height: 30px;
+    }
+
+    a.btn {
+      text-decoration: underline;
+
+      &.text-danger {
+        color: #f16350;
+      }
+    }
+  }
+  .card-img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .card-block {
+    .col-sm-3 {
+      text-align: center;
+      padding: 5px 15px;
+    }
+
+    .col-sm-9 {
+      margin-left: -20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 10px;
+      color: #323232;
+    }
+
+  }
+
+  .break-table {
+    width: 30em;
+    table-layout: fixed;/* 只有定义了表格的布局算法为fixed，下面td的定义才能起作用。 */
+
+    .break-td {
+      width: 100%;
+      word-break: keep-all;/* 不换行 */
+      white-space: nowrap;/* 不换行 */
+      overflow: hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+      text-overflow: ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+    }
+  }
+}

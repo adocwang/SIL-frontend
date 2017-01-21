@@ -1,0 +1,31 @@
+// arrow
+.arrow(@position: bottom; @width: 12px; @before-bg: #77d39e; @after-bg: #ddf4e7){
+  &:before,
+  &:after{
+    position: absolute;
+    @{position}: 0;
+    border: solid (@width / 2) transparent;
+    content: ' ';
+    .arrow-margin-variant(@position; @width);
+  }
+  &:before{
+    margin-@{position}: -(@width + 1);
+    .arrow-border-variant(@position; @width; @before-bg);
+  }
+  &:after{
+    margin-@{position}: -@width;
+    .arrow-border-variant(@position; @width; @after-bg);
+
+  }
+}
+
+// arrow-margin-variant
+.arrow-margin-variant(@position; @width) when (@position = bottom) {
+  margin-left: -(@width / 2);
+  left: 50%;
+}
+
+// arrow-border-variant
+.arrow-border-variant(@position; @width; @bg) when (@position = bottom) {
+  border-top: solid (@width / 2) @bg;
+}

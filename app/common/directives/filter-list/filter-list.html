@@ -1,0 +1,13 @@
+<div class="option-item {{clazz}}">
+  <span class="item-title">{{title}}：</span>
+  <ul class="clearfix">
+    <li>
+      <a href="javascript:;" class="btn btn-toggle" ng-click="clearKeywordFilter(null)"
+          ng-class="{active: !filters[filterKey]}">全部</a>
+    </li>
+    <li ng-repeat="type in list">
+      <a href="javascript:;" ng-click="clearKeywordFilter(type[itemId || 'id'])" title="{{type[itemName || 'name']}}" class="btn btn-toggle"
+          ng-class="{active: filters[filterKey] == type[itemId || 'id']}">{{type[itemName || 'name']}}</a>
+    </li>
+  </ul>
+</div>

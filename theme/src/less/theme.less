@@ -1,0 +1,35 @@
+//
+// Buttons
+// --------------------------------------------------
+
+// Common styles
+.btn-default,
+.btn-primary,
+.btn-success,
+.btn-info,
+.btn-warning,
+.btn-danger {
+  text-shadow: @btn-text-shadow;
+  .box-shadow(@btn-default-shadow);
+
+  &.hover,
+  &:hover{
+    .box-shadow(@btn-hover-shadow);
+  }
+
+  // Reset the shadow
+  &:active,
+  &.active {
+    .box-shadow(@btn-active-shadow);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    .box-shadow(none);
+  }
+
+  .badge {
+    text-shadow: none;
+  }
+}

@@ -1,0 +1,49 @@
+<div class="upload-content">
+
+  <div class="crop-warpper">
+      <img ng-if="dataUrl" ng-src="{{dataUrl}}" width="800"
+      ng-cropper
+      ng-cropper-proxy="cropperProxy"
+      ng-cropper-show="showEvent"
+      ng-cropper-hide="hideEvent"
+      ng-cropper-options="options">
+
+      <div class="upload-progress clearfix" ng-show="dynamic > 0 && !uploaded">
+          <div class="progress-box">
+              <div class="progress-bar progress-bar-success progress-bar-striped active" style="width: {{dynamic}}%;"></div>
+          </div>
+          <span class="process-percent">{{dynamic}}%</span>
+      </div>
+
+      <div class="upload-progress success" ng-show="uploaded">
+          <i class='icon-check_circle'></i> 上传成功！
+      </div>
+
+  </div>
+
+  <div class="preview-warpper">
+      <div class="preview-avatar">
+        <div style="border-radius: initial;width: 100px;height: 100px;">
+          <img ng-src="{{preview.dataUrl || imgUrl || '/dist/images/common/bg_avatar.png'}}" id="JS_preview_image" class="avatar-middle"
+            style="width: 100px;height: 100px;">
+        </div>
+      </div>
+      <a class="btn btn-default" href="javascript:;" ng-click="avatarVm.selectFile()">上传图片</a>
+  </div>
+
+  <form class="dropzone" ng-hide="1" method="post" enctype="multipart/form-data" ng-dropzone dropzone="dropzone"
+      dropzone-config="dropzoneConfig">
+    <input name="pension_id" type="hidden" value="{{ pensionInfo.pension_id}}"/>
+    <input type="file" name="{{fileName || 'file'}}" id="JS_avatar_input">
+    <input type="hidden" name="x" value="{{data.x}}">
+    <input type="hidden" name="y" value="{{data.y}}">
+    <input type="hidden" name="width" value="{{data.width}}">
+    <input type="hidden" name="height" value="{{data.height}}">
+    <input type="hidden" name="Rotate" value="{{data.Rotate}}">
+    <input type="hidden" name="ScaleX" value="{{data.ScaleX}}">
+    <input type="hidden" name="ScaleY" value="{{data.ScaleY}}">
+    <input ng-repeat="param in params" name="{{param.name}}" type="hidden" value="{{param.value}}">
+  </form>
+
+</div>
+

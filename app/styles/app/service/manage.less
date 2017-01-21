@@ -1,0 +1,45 @@
+.service-manage {
+
+  .item-title {
+    padding: 10px 20px;
+
+    position: relative;
+
+    background-color: #ddd;
+
+    h1 {
+        font-size: 16px;
+        line-height: 20px;
+
+        margin: 0;
+    }
+    a {
+      position: absolute;
+
+      top: 12px;
+      right: 20px;
+    }
+  }
+
+  .item-content {
+      height: 270px;
+      padding: 15px;
+
+      .service-type {
+          div {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              height: 48px;
+              padding: 14px 5px 0 5px;
+              &:first-child {
+                  padding-top: 4px;
+              }
+              img{
+                  max-height: 100%;
+              }
+
+          }
+      }
+  }
+}

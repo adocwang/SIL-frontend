@@ -1,0 +1,170 @@
+// Common form controls
+//
+// Shared size and type resets for form controls. Apply `.form-control` to any
+// of the following form controls:
+
+label {
+  font-weight: normal;
+}
+
+// Select
+//
+// Replaces the browser default select with a custom one, mostly pulled from
+// http://primercss.io.
+//
+// Includes IE9-specific hacks (noted by ` \9`).
+
+.c-select {
+  padding: 1px 28px 3px 11px;
+  background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAYAAAB8ZH1oAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjhDMTM0ODY1QzM0MjExRTVCNkQyQzQ2MEIyNTQ1MDAxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjhDMTM0ODY2QzM0MjExRTVCNkQyQzQ2MEIyNTQ1MDAxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEMxMzQ4NjNDMzQyMTFFNUI2RDJDNDYwQjI1NDUwMDEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEMxMzQ4NjRDMzQyMTFFNUI2RDJDNDYwQjI1NDUwMDEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz67Or31AAAAP0lEQVR42mLcuXPn/127djHgA25ubgxMQIIRxMCnCKSGCcrBqhimCMRmQhJEUYysCARY0EwASfxHYsMBQIABAPBzErl4NF4WAAAAAElFTkSuQmCC) no-repeat right .75rem center;
+  background-image: none \9;
+  background-size: 10px 5px;
+  border-radius: @input-border-radius;
+
+  // Use vendor prefixes as `appearance` isn't part of the CSS spec.
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+}
+
+
+// mc-radio
+.mc-radio{
+  padding: 5px 10px;
+  margin: 2px 0 0 0;
+  cursor: pointer;
+  input{
+    // opacity: 0;
+    display: none;
+
+    // radio
+    &[type="radio"]+span{
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: @white-bg;
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px @white-bg, 0 0 0 7px #cdcdcd;
+      margin: 0 11px 0 0;
+      vertical-align: 2px;
+    }
+
+    &[type="radio"]:checked+span{
+      box-shadow: 0 0 0 7px @input-radio-border-color;
+    }
+
+    // checkbox
+    &[type="checkbox"]+i{
+      font-size: @font-size-base *.857;
+      width: 18px;
+      height: 18px;
+      line-height: 17px;
+      text-align: center;
+      display: inline-block;
+      color: #fff;
+      border-radius: @border-radius-base / 2;
+      background: @white-bg;
+      border: solid 1px #cccccc;
+      margin-right: 5px;
+      &:before{
+        margin-left: 1px;
+      }
+    }
+
+    &[type="checkbox"]:checked+i{
+      background: @input-radio-border-color;
+      border: solid 1px @input-radio-border-color;
+    }
+
+  }
+}
+
+
+// Horizontal forms
+//
+// Horizontal forms are built on grid classes and allow you to create forms with
+// labels on the left and inputs on the right.
+.form-horizontal {
+
+  // Form group label
+  .control-label{
+    &.text-left{
+      .text-left();
+      padding-left: 0;
+    }
+
+    .text-tip{
+      font-size: @font-size-base * 1.1428;
+      font-family: sans-serif;
+      margin-left: 5px;
+      vertical-align: -4px;
+    }
+  }
+
+  // Make form groups behave like rows
+  .form-group {
+    margin: 0 (@line-height-computed * 2);
+    border-bottom: solid 1px @bottom-border-color;
+    margin-bottom: 0;
+    padding: @font-size-base * 1.2857 0;
+
+    .btn-link{
+      margin-top: 2px;
+    }
+
+    &:last-child,
+    &.last-child{
+      border-bottom: none;
+    }
+
+  }
+
+  // cols-edit
+  .cols-edit{
+    margin-top: 10px;
+    > div{
+      padding: 10px;
+    }
+  }
+
+  .mc-label {
+    width: 12.5%;
+
+    & ~ .col-sm-offset-2 {
+      margin-left: 12.5%;
+    }
+  }
+
+}
+
+// Feedback states
+.has-success {
+  .form-control{
+    // color: @state-success-text;
+  }
+}
+.has-warning {
+  .form-control{
+    color: @state-warning-text;
+  }
+}
+.has-error {
+  .form-control-validation(@state-tip-text; @state-tip-text; @state-tip-bg);
+  .form-control{
+    color: @state-tip-text;
+  }
+  .c-select{
+    background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAYAAAB8ZH1oAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Q0MzM0JGRkFDQkI5MTFFNThFMjFGQ0M0MTIwOThBNTUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Q0MzM0JGRjlDQkI5MTFFNThFMjFGQ0M0MTIwOThBNTUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OEMxMzQ4NjVDMzQyMTFFNUI2RDJDNDYwQjI1NDUwMDEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OEMxMzQ4NjZDMzQyMTFFNUI2RDJDNDYwQjI1NDUwMDEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6ppBtFAAAASUlEQVR42mL8tWTWf9blcxnwgd+RyQxMrNGpjCAGPkUgNUwgDi7FMEVgzv///+EY5Iz/3uZgDGYjyTGCCBRTls7+D7MFWRwgwABbKDSLLedbjQAAAABJRU5ErkJggg==) no-repeat right .75rem center;
+  }
+  .mc-radio{
+    .mc-radio-validation(@state-tip-bg);
+  }
+}
+
+.form-control {
+  &[disabled],
+  fieldset[disabled] & {
+    border-color: #eeeeee;
+  }
+}
+

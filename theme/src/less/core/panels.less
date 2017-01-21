@@ -1,0 +1,12 @@
+// Optional heading
+.panel-heading {
+  font-size: @font-size-base * 1.2142; // ~17px
+}
+
+// Contextual variations
+.mc-panel-static {
+  .panel-variant(@panel-default-border; @panel-default-text; #fff; @panel-default-border);
+  .panel-heading{
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,4 @@
+
+<div class="row text-center" ng-if="vm.totalItems">
+  <uib-pagination total-items="vm.totalItems" items-per-page="vm.itemsPerPage" max-size="5" ng-model="vm.currentPage" ng-change="vm.pageChanged()" first-text="首页" last-text="尾页" previous-text="&lt;&lt;" next-text="&gt;&gt;" boundary-links="true"></uib-pagination>
+</div>
