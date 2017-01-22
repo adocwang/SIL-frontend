@@ -17,7 +17,7 @@ const coreConstants = {
     // { role_config_id: 6, role_name: '护工'}
   ],
   statusList: [{value: 0, name: '开启'}, { value: 1, name: '关闭'}],
-  genderList: [{value: 1, name: '男'}, {value: 2, name: '女'}, {value: 0, name: '未知'}],
+  genderList: [{value: 1, name: '男'}, {value: 2, name: '女'}],
   pagination: { page: 1, pageSize: 18 }, // 默认分页
   modalAnimation: true,
 };
