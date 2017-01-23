@@ -20,6 +20,14 @@ function demoConfig($stateProvider) {
           order: 30
         }
     })
+    .state('demo.component', {
+      url: '/component',
+      template: '<demo-component></demo-component>',
+      title: 'Component',
+      sidebarMeta: {
+        order: 10
+      }
+    })
     ;
 
 }
