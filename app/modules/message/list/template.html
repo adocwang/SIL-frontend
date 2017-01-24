@@ -1,0 +1,39 @@
+<section class="content-header">
+  <h4 class="title">消息列表</h4>
+</section>
+
+<section class="content body-content body-content-compact block-ui block-ui-message-custom message-list" block-ui="main">
+  <empty-tip ng-if="vm.list.length === 0"></empty-tip>
+
+  <div class="panel">
+    <table class="table table-striped text-center">
+      <tr>
+        <th class="col-m-1 text-center">
+          <label class="mc-radio">
+            <input type="checkbox" ng-model="vm.selectAll" ng-change="vm.toggleAll()" />
+            <i class="icon-check"></i>
+          </label>
+        </th>
+        <th class="col-m-10 text-left">标题</th>
+        <th class="col-m-1 text-center"></th>
+      </tr>
+      <tr ng-repeat="item in vm.list">
+        <td>
+          <label class="mc-radio">
+            <input type="checkbox" ng-model="item.checked" />
+            <i class="icon-check"></i>
+          </label>
+        </td>
+        <td class="text-left">{{item.title}}</td>
+        <td><a ui-sref="message.detail({id: item.id})">查看<i class="icon-angle-right"></i></a></td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <button type="button" class="btn btn-default" ng-click="vm.markedRead()">标记已读</button>
+    <button type="button" class="btn btn-danger" ng-click="vm.delete()">删除</button>
+  </div>
+
+  <mc-pagination total-items="vm.pagination.count" items-per-page="vm.pagination.pageSize" current-page="vm.pagination.page" page-change="vm.pageChanged()"></mc-pagination>
+
+</section>

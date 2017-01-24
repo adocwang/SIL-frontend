@@ -9,7 +9,7 @@ function coreConfig($stateProvider, $locationProvider, $urlRouterProvider, $comp
     $compileProvider.debugInfoEnabled(false);
   }
 
-  $locationProvider.html5Mode(true);
+  // $locationProvider.html5Mode(true);
 
   $stateProvider
     .state('dashboard', {

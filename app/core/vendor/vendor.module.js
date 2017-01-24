@@ -14,7 +14,7 @@ window.Dropzone = Dropzone;
 import 'angular-dropzone';
 import 'ngCropper/dist/ngCropper.all';
 import 'angular-datepicker';
-import 'angular-xeditable';
+// import 'angular-xeditable';
 import pace from 'pace2';
 import 'checklist-model';
 import viewer from 'viewerjs';
@@ -37,7 +37,7 @@ import blockUIConfig        from './config/blockUI.config';
 import toastrConfig         from './config/toastr.config';
 import uibPaginationConfig  from './config/uibPagination.config';
 import validationRuleConfig from './config/validationRule.config';
-import {xeditableOptions} from './config/xeditable.config';
+// import {xeditableOptions} from './config/xeditable.config';
 
 import uibModalDecorator from './uibModal.decorator';
 
@@ -52,7 +52,7 @@ export default angular.module('app.core.vendor', [
   'ngDropzone',
   'datePicker',
   'ngCropper',
-  'xeditable', // TODO: replace with form-edit directive
+  // 'xeditable', // TODO: replace with form-edit directive
   'checklist-model',
 
   // Utils
@@ -65,6 +65,6 @@ export default angular.module('app.core.vendor', [
 .config(toastrConfig)
 .config(uibPaginationConfig)
 .config(validationRuleConfig)
-.run(xeditableOptions)
+// .run(xeditableOptions)
 //.decorator('$uibModal', uibModalDecorator)
 // .run(xeditableThemes);
