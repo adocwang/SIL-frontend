@@ -1,5 +1,6 @@
 import angular from 'angular';
 import config  from './config';
+import service from './service';
 import List  from './list/';
 import Detail from './detail/';
 
@@ -10,6 +11,7 @@ import Detail from './detail/';
 
 export default angular.module('app.modules.message', [])
 // .filter('filterType', filterType)
+.service('MessageService', service)
 
 .component('messageList', List)
 .component('messageDetail', Detail)

@@ -3,6 +3,13 @@ import _ from 'underscore';
 const coreConstants = {
   appTitle: '管理后台',
   apiUrl: '/api/v1',
+  errorInfo: {
+    0: '请求成功',
+    1001: '接口不存在',
+    1002: '请求参数有误',
+    2001: '未登录',
+    2002: 'token过期',
+  },
   date: {
     weeks : ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
     months : _.range(1, 32) // 1-31号

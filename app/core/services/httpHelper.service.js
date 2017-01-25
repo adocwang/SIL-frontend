@@ -1,9 +1,10 @@
 export default class httpHelper{
 
-  constructor(toastr, blockUI) {
+  constructor(toastr, blockUI, AppSettings) {
     'ngInject';
 
     this._blockUIInstance = null;
+    this._errorInfo = AppSettings.errorInfo;
 
     this.toastr = toastr;
     this.$blockUI = blockUI;
@@ -24,10 +25,10 @@ export default class httpHelper{
     this._stopBlockUI();
 
     return new Promise((resolve, reject) => {
-      if(res.data.status === 0) {
+      if(res.data.code === 0) {
         resolve(res.data.data);
       }else {
-        this.toastr.error(res.data.info || res.data.msg, '错误');
+        this.toastr.error(res.data.code_info || this._errorInfo[res.data.code], '错误');
         reject(res);
       }
     });

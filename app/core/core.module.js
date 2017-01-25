@@ -6,6 +6,7 @@ import constants         from './core.constants';
 import config            from './core.config'
 import run               from './core.run';
 import configProvider    from './core.configProvider';
+import apiMap			from './core.api';
 
 import directivesModule  from './directives/directives.module';
 import componentsModule  from './components/components.module';
@@ -23,6 +24,7 @@ export default angular.module('app.core', [
   vendorModule.name
 ])
 .constant('AppSettings', constants)
+.constant('ApiMap', apiMap)
 .provider('coreConfig', configProvider)
 .config(config)
 .run(run);

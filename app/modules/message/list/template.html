@@ -20,7 +20,7 @@
       <tr ng-repeat="item in vm.list">
         <td>
           <label class="mc-radio">
-            <input type="checkbox" ng-model="item.checked" />
+            <input type="checkbox" ng-model="item.checked" ng-change="vm.checkAll()" />
             <i class="icon-check"></i>
           </label>
         </td>

@@ -33,7 +33,7 @@ function coreRun($rootScope, AppSettings, $log, $state, $stateParams, $location,
   }
 
   // 客户套餐
-  $rootScope.accessControl = AccessControlService.getCond();
+  // $rootScope.accessControl = AccessControlService.getCond();
 
 }
 

@@ -6,7 +6,7 @@ export default function httpInterceptor($q, $window, $injector, $rootScope) {
 
       response: function (response) {
         var deferred = $q.defer();
-        if (response.data && response.data.status == 200) {
+        if (response.data && (response.data.code == 2001 || response.data.code == 2002)) {
             $window.location.href = '/users/login';
         }
 

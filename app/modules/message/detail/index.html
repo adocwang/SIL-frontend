@@ -2,7 +2,8 @@
   <h4 class="title pull-left">
     {{vm.info.title}}
   </h4>
-  <button type="button" class="btn btn-danger pull-right" ng-click="vm.delete()">删除</button>
+  <a href="javascript:void(0)" class="btn btn-default pull-right" ng-click="$root.back();">返回</a>
+  <button type="button" class="btn btn-danger pull-right m-r" ng-click="vm.delete()">删除</button>
 </section>
 <section class="content body-content body-content-compact block-ui block-ui-message-custom message-detail" block-ui="main">
 <p>{{vm.info.content}}</p>

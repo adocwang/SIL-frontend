@@ -2,14 +2,19 @@ import Pagination from '../../../core/components/mcPagination/mc-pagination.clas
 
 class ListController extends Pagination {
 
-  constructor($injector, $location, $stateParams, $uibModal, AppSettings) {
+  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, MessageService) {
     'ngInject';
 
     super($injector);
 
+    this._state = $state;
     this._location = $location;
     this._stateParams = $stateParams;
     this._modal = $uibModal;
+
+    this._toastr = toastr;
+
+    this._service = MessageService;
 
     this.filters = {};
 
@@ -42,6 +47,10 @@ class ListController extends Pagination {
     params.pageSize = this.pagination.pageSize;
     params.page = this.pagination.page;
 
+    // this._service.getList(params).then(data => {
+    //   this.list = data.data;
+    // });
+
     this.list = [
                 {id: 1, title: '单独的表单控件会被自动赋予一些全局样式', link: '/', content: '单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。'},
                 {id: 2, title: '单独的表单控件会被自动赋予一些全局样式', link: '/', content: '单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。'},
@@ -53,6 +62,37 @@ class ListController extends Pagination {
   toggleAll() {
     if(this.list) {
       this.list.forEach(item => item.checked = this.selectAll);
+    }
+  }
+
+  checkAll() {
+    if(this.list) {
+      let uncheckedList = this.list.filter(item => !item.checked);
+      let len = uncheckedList.length;
+
+      if(len > 0) {
+        this.selectAll = false;
+      } else if (len = this.list.length) {
+        this.selectAll = true;
+      }
+    }
+  }
+
+  batchMarkedRead() {
+    if(this.list) {
+      let checkedList = this.list.filter(item => item.checked);
+
+      checkedList.forEach(item => item.isRead = true);
+    }
+  }
+
+  batchRemove() {
+    if(this.list) {
+      this.list = this.list.filter(item => !item.checked);
+
+      // checkedList.forEach(item => item.isRead = true);
+      this._toastr.success('删除成功!');
+      this._state.reload();
     }
   }
 
@@ -71,6 +111,11 @@ class ListController extends Pagination {
 
     if(ids && ids.length) {
       console.log(ids);
+
+      this._service.read({ids}).then(data => {
+        // this._toastr.success('');
+        this.batchMarkedRead();
+      });
     }
   }
 
@@ -79,6 +124,10 @@ class ListController extends Pagination {
 
     if(ids && ids.length) {
       console.log(ids);
+      this._service.delete({ids}).then(data => {
+        // this._toastr.success('');
+        this.batchRemove();
+      });
     }
   }
 
