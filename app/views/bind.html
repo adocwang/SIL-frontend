@@ -1,0 +1,101 @@
+<!DOCTYPE html >
+<html class="login-html">
+<head>
+    <base href="../">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>绑定账号－管理后台</title>
+    <link rel="icon" href="/images/common/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/css/vendor.css">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="login">
+<div class="login-wrapper">
+    <div class="login-info">
+        <!-- <img src="/images/common/logo.png" alt=""> -->
+        <h3 class="text-success">管理后台</h3>
+        <form method="post">
+
+            <div class="form-group text-muted">
+                <input class="form-control" id="userName" name="username" placeholder="请输入图片验证码">
+                <i class="icon-user-info"></i>
+            </div>
+
+            <div class="form-group text-muted">
+                <input type="form-control" class="form-control" name="phone" id="phone" placeholder="请输入手机号">
+                <i class="icon-ic_code"></i>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block">发送验证码</button>
+
+
+            <div class="form-group text-muted">
+                <input type="form-control" class="btn-primary" name="phone" id="phone" placeholder="输入验证码">
+            </div>
+
+            <div class="form-group text-muted">
+                <input class="form-control" id="userName" name="username" placeholder="请输入帐号">
+                <i class="icon-user-info"></i>
+            </div>
+
+            <div id="err-msg" class="text-danger text-center form-group"></div>
+            <button type="submit" class="btn btn-success btn-lg btn-block">提交</button>
+        </form>
+    </div>
+    <div class="login-footer">
+        <p>版权所有&copy;2017&nbsp;&nbsp;</p>
+    </div>
+    <div class="bg-color">
+        <div class="top-color"></div>
+        <div class="bottom-color"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog" role="document" style="margin-top: 150px;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <h3 class="text-center" style="padding: 50px 0 0;">请联系管理员进行重置密码操作</h3>
+        <p class="text-right text-success" style="padding: 10px 100px 30px;"></p>
+        <p style="padding:0 0 10px 10px"><a href="javascript:;" id="JS_close_modal"><<返回登录</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+
+        if(window.localStorage && window.localStorage.getItem('mcUsername')){
+            $('#userName').val(window.localStorage.getItem('mcUsername'));
+        }
+
+        $('form').submit(function(e){
+            var $form = $(this);
+            $errMsg = $('#err-msg');
+
+            $form.removeClass('shake-horizontal');
+            $.post('/', $(this).serialize()).success(function(res) {
+                if(res.status === 0) {
+                    $errMsg.empty();
+                    localStorage.setItem('AUTHORIZATION_TOKEN', res.data.token);
+
+                    if($('#JS_remember_account').prop('checked')){
+                        localStorage.setItem('mcUsername', $('#userName').val());
+                    }
+
+                    location.href = '/';
+                }else {
+                    $errMsg.text(res.info);
+                    $form.addClass('shake-horizontal');
+                }
+            });
+
+            e.preventDefault();
+        });
+    });
+</script>
+</body>
+</html>
