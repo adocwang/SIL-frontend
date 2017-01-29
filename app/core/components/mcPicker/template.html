@@ -1,0 +1,57 @@
+<div class="modal-picker">
+  <div class="modal-header">
+    <div class="picker-header-info pull-right">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="vm.cancel();">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      共 {{vm.list.length}} {{vm.options.itemUnit}}{{vm.options.itemType}}
+    </div>
+
+
+    <h4 class="modal-title">{{vm.options.title}}</h4>
+  </div>
+  <div class="modal-picker-body clearfix">
+    <div class="picker-items">
+      <div class="item-search">
+        <div class="input-group search-box">
+          <input type="text" placeholder="{{vm.options.searchPlaceholder}}" ng-model="vm.keyword" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-default search" type="button"><i class="icon-search"></i></button>
+          </span>
+        </div>
+      </div>
+      <dl>
+        <!-- <dt>A</dt> -->
+        <dd>
+          <label class="item clearfix" ng-repeat="item in vm.list | filter: vm.keyword">
+            <img ng-src="{{item.avatar}}" alt="{{item.name}}" class="img-circle avatar-small">
+            <p>{{item.name}}</p>
+            <span class="mc-radio">
+              <input type="checkbox" name="items[]" value="{{item.id}}" ng-click="vm.toggleItemSelected(item)" ng-checked="item.selected">
+              <i class="icon-check"></i>
+            </span>
+          </label>
+        </dd>
+        <!-- <dt>C</dt>
+        <dd>
+        </dd> -->
+      </dl>
+    </div>
+    <div class="picker-result">
+      <h6>已选择 {{vm.selectionItem.length}} {{vm.options.itemUnit}}{{vm.options.itemPosition}} <span ng-if="vm.options.max > 0">（最多可选择{{vm.options.max}} {{vm.options.itemUnit}}）</span></h6>
+      <ul ng-if="vm.selectionItem.length > 0">
+        <li class="item clearfix" ng-repeat="item in vm.selectionItem">
+          <img ng-src="{{item.avatar}}" alt="{{item.name}}" class="img-circle avatar-small">
+          <p>{{item.name}}</p>
+          <p>{{vm.options.itemPosition}}</p>
+          <i class="icon-close" ng-click="vm.toggleItemSelected(item)"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default btn-sm" ng-click="vm.cancel()">取消</button>
+    <button type="button" class="btn btn-success btn-sm" ng-class="{disabled: (vm.selectionItem.length < vm.options.min || (vm.options.max && vm.selectionItem.length > vm.options.max))}" ng-click="vm.ok()">确定</button>
+  </div>
+</div>

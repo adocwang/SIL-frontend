@@ -8,7 +8,7 @@ import * as helper      from './mcSidebar/mcSidebarHelpers.directive';
 
 import {mcPagination}   from './mcPagination/index';
 
-// import PickerService    from './mcPicker/picker';
+import PickerService    from './mcPicker/picker';
 
 // import PlanModelService    from './mcCarePlan/planModel';
 
@@ -30,7 +30,7 @@ export default angular.module('app.core.components', [])
 
 .component('mcPagination', mcPagination)
 
-// .service('PickerService', PickerService)
+.service('PickerService', PickerService)
 
 // .service('PlanModelService', PlanModelService)
 
