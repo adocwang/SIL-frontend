@@ -1,0 +1,78 @@
+<section class="content-header">
+  <div class="options">
+    <div class="option-item option-time">
+      <ul class="clearfix">
+        <li>
+          <div class="input-group search-box">
+            <input ng-model="vm.filters.keyword" type="text" placeholder="请输姓名查询" class="form-control"
+                    code="13" key-event="vm.reSearch();">
+            <span class="input-group-btn">
+              <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
+            </span>
+          </div>
+        </li>
+        <li>
+          <div class="input-group search-box">
+            <input ng-model="vm.filters.keyword" type="text" placeholder="请输手机号查询" class="form-control"
+                    code="13" key-event="vm.reSearch();">
+            <span class="input-group-btn">
+              <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
+            </span>
+          </div>
+        </li>
+        <li>
+          <div class="input-group search-box">
+            <input ng-model="vm.filters.keyword" type="text" placeholder="请输银行查询" class="form-control"
+                    code="13" key-event="vm.reSearch();">
+            <span class="input-group-btn">
+              <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
+            </span>
+          </div>
+        </li>
+        <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                全部
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">未激活</a></li>
+                <li><a href="#">正常</a></li>
+                <li><a href="#">已冻结</a></li>
+                <li><a href="#">已删除</a></li>
+              </ul>
+            </div>
+        </li>
+      </ul>
+    </div>
+</section>
+
+<section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
+  <empty-tip ng-if="vm.list.length === 0"></empty-tip>
+
+  <div class="panel">
+    <table class="table table-striped text-center">
+      <tr>
+        <th class="col-m-1 text-center">id</th>
+        <th class="col-m-1 text-center">姓名</th>
+        <th class="col-m-1 text-center">手机号</th>
+        <th class="col-m-1 text-center">所属角色</th>
+        <th class="col-m-1 text-center">银行名称</th>
+        <th class="col-m-1 text-center">状态</th>
+        <th class="col-m-1 text-center">操作</th>
+      </tr>
+      <tr ng-repeat="item in vm.list">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.phone}}</td>
+        <td>{{item.roleName}}</td>
+        <td>{{item.backName}}</td>
+        <td>{{item.status}}</td>
+        <td><a ui-sref="account.detail({id: item.id})">查看<i class="icon-angle-right"></i></a></td>
+      </tr>
+    </table>
+  </div>
+
+  <mc-pagination total-items="vm.pagination.count" items-per-page="vm.pagination.pageSize" current-page="vm.pagination.page" page-change="vm.pageChanged()"></mc-pagination>
+
+</section>

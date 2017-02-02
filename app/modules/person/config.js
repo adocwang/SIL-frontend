@@ -10,7 +10,7 @@ function Config($stateProvider) {
     })
     .state('person.detail', {
         url: '',
-        template: '<person-view></person-view>',
+        template: '<person-detail></person-detail>',
         title: '资料详情'
     })
     ;
