@@ -20,6 +20,9 @@ import 'checklist-model';
 import viewer from 'viewerjs';
 window.Viewer = viewer;
 
+import 'angular-sanitize';
+import 'angular-auto-complete';
+
 // TODO: Angular version - https://github.com/andresesfm/angular-underscore-module/blob/master/angular-underscore-module.js
 import _ from 'underscore';
 window._ = _;
@@ -54,6 +57,8 @@ export default angular.module('app.core.vendor', [
   'ngCropper',
   // 'xeditable', // TODO: replace with form-edit directive
   'checklist-model',
+
+  'autoCompleteModule',
 
   // Utils
   'angularMoment',

@@ -86,13 +86,15 @@ class PickerController {
         name: this.getValue(item, nameKey),
         avatar: item[avatarKey] || '/images/common/man.png'
       };
+
+      tmpObj = Object.assign(item, tmpObj);
+      
       if( tmpHashObj[tmpObj.id] ) {
         tmpObj.selected = true;
 
         this.selectionItem.push(tmpObj);
       }
 
-      tmpObj = Object.assign(item, tmpObj);
 
       return tmpObj;
     });

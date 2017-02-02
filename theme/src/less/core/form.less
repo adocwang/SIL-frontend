@@ -25,6 +25,11 @@ label {
   -moz-appearance: none;
   -webkit-appearance: none;
 
+  &[multiple] {
+    background-image: none;
+    overflow-y:scroll;
+  }
+
 }
 
 
@@ -93,6 +98,10 @@ label {
       padding-left: 0;
     }
 
+    &.text-center {
+      .text-center();
+    }
+
     .text-tip{
       font-size: @font-size-base * 1.1428;
       font-family: sans-serif;
@@ -110,6 +119,10 @@ label {
 
     .btn-link{
       margin-top: 2px;
+
+      &.text-danger {
+        .text-danger();
+      }
     }
 
     &:last-child,

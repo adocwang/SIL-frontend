@@ -1,4 +1,5 @@
 import Pagination from '../../../core/components/mcPagination/mc-pagination.class';
+import {addConfig} from '../modals';
 
 class ListController extends Pagination {
 
@@ -18,7 +19,24 @@ class ListController extends Pagination {
 
     this.filters = {};
 
-    this.oneAtATime = true;
+    this.agencyList = [
+      {
+        id: 1, 
+        name: '红杉资本'
+      },
+      {
+        id: 2, 
+        name: '真格基金'
+      },
+      {
+        id: 3, 
+        name: 'IDG'
+      },
+      {
+        id: 4, 
+        name: '同渡创投'
+      },
+    ];
 
     this._init();
 
@@ -57,6 +75,21 @@ class ListController extends Pagination {
                 ];
     this.pagination.count = 20;
 
+  }
+
+  addCompany() {
+    let agencyList = this.agencyList;
+    const resolve = {
+      info: function(){
+        return {
+          agencyList
+        };
+      }
+    };
+
+    const options = {...addConfig, resolve};
+
+    this._modal.open( options );
   }
 
 

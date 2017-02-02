@@ -1,4 +1,15 @@
 <section class="content-header">
+    <button type="button" class="btn btn-success pull-right m-l-sm" style="position: relative; z-index: 2;"
+            ng-click="vm.addCompany()"><i class="icon-Plus"></i> 添加
+    </button>
+
+    <button type="button" class="btn btn-info pull-right" style="position: relative; z-index: 2;" data-toggle="modal" data-target=".pop-player"
+            ng-click="$emit('batchUploadHealthData');"><i class="icon-Plus"></i> 批量录入
+    </button>
+    <div>
+      <mc-batch-upload-health-data></mc-batch-upload-health-data>
+    </div>
+
   <div class="options">
     <div class="option-item option-time">
       <ul class="clearfix">
@@ -13,21 +24,17 @@
         </li>
       </ul>
     </div>
-    <!-- <div class="option-item large">
-      <span class="item-title text-right">性别：</span>
+    <div class="option-item large">
+      <span class="item-title text-right">所属机构：</span>
       <ul class="clearfix">
             <li>
-                <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.gender, 'btn-toggle': !vm.filters.gender, 'active': !vm.filters.gender}" ng-click="vm.switch('gender')">
-                    全部
-                </a>
-            </li>
-            <li ng-repeat="item in vm.genderList">
-                <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.gender !== item.value, 'btn-toggle': vm.filters.gender == item.value, 'active': vm.filters.gender == item.value}" ng-click="vm.switch('gender', item.value)">
-                    {{ item.name }}
-                </a>
+                <select name="" id="" class="form-control c-select" 
+                  ng-model="vm.filters.agency" ng-options="item.id as item.name for item in vm.agencyList">
+                  <option value="">全部</option>
+                </select>
             </li>
         </ul>
-    </div> -->
+    </div>
 </section>
 
 <section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
@@ -36,18 +43,18 @@
   <div class="panel">
     <table class="table table-striped text-center">
       <tr>
-        <th class="col-m-1 text-center">机构名称</th>
-        <th class="col-m-1 text-center">子公司</th>
+        <th class="col-m-1 text-center">公司名称</th>
+        <th class="col-m-1 text-center">所属机构</th>
         <th class="col-m-1 text-center">其它信息</th>
         <th class="col-m-2 text-center">备注</th>
         <th class="col-m-1 text-center">操作</th>
       </tr>
       <tr ng-repeat="item in vm.list">
-        <td>{{item.agency}}</td>
         <td>{{item.sub_company}}</td>
         <td>{{item.agency}}</td>
+        <td>{{item.agency}}</td>
         <td>{{item.note}}</td>
-        <td><a href="javascript:void(0)" ng-click="vm.edit(item)">关系维护</a></td>
+        <td><a href="javascript:void(0)" class="text-danger" ng-click="vm.delete(item)">删除</a></td>
       </tr>
     </table>
   </div>
@@ -55,3 +62,4 @@
   <mc-pagination total-items="vm.pagination.count" items-per-page="vm.pagination.pageSize" current-page="vm.pagination.page" page-change="vm.pageChanged()"></mc-pagination>
 
 </section>
+

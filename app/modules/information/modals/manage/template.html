@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="vm.cancel();">
+    <span aria-hidden="true">&times;</span>
+  </button> -->
+  <h4 class="modal-title">分配</h4>
+</div>
+<div class="modal-body">
+  <form class="form-horizontal" name="Form">
+    <div class="form-group clearfix">
+      <label for="select_main" class="col-sm-6 text-center">主理</label>
+      <label for="select_vice" class="col-sm-6 text-center">协理</label>
+    </div>
+    <div class="form-group clearfix">
+      <div class="col-sm-6">
+        <select name="selectMain" class="form-control c-select" 
+          ng-options="item.id as item.name for item in vm.list" ng-model="vm.inputInfo.main" 
+          placeholder="请选择" validator="required" size="10">
+          <option value="">请选择</option>
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <select name="selectVice" class="form-control c-select" 
+          ng-options="item.id as item.name for item in vm.list" ng-model="vm.inputInfo.vice"
+           placeholder="请选择" size="10" match="vm.inputInfo.main" not-match="true">
+          <option value="">请选择</option>
+        </select>
+        <span ng-show="Form.selectVice.$error.match" class="validation-invalid">
+          <p>主理和协理不能为同一人！</p>
+        </span>
+      </div>
+    </div>
+  </form>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default btn-sm" ng-click="vm.cancel()">取消</button>
+    <button type="button" class="btn btn-success btn-sm" ng-click="vm.submit(Form)"> 确定</button>
+  </div>
+</div>
