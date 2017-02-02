@@ -2,18 +2,17 @@
 
   <h4>如何批量导入</h4>
 
-  <p class="m-t-lg">1.下载《麦麦养老健康数据导入模板》。
+  <p class="m-t-lg">1.下载《投资机构数据导入模板》。
     <a target="_blank" ng-href="{{ healthData.download_url }}">点我下载</a>
   </p>
 
-  <p>2.将健康数据填入模板中保存。</p>
+  <p>2.将投资机构数据填入模板中保存。</p>
 
   <p>3.点击上传。</p>
 
   <button class="btn btn-success center-block" id="upload_button" ng-click="healthData.uploadFile($event)">上传</button>
   <form class="dropzone" ng-hide="1" method="post" enctype="multipart/form-data" ng-dropzone dropzone="dropzone"
         dropzone-config="healthData.dropzoneConfig">
-    <input name="pension_id" type="hidden" value="{{ healthData.pensionInfo.pension_id}}"/>
     <input type="hidden" name="authorization" value="{{AUTHORIZATION_TOKEN}}">
     <input name="file" type="file" multiple/>
   </form>

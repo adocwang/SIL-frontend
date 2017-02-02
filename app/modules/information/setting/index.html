@@ -1,0 +1,97 @@
+<section class="content-header">
+  <h4 class="title">采集信息设置</h4>
+</section>
+
+<section class="content body-content block-ui block-ui-message-custom" block-ui="main">
+  <form name="Form" class="form-horizontal">
+
+    <div class="form-group" ng-repeat="project in vm.collectList">
+      <div class="col-sm-1">
+        <label class="control-label">采集项目</label>
+        <p>
+          <label class="mc-radio">
+            <input type="checkbox" name="checkbox1" ng-model="project.isRequired">
+            <i class="icon-check"></i>
+            必填
+          </label>
+        </p>
+      </div>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" ng-model="project.name" validator="required">
+      </div>
+      <div class="col-sm-6">
+        <div class="clearfix">
+          <label class="col-sm-2 control-label">采集内容</label>
+          <div class="col-sm-2 text-center pull-right control-label">
+            <a href="javascript:void(0);" ng-click="vm.addItem(project)">添加项</a>
+          </div>
+        </div>
+        <div class="form-group" ng-repeat="item in project.content">
+          <div class="clearfix m-b-sm">
+            <label class="col-sm-1 control-label">名称</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" ng-model="item.title" validator="required">
+            </div>
+            <label class="col-sm-1 control-label">类型</label>
+            <div class="col-sm-4">
+              <select class="form-control c-select" ng-model="item.type" 
+                ng-options="type.type as type.title for type in vm.typeList" validator="required" 
+                ng-change="vm.typeChange(item)"
+                uib-tooltip="请在下方填写选项内容" tooltip-placement="top" tooltip-trigger="none" 
+                tooltip-enable="item.needData" tooltip-is-open="item.needData">
+              </select>
+            </div>
+            <div class="col-sm-2 control-label text-center pull-right">
+              <a href="javascript:void(0);" class="text-danger" ng-click="vm.deleteItem(project, $index)">删除</a>
+            </div>
+          </div>
+          <div class="clearfix m-b-sm">
+            <label class="col-sm-1 control-label">描述</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" ng-model="item.description">
+            </div>
+            <label class="mc-radio col-sm-5">
+              <input type="checkbox" name="checkbox1" ng-model="item.isRequired">
+              <i class="icon-check"></i>
+              必填
+            </label>
+          </div>
+          <div class="clearfix" ng-if="item.needData">
+            <p class="text-tips">下拉框/多选框必须填写选项内容</p>
+            <div class="clearfix m-b-sm" ng-repeat="term in item.dataSource track by $index">
+              <label class="col-sm-3 control-label">选项{{$index + 1}}</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="term.name" validator="required">
+              </div>
+              <div class="col-sm-2 text-center">
+                <a href="javascript:void(0);" class="btn btn-link" ng-if="$index == 0" ng-click="vm.addData(item)">添加</a>
+                <a href="javascript:void(0);" class="btn btn-link text-danger" ng-if="$index > 0" ng-click="vm.deleteData(item, $index)">删除</a>
+              </div>
+            </div>
+            <!-- <label class="col-sm-3 control-label ">选项1</label>
+            <div class="col-sm-6 m-b-sm">
+              <input type="text" class="form-control" ng-model="vm.inputInfo.name" validator="required">
+            </div>
+            <div class="col-sm-2 text-center m-b-sm">
+              <a href="javascript:void(0);" class="btn btn-link text-danger">删除</a>
+            </div>
+            <label class="col-sm-3 control-label m-b-sm">选项1</label>
+            <div class="col-sm-6 m-b-sm">
+              <input type="text" class="form-control" ng-model="vm.inputInfo.name" validator="required">
+            </div>
+            <div class="col-sm-2 text-center m-b-sm">
+              <a href="javascript:void(0);" class="btn btn-link text-danger">删除</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1">
+        <button class="btn btn-default pull-right" ng-click="vm.addProject()" ng-if="$index == 0">添加项目</button>
+        <button class="btn btn-danger" ng-click="vm.deleteProject($index)" ng-if="$index > 0">删除项目</button>
+      </div>
+    </div>
+  </form>
+  <div class="m-l-xl m-b-md">
+    <button type="button" class="btn btn-success btn-sm" ng-click="vm.submit(Form)">保存</button>
+  </div>
+</section>
