@@ -5,9 +5,10 @@
   <a href="javascript:void(0)" class="btn btn-default pull-right" ng-click="$root.back();">返回</a>
   <button type="button" class="btn btn-danger pull-right m-r" ng-click="vm.delete()">删除</button>
 </section>
-<section class="content body-content body-content-compact block-ui block-ui-message-custom message-detail" block-ui="main">
+<section class="content body-content block-ui block-ui-message-custom message-detail p-m" block-ui="main">
+<h5>内容</h5>
 <p>{{vm.info.content}}</p>
-<div>
+<div ng-if="vm.info.link">
   <a href="{{vm.info.link}}">点此查看</a>
 </div>
 </section>

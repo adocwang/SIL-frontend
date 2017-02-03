@@ -100,7 +100,7 @@ class Controller {
 
   addData(item) {
     item.dataSource.push({
-      name: ''
+      description: ''
     });
   }
 
@@ -119,6 +119,8 @@ class Controller {
 
   saveFunc() {
     console.log('submit')
+
+    console.log(this.collectList, JSON.stringify(this.collectList));
   }
 
 }

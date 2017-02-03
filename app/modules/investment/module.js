@@ -1,6 +1,6 @@
 import angular from 'angular';
 import config  from './config';
-// import service from './service';
+import service from './service';
 import List  from './list/';
 
 // import demoService      from './services/demo.service';
@@ -10,7 +10,7 @@ import List  from './list/';
 
 export default angular.module('app.modules.investment', [])
 // .filter('filterType', filterType)
-// .service('MessageService', service)
+.service('InvestmentService', service)
 
 .component('investmentList', List)
 .config(config);

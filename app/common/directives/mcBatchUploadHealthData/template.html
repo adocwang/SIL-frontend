@@ -13,7 +13,7 @@
   <button class="btn btn-success center-block" id="upload_button" ng-click="healthData.uploadFile($event)">上传</button>
   <form class="dropzone" ng-hide="1" method="post" enctype="multipart/form-data" ng-dropzone dropzone="dropzone"
         dropzone-config="healthData.dropzoneConfig">
-    <input type="hidden" name="authorization" value="{{AUTHORIZATION_TOKEN}}">
+    <input type="hidden" name="extra" value="{{AUTHORIZATION_TOKEN}}">
     <input name="file" type="file" multiple/>
   </form>
 

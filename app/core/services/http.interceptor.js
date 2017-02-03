@@ -18,10 +18,10 @@ export default function httpInterceptor($q, $window, $injector, $rootScope) {
         var deferred = $q.defer();
 
         config.timeout = 1000 * 100;
-
+// localStorage.getItem('AUTHORIZATION_TOKEN') || 
         // $http.defaults.headers.common['authorization']
-        config.headers['authorization'] = localStorage.getItem('AUTHORIZATION_TOKEN') || '';
-        $rootScope.AUTHORIZATION_TOKEN = config.headers['authorization'];
+        config.headers['extra'] = '{"token":"iamsuperman:15828516285"}';
+        $rootScope.AUTHORIZATION_TOKEN = config.headers['extra'];
 
         deferred.resolve(config);
         return deferred.promise;

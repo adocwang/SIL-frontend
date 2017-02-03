@@ -1,11 +1,17 @@
 'use strict';
-const prefix = '/api/v1';
+const prefix = 'http://silapi.adoc.wang';
 const api = {
 	message: {
-		getList: `${prefix}/message/getList`,
-		get: `${prefix}/message/get`,
-		read: `${prefix}/message/read`,
-		delete: `${prefix}/message/del`,
+		getList: `${prefix}/message/list`,
+		get: `${prefix}/message/{id}`,
+		set: `${prefix}/message/set`,
+	},
+	investment: {
+		getList: `${prefix}/vc_company/list`,
+		set: `${prefix}/vc_company/set`,
+		add: `${prefix}/vc_company/add`,
+		downloadTemplate: `${prefix}/export/vc_company_template`,
+		import: `${prefix}/import/vc_company`,
 	},
 }
 

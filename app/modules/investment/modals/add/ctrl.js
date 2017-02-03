@@ -1,7 +1,7 @@
 import _ from 'underscore';
 
 export default class Controller {
-  constructor($scope, $validation, $uibModalInstance, toastr, info) {
+  constructor($scope, $validation, $uibModalInstance, toastr, InvestmentService, info) {
     'ngInject';
 
     this._scope = $scope;
@@ -10,6 +10,8 @@ export default class Controller {
 
     this._modalInstance = $uibModalInstance;
     this._toastr = toastr;
+
+    this._service = InvestmentService;
 
     this.info = info;
 

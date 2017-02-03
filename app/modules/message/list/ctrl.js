@@ -44,18 +44,20 @@ class ListController extends Pagination {
   _getList() {
 
     let params = this._filterEmptyValue();
-    params.pageSize = this.pagination.pageSize;
+    // params.pageSize = this.pagination.pageSize;
     params.page = this.pagination.page;
 
-    // this._service.getList(params).then(data => {
-    //   this.list = data.data;
-    // });
+    this._service.getList(params).then(data => {
+      console.log(data);
+      this.list = data.messages;
+      this.pagination.count = data.page_count * this.pagination.pageSize;
+    });
 
-    this.list = [
-                {id: 1, title: '单独的表单控件会被自动赋予一些全局样式', link: '/', content: '单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。'},
-                {id: 2, title: '单独的表单控件会被自动赋予一些全局样式', link: '/', content: '单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。'},
-              ];
-    this.pagination.count = 20;
+    // this.list = [
+    //             {id: 1, title: '单独的表单控件会被自动赋予一些全局样式', link: '/', content: '单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。'},
+    //             {id: 2, title: '单独的表单控件会被自动赋予一些全局样式', link: '/', content: '单独的表单控件会被自动赋予一些全局样式。所有设置了 .form-control 类的 <input>、<textarea> 和 <select> 元素都将被默认设置宽度属性为 width: 100%;。 将 label 元素和前面提到的控件包裹在 .form-group 中可以获得最好的排列。'},
+    //           ];
+    // this.pagination.count = 20;
 
   }
 

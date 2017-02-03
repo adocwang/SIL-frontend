@@ -27,29 +27,23 @@ export default function batchUploadDevice($uibModal, $parse, $timeout) {
   };
 }
 
-function batchUploadFileCtrl($location, $rootScope, $scope, $timeout, toastr, options) {
+function batchUploadFileCtrl($location, $rootScope, $scope, $timeout, ApiMap, toastr, options) {
   'ngInject';
 
     var vm = this;
 
     let id = '', params = '';
 
-    if(options.single) {
-      id = options.id + '/';
-      params = options.params;
-      vm.download_url = '/resource/file/健康数据批量导入模板单人模板.xls';
-    }else {
-      vm.download_url = '/resource/file/健康数据批量导入模板.xls';
-    }
+    vm.download_url = ApiMap.investment.downloadTemplate;
 
-    let url = $location.protocol() + '://' + $location.host() + ':' + $location.port() + `/api/health/${id}uploadHealthData` + params;
+    let url = ApiMap.investment.import;
 
     angular.extend(vm, {
         uploadFile: uploadFile,
         //pensionArea: window.pageConf.areaList,
         //pensionInfo: window.pageConf.pensionInfo,
         dropzoneConfig: {
-            paramName: options.paramName || 'collect_data',
+            paramName: options.paramName || 'file',
             //headers: {authorization: $rootScope.AUTHORIZATION_TOKEN},
             url: url,
             method: 'post',
@@ -58,7 +52,7 @@ function batchUploadFileCtrl($location, $rootScope, $scope, $timeout, toastr, op
             dictFileTooBig: '文件大小不能超过50M',
             uploadMultiple: false,
             autoProcessQueue: true,
-            acceptedFiles: 'application/vnd.ms-excel',
+            acceptedFiles: 'application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             addedfile: function (file) {
                 $('#upload_button').attr('disabled', 'disabled').text('上传中');
             },
@@ -66,6 +60,8 @@ function batchUploadFileCtrl($location, $rootScope, $scope, $timeout, toastr, op
                 $rootScope.imgUploadng = false;
                 this.removeFile(file);
                 $('#upload_button').removeAttr('disabled').text('上传');
+
+                console.log(data);
                 if(data.status == 0){
                     if(data.data.length > 0){
                         toastr.error(data.data);
