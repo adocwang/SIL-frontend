@@ -13,17 +13,12 @@ class DetailController {
 
   _init() {
     let params = {
-
+      id: window.localStorage.getItem('SIL_UID')
     };
 
-    // this._service.get(params).then(data => {
-    //   this.person = data.data;
-    // });
-
-    this.person = {
-      name: 'test',
-    }
-
+    this._service.get(params).then(data => {
+      this.person = data;
+    });
   }
 
 }

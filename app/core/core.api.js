@@ -18,6 +18,9 @@ const api = {
 		get: `${prefix}/enterprise/{id}`,
 		set: `${prefix}/enterprise/set`,
 	},
+	person: {
+		get: `${prefix}/user/get`
+	},
 }
 
 export default api;
