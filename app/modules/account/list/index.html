@@ -4,7 +4,7 @@
       <ul class="clearfix">
         <li>
           <div class="input-group search-box">
-            <input ng-model="vm.filters.keyword" type="text" placeholder="请输姓名查询" class="form-control"
+            <input ng-model="vm.filters.trueName" type="text" placeholder="请输姓名查询" class="form-control"
                     code="13" key-event="vm.reSearch();">
             <span class="input-group-btn">
               <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
@@ -13,7 +13,7 @@
         </li>
         <li>
           <div class="input-group search-box">
-            <input ng-model="vm.filters.keyword" type="text" placeholder="请输手机号查询" class="form-control"
+            <input ng-model="vm.filters.phone" type="text" placeholder="请输手机号查询" class="form-control"
                     code="13" key-event="vm.reSearch();">
             <span class="input-group-btn">
               <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
@@ -22,7 +22,7 @@
         </li>
         <li>
           <div class="input-group search-box">
-            <input ng-model="vm.filters.keyword" type="text" placeholder="请输银行查询" class="form-control"
+            <input ng-model="vm.filters.bankName" type="text" placeholder="请输银行查询" class="form-control"
                     code="13" key-event="vm.reSearch();">
             <span class="input-group-btn">
               <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
@@ -36,14 +36,26 @@
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="#">未激活</a></li>
-                <li><a href="#">正常</a></li>
-                <li><a href="#">已冻结</a></li>
-                <li><a href="#">已删除</a></li>
+                <li><a ng-click="vm.filters.state=0" href="javascript:void(0)">未激活</a></li>
+                <li><a ng-click="vm.filters.state=1" href="javascript:void(0)">正常</a></li>
+                <li><a ng-click="vm.filters.state=2" href="javascript:void(0)">已冻结</a></li>
+                <li><a ng-click="vm.filters.state=3" href="javascript:void(0)">已删除</a></li>
               </ul>
             </div>
         </li>
+        <li>
+          <button type="button" class="btn btn-success pull-right m-l-sm" style="position: relative; z-index: 2;"
+                  ng-click="vm.addUser()"><i class="icon-Plus"></i> 添加
+          </button>
+
+          <button type="button" class="btn btn-info pull-right" style="position: relative; z-index: 2;" data-toggle="modal" data-target=".pop-player"
+                  ng-click="$emit('batchUploadUser');"><i class="icon-Plus"></i> 批量录入
+          </button>
+        </li>
       </ul>
+    </div>
+    <div>
+      <mc-batch-upload-user></mc-batch-upload-user>
     </div>
 </section>
 
@@ -58,16 +70,14 @@
         <th class="col-m-1 text-center">手机号</th>
         <th class="col-m-1 text-center">所属角色</th>
         <th class="col-m-1 text-center">银行名称</th>
-        <th class="col-m-1 text-center">状态</th>
         <th class="col-m-1 text-center">操作</th>
       </tr>
       <tr ng-repeat="item in vm.list">
         <td>{{item.id}}</td>
-        <td>{{item.name}}</td>
+        <td>{{item.true_name}}</td>
         <td>{{item.phone}}</td>
-        <td>{{item.roleName}}</td>
-        <td>{{item.backName}}</td>
-        <td>{{item.status}}</td>
+        <td>{{item.role_name}}</td>
+        <td>{{item.bank_name}}</td>
         <td><a ui-sref="account.detail({id: item.id})">查看<i class="icon-angle-right"></i></a></td>
       </tr>
     </table>

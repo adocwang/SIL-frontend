@@ -14,7 +14,14 @@ const api = {
 		import: `${prefix}/import/vc_company`,
 	},
 	person: {
-		get: `${prefix}/user/get`
+		get: `${prefix}/user/get`,
+		set: `${prefix}/user/set`,
+		logout: `${prefix}/user/logout`,
+		list: `${prefix}/user/list`,
+	},
+	account:  {
+		downloadTemplate: `${prefix}/export/user_template`,
+		import: `${prefix}/import/user`,
 	}
 }
 

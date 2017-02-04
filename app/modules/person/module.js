@@ -1,5 +1,4 @@
 import angular from 'angular';
-import jquery from 'jquery';
 import bootstrap from 'bootstrap';
 import config  from './config';
 import service from './service';

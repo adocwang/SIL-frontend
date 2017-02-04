@@ -15,10 +15,31 @@ class DetailController {
     let params = {
       id: window.localStorage.getItem('SIL_UID')
     };
+    this.stateArr = {
+      0: '未激活',
+      1: '正常',
+      2: '已冻结',
+      3: '已删除'
+    }
 
     this._service.get(params).then(data => {
       this.person = data;
     });
+  }
+
+  setUser() {
+    let params = {
+      user_id: window.localStorage.getItem('SIL_UID'),
+      new_password: this.person.new_password,
+      true_name: this.person.true_name,
+      phone: this.person.phone,
+      role_name: this.person.role_name,
+      state: this.person.state
+    };
+    this._service.set(params).then(data => {
+        location.href = '/';
+    });
+
   }
 
 }

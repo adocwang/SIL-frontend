@@ -1,4 +1,5 @@
 import Pagination from '../../../core/components/mcPagination/mc-pagination.class';
+import {addConfig} from '../modals';
 
 class ListController extends Pagination {
 
@@ -25,37 +26,33 @@ class ListController extends Pagination {
   }
 
   _init() {
-
     this._initFilters();
     this._getList();
-
   }
 
   _initFilters() {
-    // console.log(this._stateParams);
-    const stateParams = this._stateParams;
-    // this.pagination.page = +stateParams.page;
-    this.filters.gender = +stateParams.gender || void(0);
 
-    this.filters.keyword = stateParams.keyword || void(0);
+    const stateParams = this._stateParams;
+    //this.filters.keyword = stateParams.keyword || void(0);
 
   }
+
   
   _getList() {
-
+    // let params = {
+    //   phone: this.phone,
+    //   true_name: this.trueName,
+    //   bank_name: this.bankName,
+    //   state: this.state
+    // }
     let params = this._filterEmptyValue();
-    params.pageSize = this.pagination.pageSize;
     params.page = this.pagination.page;
+    this.pagination.pageSize = 5;
 
-    // this._service.getList(params).then(data => {
-    //   this.list = data.data;
-    // });
-
-    this.list = [
-                {id: 1, name: '测试', phone: '123455678', roleName: '管理员', status: '未激活', backName: '民生银行'},
-                {id: 1, name: '测试', phone: '123455678', roleName: '管理员', status: '未激活', backName: '民生银行'}
-                ];
-    this.pagination.count = 20;
+    this._service.list(params).then(data => {
+      this.pagination.count = 10;
+      this.list = data.users;
+    });
 
   }
 
