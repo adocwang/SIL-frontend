@@ -35,7 +35,7 @@ class ListController extends Pagination {
     // console.log(this._stateParams);
     const stateParams = this._stateParams;
     // this.pagination.page = +stateParams.page;
-    this.filters.gender = +stateParams.gender || void(0);
+    // this.filters.gender = +stateParams.gender || void(0);
 
     this.filters.keyword = stateParams.keyword || void(0);
 

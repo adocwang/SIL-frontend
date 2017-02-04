@@ -13,9 +13,9 @@ function Config($stateProvider) {
         }
     })
     .state('assign.list', {
-        url: '',
+        url: '?page',
         template: '<assign-list></assign-list>',
-        title: '分配列表',
+        title: '企业列表',
         sidebarMeta: {
           order: 10
         }
