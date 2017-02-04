@@ -23,7 +23,7 @@ export default class Service {
     
     this._httpHelper.blockUI.start();
 
-    return this._http.post(this._api.getList, params).then(this._httpHelper.verify, this._httpHelper.error);
+    return this._http.get(this._api.getList, {params: params}).then(this._httpHelper.verify, this._httpHelper.error);
   }
 
   set(data) {

@@ -19,24 +19,7 @@ class ListController extends Pagination {
 
     this.filters = {};
 
-    this.agencyList = [
-      {
-        id: 1, 
-        name: '红杉资本'
-      },
-      {
-        id: 2, 
-        name: '真格基金'
-      },
-      {
-        id: 3, 
-        name: 'IDG'
-      },
-      {
-        id: 4, 
-        name: '同渡创投'
-      },
-    ];
+    this.agencyList = [];
 
     this._init();
 
@@ -69,6 +52,7 @@ class ListController extends Pagination {
       if(!data instanceof Array) {
         data = [];
       }
+      this._formatAgency(data);
       this.list = data;
       // this.pagination.count = 1;
     });
@@ -79,6 +63,21 @@ class ListController extends Pagination {
     //             ];
     // this.pagination.count = 20;
 
+  }
+
+  _formatAgency(data) {
+    const tmpArr = [];
+    _.each(data, item => {
+      tmpArr.push(item.vc_name);
+    });
+
+    this.agencyList = _.uniq(tmpArr)
+  }
+
+  changeAgency() {
+    if (this.filters.agency === null) {
+      this.filters.agency = '';
+    }
   }
 
   addCompany() {
@@ -94,6 +93,17 @@ class ListController extends Pagination {
     const options = {...addConfig, resolve};
 
     this._modal.open( options );
+  }
+
+  delete(item) {
+    this._service.set({
+      id: item.id,
+      name: item.name,
+      state: 3
+    }).then(data => {
+      this._toastr.success('删除成功');
+      this._state.reload();
+    });
   }
 
 

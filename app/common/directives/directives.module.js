@@ -6,7 +6,7 @@ import formEditable    from './form-editable';
 import filterList      from './filter-list';
 import resizable       from './resizable.directive';
 import emptyTip        from './emptyTip.directive';
-import mcBatchUploadHealthData from './mcBatchUploadHealthData'
+import mcBatchUploadVc from './mcBatchUploadVc'
 
 
 export default angular.module('app.common.directives', [
@@ -18,4 +18,4 @@ export default angular.module('app.common.directives', [
 .directive('filterList', filterList)
 .directive('resizable', resizable)
 .directive('emptyTip', emptyTip)
-.directive('mcBatchUploadHealthData', mcBatchUploadHealthData)
+.directive('mcBatchUploadVc', mcBatchUploadVc)

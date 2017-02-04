@@ -1,10 +1,9 @@
-import _ from 'underscore';
-
 export default class Controller {
-  constructor($scope, $validation, $uibModalInstance, toastr, InvestmentService, info) {
+  constructor($scope, $state, $validation, $uibModalInstance, toastr, InvestmentService, info) {
     'ngInject';
 
     this._scope = $scope;
+    this._state = $state;
 
     this._validationProvider = $validation;
 
@@ -15,14 +14,19 @@ export default class Controller {
 
     this.info = info;
 
+    this.inputInfo = {
+      name: '',
+      vc_name: ''
+    };
+
     this.autoCompleteOptions = {
       minimumChars: 1,
       data: function (term) {
         term = term.toUpperCase();
         var match = _.filter(info.agencyList, function (value) {
-            return value.name.startsWith(term);
+            return value.startsWith(term);
         });
-        return _.pluck(match, 'name');
+        return match;
       }
     }
 
@@ -42,6 +46,11 @@ export default class Controller {
   }
 
   saveFunc() {
-    
+    const data = this.inputInfo;
+    this._service.add(data).then(data => {
+      this._toastr.success('添加成功');
+      this.cancel();
+      this._state.reload();
+    })
   }
 }

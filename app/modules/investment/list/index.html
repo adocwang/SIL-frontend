@@ -4,10 +4,10 @@
     </button>
 
     <button type="button" class="btn btn-info pull-right" style="position: relative; z-index: 2;" data-toggle="modal" data-target=".pop-player"
-            ng-click="$emit('batchUploadHealthData');"><i class="icon-Plus"></i> 批量录入
+            ng-click="$emit('batchUploadVc');"><i class="icon-Plus"></i> 批量录入
     </button>
     <div>
-      <mc-batch-upload-health-data></mc-batch-upload-health-data>
+      <mc-batch-upload-vc></mc-batch-upload-vc>
     </div>
 
   <div class="options">
@@ -29,7 +29,7 @@
       <ul class="clearfix">
             <li>
                 <select name="" id="" class="form-control c-select" 
-                  ng-model="vm.filters.agency" ng-options="item.id as item.name for item in vm.agencyList">
+                  ng-model="vm.filters.agency" ng-options="item for item in vm.agencyList" ng-change="vm.changeAgency()">
                   <option value="">全部</option>
                 </select>
             </li>
@@ -49,7 +49,7 @@
         <!-- <th class="col-m-2 text-center">备注</th> -->
         <th class="col-m-2 text-center">操作</th>
       </tr>
-      <tr ng-repeat="item in vm.list">
+      <tr ng-repeat="item in vm.list | filter: vm.filters.agency">
         <td>{{item.name}}</td>
         <td>{{item.vc_name}}</td>
         <!-- <td>{{item.agency}}</td> -->

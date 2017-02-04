@@ -7,14 +7,14 @@ export default function batchUploadDevice($uibModal, $parse, $timeout) {
     //replace: true,
     link: function(scope, element, attrs) {
 
-      var unbind = scope.$on("batchUploadHealthData", function (event, options={}) {
+      var unbind = scope.$on("batchUploadVc", function (event, options={}) {
           Dropzone.autoDiscover = false;
 
           $uibModal.open({
               animation: true,
-              templateUrl: 'common/directives/mcBatchUploadHealthData/template.html',
+              templateUrl: 'common/directives/mcBatchUploadVc/template.html',
               controller: batchUploadFileCtrl,
-              controllerAs: 'healthData',
+              controllerAs: 'vm',
               size: "",
               resolve: {
                 options: () => options
@@ -27,7 +27,7 @@ export default function batchUploadDevice($uibModal, $parse, $timeout) {
   };
 }
 
-function batchUploadFileCtrl($location, $rootScope, $scope, $timeout, ApiMap, toastr, options) {
+function batchUploadFileCtrl($location, $rootScope, $scope, $state, $timeout, ApiMap, toastr, options) {
   'ngInject';
 
     var vm = this;
@@ -44,7 +44,7 @@ function batchUploadFileCtrl($location, $rootScope, $scope, $timeout, ApiMap, to
         //pensionInfo: window.pageConf.pensionInfo,
         dropzoneConfig: {
             paramName: options.paramName || 'file',
-            //headers: {authorization: $rootScope.AUTHORIZATION_TOKEN},
+            headers: {extra: $rootScope.AUTHORIZATION_TOKEN},
             url: url,
             method: 'post',
             maxFilesize: 50,
@@ -62,11 +62,12 @@ function batchUploadFileCtrl($location, $rootScope, $scope, $timeout, ApiMap, to
                 $('#upload_button').removeAttr('disabled').text('上传');
 
                 console.log(data);
-                if(data.status == 0){
-                    if(data.data.length > 0){
-                        toastr.error(data.data);
+                if(data.code == 0){
+                    if(data.data.errors.length > 0){
+                        // toastr.error(data.data);
                     }else{
                         toastr.success('添加成功');
+                        $state.reload();
                     }
                 }else{
                     toastr.error( data.info );

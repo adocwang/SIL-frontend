@@ -1,13 +1,12 @@
 export default function httpInterceptor($q, $window, $injector, $rootScope) {
   'ngInject';
 
-  var PensionService,
-    requestInterceptor = {
+  const requestInterceptor = {
 
       response: function (response) {
-        var deferred = $q.defer();
+        const deferred = $q.defer();
         if (response.data && (response.data.code == 2001 || response.data.code == 2002)) {
-            $window.location.href = '/users/login';
+            $window.location.href = '/login.html';
         }
 
         deferred.resolve(response);
@@ -15,10 +14,10 @@ export default function httpInterceptor($q, $window, $injector, $rootScope) {
       },
 
       request: function (config) {
-        var deferred = $q.defer();
+        const deferred = $q.defer();
 
         config.timeout = 1000 * 100;
-// localStorage.getItem('AUTHORIZATION_TOKEN') || 
+// localStorage.getItem('SIL_TOKEN') || 
         // $http.defaults.headers.common['authorization']
         config.headers['extra'] = '{"token":"iamsuperman:15828516285"}';
         $rootScope.AUTHORIZATION_TOKEN = config.headers['extra'];
