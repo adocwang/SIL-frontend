@@ -44,11 +44,11 @@
         <th class="col-m-1 text-center">操作</th>
       </tr>
       <tr ng-repeat="item in vm.list">
-        <td>{{item.company}}</td>
-        <td>{{item.company_address}}</td>
-        <td>{{item.company_address}}</td>
-        <td>{{item.manage_a.name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_a', item)">{{item.manage_a && item.manage_a.userid? '变更': '分配'}}</button> --></td>
-        <td>{{item.manage_b.name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_b', item)">{{item.manage_b && item.manage_b.userid? '变更': '分配'}}</button> --></td>
+        <td>{{item.name}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.bank}}</td>
+        <td>{{item.role_a.name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_a', item)">{{item.manage_a && item.manage_a.userid? '变更': '分配'}}</button> --></td>
+        <td>{{item.role_b.name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_b', item)">{{item.manage_b && item.manage_b.userid? '变更': '分配'}}</button> --></td>
         <td>
           <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配支行</a>
           <a href="javascript:void(0)" ng-click="vm.assign(item)">分配</a>

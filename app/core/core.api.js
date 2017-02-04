@@ -13,6 +13,11 @@ const api = {
 		downloadTemplate: `${prefix}/export/vc_company_template`,
 		import: `${prefix}/import/vc_company`,
 	},
+	enterprise: {
+		getList: `${prefix}/enterprise/list`,
+		get: `${prefix}/enterprise/{id}`,
+		set: `${prefix}/enterprise/set`,
+	},
 }
 
 export default api;
