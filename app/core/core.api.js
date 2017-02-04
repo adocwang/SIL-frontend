@@ -13,6 +13,9 @@ const api = {
 		downloadTemplate: `${prefix}/export/vc_company_template`,
 		import: `${prefix}/import/vc_company`,
 	},
+	person: {
+		get: `${prefix}/user/get`
+	}
 }
 
 export default api;

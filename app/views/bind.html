@@ -15,30 +15,20 @@
         <!-- <img src="/images/common/logo.png" alt=""> -->
         <h3 class="text-success">管理后台</h3>
         <form method="post">
-
-            <div class="form-group text-muted">
-                <input class="form-control" id="userName" name="username" placeholder="请输入图片验证码">
-                <i class="icon-user-info"></i>
-            </div>
-
             <div class="form-group text-muted">
                 <input type="form-control" class="form-control" name="phone" id="phone" placeholder="请输入手机号">
                 <i class="icon-ic_code"></i>
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block">发送验证码</button>
-
-
             <div class="form-group text-muted">
-                <input type="form-control" class="btn-primary" name="phone" id="phone" placeholder="输入验证码">
+                <button type="button" id="send" class="btn btn-primary btn-lg btn-block">发送验证码</button>
             </div>
-
             <div class="form-group text-muted">
-                <input class="form-control" id="userName" name="username" placeholder="请输入帐号">
+                <input class="form-control" id="code" name="code" placeholder="请输入验证码">
                 <i class="icon-user-info"></i>
             </div>
 
             <div id="err-msg" class="text-danger text-center form-group"></div>
-            <button type="submit" class="btn btn-success btn-lg btn-block">提交</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block">登录</button>
         </form>
     </div>
     <div class="login-footer">
@@ -72,24 +62,67 @@
             $('#userName').val(window.localStorage.getItem('mcUsername'));
         }
 
+        $('#send').click(function(e){
+            var data = {
+                phone: $("#phone").val()
+            }
+            var $form = $('form');
+            var $errMsg = $('#err-msg');
+            $.ajax({
+                type: 'POST',
+                url: 'http://silapi.adoc.wang/auth/send_login_sms',
+                dataType: 'JSON',
+                data: JSON.stringify(data),
+                headers: {
+                    extra: JSON.stringify({
+                        token: "iamsuperman"
+                    })
+                },
+                success: function(res) {
+                    if(res.code === 0) {
+                    }else {
+                        $errMsg.text(res.info);
+                        $form.addClass('shake-horizontal');
+                    }
+                }
+            });
+            e.preventDefault();
+        });
+
         $('form').submit(function(e){
             var $form = $(this);
             $errMsg = $('#err-msg');
-
+            var data = {
+                phone: $("#phone").val(),
+                code: $("#code").val()
+            }
             $form.removeClass('shake-horizontal');
-            $.post('/', $(this).serialize()).success(function(res) {
-                if(res.status === 0) {
-                    $errMsg.empty();
-                    localStorage.setItem('AUTHORIZATION_TOKEN', res.data.token);
+            $.ajax({
+                type: 'POST',
+                url: 'http://silapi.adoc.wang/auth/sms_login',
+                dataType: 'JSON',
+                data: JSON.stringify(data),
+                headers: {
+                    extra: JSON.stringify({
+                        token: "iamsuperman"
+                    })
+                },
+                success: function(res) {
+                    if(res.code === 0) {
+                        $errMsg.empty();
+                        localStorage.setItem('SIL_TOKEN', res.data.token);
+                        localStorage.setItem('SIL_UID', res.data.id);
 
-                    if($('#JS_remember_account').prop('checked')){
-                        localStorage.setItem('mcUsername', $('#userName').val());
+                        if($('#JS_remember_account').prop('checked')){
+                            localStorage.setItem('mcUsername', $('#userName').val());
+                        }
+
+                        location.href = '/';
+
+                    }else {
+                        $errMsg.text(res.info);
+                        $form.addClass('shake-horizontal');
                     }
-
-                    location.href = '/';
-                }else {
-                    $errMsg.text(res.info);
-                    $form.addClass('shake-horizontal');
                 }
             });
 

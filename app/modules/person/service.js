@@ -6,7 +6,7 @@ export default class Service {
     // this.$q = $q;
     this._httpHelper = httpHelper;
 
-    this._api = ApiMap.message;
+    this._api = ApiMap.person;
 
     this._rootScope = $rootScope;
     this._state = $state;
@@ -16,6 +16,6 @@ export default class Service {
     
     this._httpHelper.blockUI.start();
 
-    return this._http.get(this._api.get, {params: params}).then(this._httpHelper.verify,  this._httpHelper.error);
+    return this._http.post(this._api.get, params).then(this._httpHelper.verify,  this._httpHelper.error);
   }
 }
