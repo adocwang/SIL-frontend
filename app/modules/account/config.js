@@ -21,7 +21,7 @@ function Config($stateProvider) {
         }
     })
     .state('account.detail', {
-        url: '/detail',
+        url: '/detail?id',
         template: '<account-detail></account-detail>',
         title: '账号详情'
     })

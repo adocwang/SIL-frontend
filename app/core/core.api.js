@@ -23,6 +23,7 @@ const api = {
 		set: `${prefix}/user/set`,
 		logout: `${prefix}/user/logout`,
 		list: `${prefix}/user/list`,
+		add: `${prefix}/user/add`
 	},
 	account:  {
 		downloadTemplate: `${prefix}/export/user_template`,

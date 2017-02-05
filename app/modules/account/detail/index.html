@@ -4,7 +4,7 @@
         <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">姓名</label>
             <div class="col-sm-2">
-                <input type="text" class="form-control" id="inputName" ng-model="vm.person.name" placeholder="">
+                <input type="text" class="form-control" id="inputName" ng-model="vm.person.true_name" placeholder="">
             </div>
         </div>
         <div class="form-group">
@@ -16,20 +16,21 @@
         <div class="form-group">
             <label for="inputPwd" class="col-sm-2 control-label">新密码</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" id="inputPwd" ng-model="vm.person.pwd" placeholder="">
+                <input type="text" class="form-control" id="inputPwd" ng-model="vm.person.new_password" placeholder="">
             </div>
         </div>
         <div class="form-group">
             <label for="" class="col-sm-2 control-label">角色信息</label>
             <div class="btn-group col-sm-2">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                管理员
+                {{vm.person.role_name}}
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="#">管理员</a></li>
-                <li><a href="#">行长</a></li>
-                <li><a href="#">客户经理</a></li>
+                <li><a ng-click="vm.person.role_name='管理员';vm.person.role='ROLE_ADMIN'" href="javascript:void(0)">管理员</a></li>
+                <li><a ng-click="vm.person.role_name='分行行长';vm.person.role='ROLE_BRANCH_ADMIN'" href="javascript:void(0)">分行行长</a></li>
+                <li><a ng-click="vm.person.role_name='支行行长';vm.person.role='ROLE_END_ADMIN'" href="javascript:void(0)">支行行长</a></li>
+                <li><a ng-click="vm.person.role_name='客户经理';vm.person.role='ROLE_CUSTOMER_MANAGER'" href="javascript:void(0)">客户经理</a></li>
               </ul>
             </div>
         </div>
@@ -37,19 +38,19 @@
             <label for="" class="col-sm-2 control-label">用户状态</label>
             <div class="btn-group col-sm-2">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                正常
+                {{vm.stateArr[vm.person.state]}}
                 <span class="caret"></span>
               </button>
               <ul class="dropdown-menu">
-                <li><a href="#">未激活</a></li>
-                <li><a href="#">正常</a></li>
-                <li><a href="#">已冻结</a></li>
-                <li><a href="#">已删除</a></li>
+                <li><a ng-click="vm.person.state=0" href="javascript:void(0)">未激活</a></li>
+                <li><a ng-click="vm.person.state=1" href="javascript:void(0)">正常</a></li>
+                <li><a ng-click="vm.person.state=2" href="javascript:void(0)">已冻结</a></li>
+                <li><a ng-click="vm.person.state=3" href="javascript:void(0)">已删除</a></li>
               </ul>
             </div>
         </div>
         <div class="form-group">
-            <button type="button" class="btn btn-success">提交</button>
+            <button type="button" ng-click="vm.setUser()" class="btn btn-success">提交</button>
         </div>
     </div>
 

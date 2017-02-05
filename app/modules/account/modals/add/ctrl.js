@@ -15,8 +15,9 @@ export default class Controller {
     this.info = info;
 
     this.inputInfo = {
-      name: '',
-      vc_name: ''
+      true_name: '',
+      phone: '',
+      role: ''
     };
 
     this.autoCompleteOptions = {

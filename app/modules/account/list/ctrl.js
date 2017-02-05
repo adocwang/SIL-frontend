@@ -56,6 +56,28 @@ class ListController extends Pagination {
 
   }
 
+  pageChanged() {
+    this._getList();
+  }
+
+  reSearch() {
+    this._getList();
+  }
+
+  addUser() {
+    let list = this.list;
+    const resolve = {
+      info: function(){
+        return {
+          list
+        };
+      }
+    };
+
+    const options = {...addConfig, resolve};
+
+    this._modal.open( options );
+  }
 
 }
 
