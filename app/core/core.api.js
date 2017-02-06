@@ -28,6 +28,9 @@ const api = {
 	account:  {
 		downloadTemplate: `${prefix}/export/user_template`,
 		import: `${prefix}/import/user`,
+	},
+	log: {
+		list: `${prefix}/log/list`
 	}
 }
 
