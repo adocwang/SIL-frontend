@@ -38,6 +38,7 @@
     "angular-validation": "^1.4.1",
     "angular-validation-match": "^1.9.0",
     "angular-xeditable": "^0.2.0",
+    "bootstrap": "^3.3.7",
     "checklist-model": "^0.10.0",
     "dropzone": "^4.3.0",
     "echarts": "^3.1.10",

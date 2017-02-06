@@ -1,7 +1,7 @@
 import ListController from './ctrl';
 
 const List = {
-  templateUrl: 'modules/assign/list/index.html',
+  templateUrl: 'modules/enterprise/list/index.html',
   controller: ListController,
   controllerAs: 'vm'
 };

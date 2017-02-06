@@ -13,14 +13,14 @@
     <div class="form-group clearfix">
       <div class="col-sm-6">
         <select name="selectMain" class="form-control c-select" 
-          ng-options="item.id as item.name for item in vm.list" ng-model="vm.inputInfo.main" 
+          ng-options="item.id as item.true_name for item in vm.list" ng-model="vm.inputInfo.main" 
           placeholder="请选择" validator="required" size="10">
           <option value="">请选择</option>
         </select>
       </div>
       <div class="col-sm-6">
         <select name="selectVice" class="form-control c-select" 
-          ng-options="item.id as item.name for item in vm.list" ng-model="vm.inputInfo.vice"
+          ng-options="item.id as item.true_name for item in vm.list" ng-model="vm.inputInfo.vice"
            placeholder="请选择" size="10" match="vm.inputInfo.main" not-match="true">
           <option value="">请选择</option>
         </select>

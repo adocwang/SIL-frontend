@@ -2,8 +2,8 @@ function Config($stateProvider) {
   'ngInject';
 
   $stateProvider
-    .state('assign', {
-        url: '/assign',
+    .state('enterprise', {
+        url: '/enterprise',
         abstract: true,
         template : '<ui-view></ui-view>',
         title: '企业分配',
@@ -12,13 +12,18 @@ function Config($stateProvider) {
           order: 400,
         }
     })
-    .state('assign.list', {
+    .state('enterprise.list', {
         url: '?page',
-        template: '<assign-list></assign-list>',
+        template: '<enterprise-list></enterprise-list>',
         title: '企业列表',
         sidebarMeta: {
           order: 10
         }
+    })
+    .state('enterprise.detail', {
+        url: '/detail?id',
+        template: '<enterprise-detail></enterprise-detail>',
+        title: '企业详情',
     })
     ;
 

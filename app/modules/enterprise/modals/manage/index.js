@@ -1,7 +1,7 @@
 import Controller from './ctrl';
 
 const configuration = {
-  templateUrl: 'modules/assign/modals/branch/template.html',
+  templateUrl: 'modules/enterprise/modals/manage/template.html',
   controller: Controller,
   controllerAs: 'vm'
 };

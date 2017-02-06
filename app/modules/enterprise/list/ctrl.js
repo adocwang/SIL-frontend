@@ -4,7 +4,7 @@ import {branchConfig, manageConfig} from '../modals';
 
 class ListController extends Pagination {
 
-  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, AssignService) {
+  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, EnterpriseService) {
     'ngInject';
 
     super($injector);
@@ -16,7 +16,7 @@ class ListController extends Pagination {
 
     this._toastr = toastr;
 
-    this._service = AssignService;
+    this._service = EnterpriseService;
 
     this.filters = {};
 

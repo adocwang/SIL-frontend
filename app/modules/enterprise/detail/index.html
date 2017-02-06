@@ -1,0 +1,139 @@
+<section class="content-header">
+  <h4 class="title">{{vm.info.name}}</h4>
+</section>
+
+<section class="content body-content" block-ui="main">
+
+  <div class="page-header">
+      <h4>工商信息</h4>
+  </div>
+
+  <div class="item-content">
+    <div class="panel">
+      <table class="table table-striped">
+        <tr>
+          <th class="col-sm-1">企业名称：</th>
+          <td class="col-sm-3">{{vm.info.name}}</td>
+          <th class="col-sm-1">社会信用代码：</th>
+          <td class="col-sm-3">{{vm.info.credit_no}}</td>
+        </tr>
+        <tr>
+          <th class="col-sm-1">工商注册号：</th>
+          <td class="col-sm-3">{{vm.info.reg_no}}</td>
+          <th class="col-sm-1">组织机构代码</th>
+          <td class="col-sm-3">{{vm.info.org_no}}</td>
+        </tr>
+        <tr>
+          <th class="col-sm-1">法定代表人：</th>
+          <td class="col-sm-3">{{vm.info.oper_name}}</td>
+          <th class="col-sm-1">成立时间：</th>
+          <td class="col-sm-3">{{vm.info.start_date}}</td>
+        </tr>
+        <tr>
+          <th class="col-sm-1">企业类型：</th>
+          <td class="col-sm-3">{{vm.info.econ_kind}}</td>
+          <th class="col-sm-1">经营状态：</th>
+          <td class="col-sm-3">{{vm.info.status}}</td>
+        </tr>
+        <tr>
+          <th>注册资本：</th>
+          <td colspan="3">{{vm.info.regist_capi}}</td>
+        </tr>
+        <tr>
+          <th>注册地址：</th>
+          <td colspan="3">{{vm.info.address}}</td>
+        </tr>
+        <tr>
+          <th>营业期限：</th>
+          <td colspan="3">自{{vm.info.term_start}}至{{vm.info.term_end}}止</td>
+        </tr>
+        <tr>
+          <th>营业范围：</th>
+          <td colspan="3">{{vm.info.scope}}</td>
+        </tr>
+        <tr>
+          <th class="col-sm-1">登记机关：</th>
+          <td class="col-sm-3">{{vm.info.belong_org}}</td>
+          <th class="col-sm-1">发照日期：</th>
+          <td class="col-sm-3">{{vm.info.check_date}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<section class="content body-content" block-ui="main">
+
+  <div class="page-header">
+      <h4>管理团队</h4>
+  </div>
+
+  <div class="item-content">
+    <div class="panel">
+      <table class="table table-striped text-center">
+        <tr>
+          <th class="col-sm-1 text-center">序号</th>
+          <th class="col-sm-4 text-center">姓名</th>
+          <th class="col-sm-7 text-center">职位</th>
+        </tr>
+        <tr ng-repeat="item in vm.info.employees">
+          <td>{{$index+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.job_title}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<section class="content body-content" block-ui="main">
+  <div class="page-header">
+      <h4>注册信息变更</h4>
+  </div>
+
+  <div class="item-content">
+    <div class="panel">
+      <table class="table table-striped">
+        <tr>
+          <th class="col-sm-1">变更日期</th>
+          <th class="col-sm-1">变更项</th>
+          <th class="col-sm-4">变更前</th>
+          <th class="col-sm-4">变更后</th>
+        </tr>
+        <tr ng-repeat="item in vm.info.changerecords">
+          <td>{{item.change_date}}</td>
+          <td>{{item.change_item}}</td>
+          <td>{{item.before_content}}</td>
+          <td>{{item.after_content}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>
+
+<section class="content body-content" block-ui="main">
+  <div class="page-header">
+      <h4>股东及出资信息</h4>
+  </div>
+
+  <div class="item-content">
+    <div class="panel">
+      <table class="table table-striped text-center">
+        <tr>
+          <th class="col-sm-1 text-center">序号</th>
+          <th class="col-sm-4 text-center">股东</th>
+          <th class="col-sm-4 text-center"></th>
+        </tr>
+        <tr ng-repeat="item in vm.info.partners">
+          <td>{{$index+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.stock_type}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</section>

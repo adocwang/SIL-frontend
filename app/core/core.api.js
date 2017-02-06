@@ -28,7 +28,10 @@ const api = {
 	account:  {
 		downloadTemplate: `${prefix}/export/user_template`,
 		import: `${prefix}/import/user`,
-	}
+	},
+	bank: {
+		get: `${prefix}/bank/list`
+	},
 }
 
 export default api;

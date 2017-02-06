@@ -2,15 +2,17 @@ import angular from 'angular';
 import config  from './config';
 import service from './service';
 import List  from './list/';
+import Detail  from './detail/';
 
 // import demoService      from './services/demo.service';
 
 
 
 
-export default angular.module('app.modules.assign', [])
+export default angular.module('app.modules.enterprise', [])
 // .filter('filterType', filterType)
-.service('AssignService', service)
+.service('EnterpriseService', service)
 
-.component('assignList', List)
+.component('enterpriseList', List)
+.component('enterpriseDetail', Detail)
 .config(config);

@@ -9,7 +9,7 @@ function Config($stateProvider) {
         title: '提示消息'
     })
     .state('message.list', {
-        url: '',
+        url: '?page',
         template: '<message-list></message-list>',
         title: '消息列表'
     })
