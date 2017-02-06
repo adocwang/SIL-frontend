@@ -9,6 +9,7 @@ import informationModule       from './information/module';
 
 import personModule         from './person/module';
 import accountModule        from './account/module';
+import logModule        from './log/module';
 
 export default angular.module('app.modules', [
   dashboardModule.name,
@@ -19,4 +20,5 @@ export default angular.module('app.modules', [
   informationModule.name,
   personModule.name,
   accountModule.name,
+  logModule.name,
 ]);

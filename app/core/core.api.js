@@ -32,6 +32,9 @@ const api = {
 	bank: {
 		get: `${prefix}/bank/list`
 	},
+	log: {
+		list: `${prefix}/log/list`
+	},
 }
 
 export default api;
