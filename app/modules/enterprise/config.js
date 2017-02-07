@@ -13,7 +13,7 @@ function Config($stateProvider) {
         }
     })
     .state('enterprise.list', {
-        url: '?page',
+        url: '?page&status&name&state&bank_name',
         template: '<enterprise-list></enterprise-list>',
         title: '企业列表',
         sidebarMeta: {

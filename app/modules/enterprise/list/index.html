@@ -4,7 +4,7 @@
       <ul class="clearfix">
         <li>
           <div class="input-group search-box">
-            <input ng-model="vm.filters.keyword" type="text" placeholder="请输查询" class="form-control"
+            <input ng-model="vm.filters.name" type="text" placeholder="请输查询" class="form-control"
                     code="13" key-event="vm.reSearch();">
             <span class="input-group-btn">
               <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
@@ -13,32 +13,47 @@
         </li>
       </ul>
     </div>
-    <!-- <div class="option-item large">
-      <span class="item-title text-right">性别：</span>
+    <div class="option-item large">
+      <span class="item-title text-right">主理状态：</span>
       <ul class="clearfix">
-            <li>
-                <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.gender, 'btn-toggle': !vm.filters.gender, 'active': !vm.filters.gender}" ng-click="vm.switch('gender')">
-                    全部
-                </a>
-            </li>
-            <li ng-repeat="item in vm.genderList">
-                <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.gender !== item.value, 'btn-toggle': vm.filters.gender == item.value, 'active': vm.filters.gender == item.value}" ng-click="vm.switch('gender', item.value)">
-                    {{ item.name }}
-                </a>
-            </li>
-        </ul>
-    </div> -->
+          <!-- <li>
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.gender, 'btn-toggle': !vm.filters.gender, 'active': !vm.filters.gender}" ng-click="vm.switch('gender')">
+                  全部
+              </a>
+          </li> -->
+          <li ng-repeat="item in vm.roleMainStatus">
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.status != item.value, 'btn-toggle': vm.filters.status == item.value, 'active': vm.filters.status == item.value}" ng-click="vm.switch('status', item.value)">
+                  {{ item.label }}
+              </a>
+          </li>
+      </ul>
+    </div>
+    <div class="option-item large">
+      <span class="item-title text-right">企业状态：</span>
+      <ul class="clearfix">
+          <li>
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.state, 'btn-toggle': !vm.filters.state, 'active': !vm.filters.state}" ng-click="vm.switch('state')">
+                  全部
+              </a>
+          </li>
+          <li ng-repeat="item in vm.enterpriseStateList">
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.state != item.value, 'btn-toggle': vm.filters.state == item.value, 'active': vm.filters.state == item.value}" ng-click="vm.switch('state', item.value)">
+                  {{ item.label }}
+              </a>
+          </li>
+      </ul>
+    </div>
 </section>
 
 <section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
   <empty-tip ng-if="vm.list.length === 0"></empty-tip>
 
-  <div class="panel">
+  <div class="panel" ng-if="vm.list.length > 0">
     <table class="table table-striped text-center">
       <tr>
         <th class="col-m-1 text-center">企业名称</th>
         <th class="col-m-1 text-center">企业地址</th>
-        <th class="col-m-1 text-center">支行</th>
+        <th class="col-m-1 text-center">所属银行</th>
         <th class="col-m-1 text-center">主理</th>
         <th class="col-m-2 text-center">协理</th>
         <th class="col-m-1 text-center">操作</th>
@@ -53,6 +68,8 @@
           <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配支行</a>
           <a href="javascript:void(0)" ng-click="vm.assign(item)">分配</a>
           <a ui-sref="enterprise.detail({id: item.id})">查看详情</a>
+          <!-- <a href="javascript:void(0)" ng-click="vm.del(item)">删除</a>
+          <a href="javascript:void(0)" ng-click="vm.frost(item)">冻结</a> -->
         </td>
       </tr>
     </table>
