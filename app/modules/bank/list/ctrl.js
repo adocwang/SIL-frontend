@@ -3,7 +3,7 @@ import {addConfig} from '../modals';
 
 class ListController extends Pagination {
 
-  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, AccountService) {
+  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, BankService) {
     'ngInject';
 
     super($injector);
@@ -15,22 +15,23 @@ class ListController extends Pagination {
 
     this._toastr = toastr;
 
-    this._service = AccountService;
+    this._service = BankService;
 
     this.filters = {};
 
     this.oneAtATime = true;
 
     this._init();
-
-    this.stateArr = {
-      0: '未激活',
-      1: '正常',
-      2: '已冻结',
-      3: '已删除'
-    }
-
-
+    this.bankStateList = [
+      {
+        value: 1,
+        label: '正常'
+      },
+      {
+        value: 3,
+        label: '已删除'
+      },
+    ];
   }
 
   _init() {
@@ -47,19 +48,13 @@ class ListController extends Pagination {
 
   
   _getList() {
-    // let params = {
-    //   phone: this.phone,
-    //   true_name: this.trueName,
-    //   bank_name: this.bankName,
-    //   state: this.state
-    // }
     let params = this._filterEmptyValue();
     params.page = this.pagination.page;
     this.pagination.pageSize = 5;
 
     this._service.list(params).then(data => {
       this.pagination.count = 10;
-      this.list = data.users;
+      this.list = data;
     });
 
   }
@@ -72,7 +67,7 @@ class ListController extends Pagination {
     this._getList();
   }
 
-  addUser() {
+  addBank() {
     let list = this.list;
     const resolve = {
       info: function(){

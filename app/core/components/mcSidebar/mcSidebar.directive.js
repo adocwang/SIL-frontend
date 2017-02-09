@@ -9,7 +9,7 @@ class McSiderbarController {
 
 }
 
-function McSiderbarDirective() {
+function McSiderbarDirective($timeout) {
 
   return {
     restrict: 'E',
@@ -17,7 +17,11 @@ function McSiderbarDirective() {
     controller: McSiderbarController,
     controllerAs: 'sidebar',
     link: (scope, element, attrs) => {
-      scope.menuHeight = element[0].childNodes[0].clientHeight;
+      $timeout(() => {
+        let $side = element[0].childNodes[0];
+        // let $header = $side.childNodes[0];
+        scope.menuHeight = $side.clientHeight - 160;
+      });
     }
   };
 

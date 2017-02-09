@@ -95,15 +95,21 @@ class ListController extends Pagination {
     this._modal.open( options );
   }
 
-  delete(item) {
+  set(id, state) {
     this._service.set({
-      id: item.id,
-      name: item.name,
-      state: 3
+      id,
+      state
     }).then(data => {
-      this._toastr.success('删除成功');
+      this._toastr.success('操作成功');
       this._state.reload();
     });
+  }
+
+  delete(item) {
+    this.set(item.id, 3);
+  }
+  deleteCancel(item) {
+    this.set(item.id, 1);
   }
 
 

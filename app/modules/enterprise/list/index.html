@@ -22,7 +22,7 @@
               </a>
           </li> -->
           <li ng-repeat="item in vm.roleMainStatus">
-              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.status != item.value, 'btn-toggle': vm.filters.status == item.value, 'active': vm.filters.status == item.value}" ng-click="vm.switch('status', item.value)">
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.role_a_disable != item.value, 'btn-toggle': vm.filters.role_a_disable == item.value, 'active': vm.filters.role_a_disable == item.value}" ng-click="vm.switch('role_a_disable', item.value)">
                   {{ item.label }}
               </a>
           </li>
@@ -32,7 +32,7 @@
       <span class="item-title text-right">企业状态：</span>
       <ul class="clearfix">
           <li>
-              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.state, 'btn-toggle': !vm.filters.state, 'active': !vm.filters.state}" ng-click="vm.switch('state')">
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.state !== undefined, 'btn-toggle': vm.filters.state === undefined, 'active': vm.filters.state === undefined}" ng-click="vm.switch('state')">
                   全部
               </a>
           </li>
