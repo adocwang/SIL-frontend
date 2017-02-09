@@ -45,7 +45,7 @@
       <tr>
         <th class="col-m-5 text-center">公司名称</th>
         <th class="col-m-5 text-center">所属机构</th>
-        <!-- <th class="col-m-1 text-center">其它信息</th> -->
+        <th class="col-m-1 text-center">状态</th>
         <!-- <th class="col-m-2 text-center">备注</th> -->
         <th class="col-m-2 text-center">操作</th>
       </tr>
@@ -53,8 +53,14 @@
         <td>{{item.name}}</td>
         <td>{{item.vc_name}}</td>
         <!-- <td>{{item.agency}}</td> -->
-        <!-- <td>{{item.note}}</td> -->
-        <td><a href="javascript:void(0)" class="text-danger" ng-click="vm.delete(item)">删除</a></td>
+        <td>
+          <span class="text-success" ng-if="item.state==1">正常</span>
+          <span class="text-danger" ng-if="item.state==3">已删除</span>
+        </td>
+        <td>
+          <a href="javascript:void(0)" class="text-danger" ng-click="vm.delete(item)" ng-if="item.state==1">删除</a>
+          <a href="javascript:void(0)" ng-click="vm.deleteCancel(item)" ng-if="item.state==3">取消删除</a>
+        </td>
       </tr>
     </table>
   </div>

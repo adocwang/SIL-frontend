@@ -2,7 +2,7 @@
 
 class Controller {
 
-  constructor($injector, $state, $location, $validation, $stateParams, toastr, $uibModal, PickerService) {
+  constructor($injector, $state, $location, $validation, $stateParams, toastr, $uibModal, ConfigService) {
     'ngInject';
 
     this._state = $state;
@@ -14,7 +14,7 @@ class Controller {
 
     this._toastr = toastr;
 
-    this._pickerService = PickerService;
+    this._service = ConfigService;
 
     this.filters = {};
 
@@ -47,8 +47,18 @@ class Controller {
   }
 
   _init() {
-    this.initCollectInfo();
+    this._getTemplate();
 
+  }
+
+  _getTemplate() {
+    this._service.getSpecial('finding.template').then(data => {
+      if(data) {
+        this.collectList = JSON.parse(data);
+      } else {
+        this.initCollectInfo();
+      }
+    });
   }
 
   initCollectInfo() {
@@ -121,6 +131,13 @@ class Controller {
     console.log('submit')
 
     console.log(this.collectList, JSON.stringify(this.collectList));
+
+    this._service.setSpecial({
+      key: 'finding.template',
+      value: JSON.stringify(this.collectList)
+    }).then(data => {
+      this._toastr.success('保存成功');
+    });
   }
 
 }

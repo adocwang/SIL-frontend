@@ -27,7 +27,7 @@ export default function batchUploadDevice($uibModal, $parse, $timeout) {
   };
 }
 
-function batchUploadFileCtrl($location, $rootScope, $scope, $state, $timeout, ApiMap, toastr, options) {
+function batchUploadFileCtrl($location, $uibModal, $uibModalInstance, $rootScope, $scope, $state, $timeout, ApiMap, toastr, options) {
   'ngInject';
 
     var vm = this;
@@ -65,18 +65,39 @@ function batchUploadFileCtrl($location, $rootScope, $scope, $state, $timeout, Ap
                 if(data.code == 0){
                     if(data.data.errors.length > 0){
                         // toastr.error(data.data);
+                        vm.errorList = data.data.errors;
+                        showErrorList(data.data);
+                        // $modalInstance.close();
                     }else{
                         toastr.success('添加成功');
+                    }
+
+                    if(data.data.successCount > 0) {
                         $state.reload();
                     }
                 }else{
                     toastr.error( data.info );
                 }
 
-                //$modalInstance.close();
+                $uibModalInstance.close();
             }
-        }
+        },
+        errorList: null
     });
+
+    function showErrorList(data) {
+      $uibModal.open({
+          animation: true,
+          templateUrl: 'common/directives/mcBatchUploadVc/error.html',
+          controller: ErrorListCtrl,
+          controllerAs: 'vm',
+          size: "",
+          resolve: {
+            info: () => data
+          }
+      }).result.then(function () {
+      }, function () {  });
+    }
 
     // 触发上传
     function uploadFile(e) {
@@ -85,4 +106,22 @@ function batchUploadFileCtrl($location, $rootScope, $scope, $state, $timeout, Ap
             $(e.target).siblings('.dropzone').trigger('click');
         });
     }
+}
+
+function ErrorListCtrl($uibModalInstance, info) {
+  'ngInject';
+
+  let error = info.errors;
+  if(error) {
+    error = error.filter(item => item.data[0] !== null);
+  } else {
+    error = [];
+  }
+
+  this.errorList = error;
+  this.count = info.successCount;
+
+  this.cancel = () => {
+    $uibModalInstance.close();
+  }
 }

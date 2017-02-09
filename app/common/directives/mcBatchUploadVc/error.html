@@ -1,0 +1,26 @@
+<div class="modal-body">
+  <h4>导入结果</h4>
+
+  <p class="m-t-lg">
+    导入成功<span class="text-success">{{vm.count}}</span>条，失败<span class="text-danger">{{vm.errorList.length}}</span>条。
+  </p>
+  <div class="panel" ng-if="vm.errorList.length">
+    <table class="table table-striped text-center">
+      <tr>
+        <th class="text-center col-sm-1">公司名称</th>
+        <th class="text-center col-sm-1">所属机构</th>
+        <th class="text-center col-sm-1">失败原因</th>
+      </tr>
+      <tr ng-repeat="item in vm.errorList">
+        <td>{{item.data[0]}}</td>
+        <td>{{item.data[1]}}</td>
+        <td><span class="text-danger">{{item.reason}}</span></td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success btn-sm" ng-click="vm.cancel()">确定</button>
+  </div>
+</div>
+
+
