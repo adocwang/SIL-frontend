@@ -23,9 +23,6 @@ node_modules
 bower_components
 **/bower
 # Build files
-app
-gulp
-gulp.babel.js
 build_temp
 build_bak
 templates.js

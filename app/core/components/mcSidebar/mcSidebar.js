@@ -2,7 +2,7 @@ class McSidebarController {
 
   constructor() {
     'ngInject';
-
+    // console.log('test');
   }
 
 }
