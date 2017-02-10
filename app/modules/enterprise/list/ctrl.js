@@ -24,7 +24,7 @@ class ListController extends Pagination {
         label: '全部'
       },
       {
-        value: 'role',
+        value: 1,
         label: '离职'
       },
     ];
@@ -67,8 +67,8 @@ class ListController extends Pagination {
     // console.log(this._stateParams);
     const stateParams = this._stateParams;
     // this.pagination.page = +stateParams.page;
-    this.filters.status = stateParams.status || '';
-    this.filters.state = +stateParams.state || void(0);
+    this.filters.role_a_disable = stateParams.role_a_disable || '';
+    this.filters.state = stateParams.state? +stateParams.state : void(0);
 
     this.filters.name = stateParams.name || void(0);
 
