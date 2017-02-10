@@ -29,9 +29,27 @@ export default class Controller {
       }
     }
 
+    this.opts = {
+      centerAndZoom: {
+          longitude: 116.404,
+          latitude: 39.915,
+          zoom: 11
+      },
+      enableScrollWheelZoom: true
+    }
+
   }
 
-  
+  getCoord(e) {
+    var pt = e.point;
+    this.lat = pt.lat;
+    this.lng = pt.lng;
+    new BMap.Geocoder().getLocation(
+      pt, function(rs){
+      var addComp = rs.addressComponents;
+      confirm(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+    })
+  }
 
   cancel() {
     this._modalInstance.close();
@@ -39,10 +57,9 @@ export default class Controller {
 
   submit(form) {
     //验证表单
-    this._validationProvider.validate(form).success(() => {
       this.saveFunc();
-    });
   }
+
 
   saveFunc() {
     const data = this.inputInfo;

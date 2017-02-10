@@ -1,5 +1,6 @@
 import Pagination from '../../../core/components/mcPagination/mc-pagination.class';
-import {addConfig} from '../modals';
+import {branchConfig, addConfig, mapConfig} from '../modals';
+
 
 class ListController extends Pagination {
 
@@ -36,7 +37,7 @@ class ListController extends Pagination {
 
   _init() {
     this._initFilters();
-    this._getList();
+    this._getList();  
   }
 
   _initFilters() {
@@ -48,12 +49,11 @@ class ListController extends Pagination {
 
   
   _getList() {
-    let params = this._filterEmptyValue();
-    params.page = this.pagination.page;
-    this.pagination.pageSize = 5;
-
+    let params = this._filterEmptyValue();  
+    //params.page = this.pagination.page;
+    //this.pagination.pageSize = 5;
     this._service.list(params).then(data => {
-      this.pagination.count = 10;
+      //this.pagination.count = 10;
       this.list = data;
     });
 
@@ -65,6 +65,17 @@ class ListController extends Pagination {
 
   reSearch() {
     this._getList();
+  }
+
+  switch(key, value) {
+
+    if(!key) {
+      return false;
+    }
+
+    this.filters[key] = value;
+
+    this.reSearch();
   }
 
   addBank() {
@@ -81,6 +92,40 @@ class ListController extends Pagination {
 
     this._modal.open( options );
   }
+
+  setMap(item) {
+    const resolve = {
+      info: function(){
+        return item;      }
+    };
+
+    const options = {...mapConfig, resolve};
+
+    this._modal.open( options );
+  }
+
+  delete(item) {
+    this._service.set({
+      id: item.id,
+      state: 3
+    }).then(data => {
+      this._toastr.success('删除成功');
+      this._state.reload();
+    });
+  }
+
+  assignBranch(item) {
+    const resolve = {
+      info: function(){
+        return item;
+      }
+    };
+
+    const options = {...branchConfig, resolve};
+
+    this._modal.open( options );
+  }
+
 
 }
 

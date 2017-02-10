@@ -3,17 +3,8 @@
     <div class="option-item option-time">
       <ul class="clearfix">
         <li>
-          <div class="input-group search-box">
-            <input ng-model="vm.filters.name" type="text" placeholder="请输银行查询" class="form-control"
-                    code="13" key-event="vm.reSearch();">
-            <span class="input-group-btn">
-              <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
-            </span>
-          </div>
-        </li>
-        <li>
           <button type="button" class="btn btn-success pull-right m-l-sm" style="position: relative; z-index: 2;"
-                  ng-click="vm.addUser()"><i class="icon-Plus"></i> 添加
+                  ng-click="vm.addBank()"><i class="icon-Plus"></i> 添加
           </button>
         </li>
       </ul>
@@ -53,16 +44,15 @@
       <tr ng-repeat="item in vm.list">
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
-        <td><a ng-hide="item.address">选取地址</a><text ng-show="{{item.address}}">{{item.address}}</text></td>
+        <td><a ng-click="vm.setMap(item)" ng-hide="item.address">选取地址</a><text ng-show="{{item.address}}">{{item.address}}</text></td>
         <td>{{item.superior_name}}</td>
         <td>
           <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配下属支行</a>
-          <a href="javascript:void(0)" class="text-danger" ng-click="vm.assign(item)">删除</a>
+          <a href="javascript:void(0)" class="text-danger" ng-click="vm.delete(item)">删除</a>
         </td>
       </tr>
     </table>
   </div>
 
-  <mc-pagination total-items="vm.pagination.count" items-per-page="vm.pagination.pageSize" current-page="vm.pagination.page" page-change="vm.pageChanged()"></mc-pagination>
-
 </section>
+
