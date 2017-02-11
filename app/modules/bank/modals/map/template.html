@@ -5,7 +5,7 @@
   <h4 class="modal-title">选取地图</h4>
 </div>
 <div class="modal-body">
-  <baidu-map map-options="vm.opts" style="display:block;width:550px;height:500px;" click="vm.getCoord(e)"></baidu-map>
+  <baidu-map options="vm.opts" ak="8BEaSdo8E7VEHjM0pxWs8gIsHhkDlOOW" on-map-loaded="vm.loadMap(map)" style="display:block;width:550px;height:500px;"></baidu-map>
   <div class="modal-footer">
     <button type="button" class="btn btn-default btn-sm" ng-click="vm.cancel()">取消</button>
   </div>
