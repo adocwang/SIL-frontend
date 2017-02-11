@@ -1,7 +1,7 @@
 import Controller from './ctrl';
 
 const Configuration = {
-  templateUrl: 'modules/bank/modals/add/template.html',
+  templateUrl: 'modules/bank/modals/map/template.html',
   controller: Controller,
   controllerAs: 'vm'
 };

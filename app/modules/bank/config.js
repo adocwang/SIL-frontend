@@ -20,7 +20,6 @@ function Config($stateProvider) {
           order: 10
         }
     })
-    ;
 
 }
 

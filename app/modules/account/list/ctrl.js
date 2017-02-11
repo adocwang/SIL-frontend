@@ -47,18 +47,12 @@ class ListController extends Pagination {
 
   
   _getList() {
-    // let params = {
-    //   phone: this.phone,
-    //   true_name: this.trueName,
-    //   bank_name: this.bankName,
-    //   state: this.state
-    // }
     let params = this._filterEmptyValue();
     params.page = this.pagination.page;
-    this.pagination.pageSize = 5;
 
     this._service.list(params).then(data => {
-      this.pagination.count = 10;
+      this.pagination.count = data.count;
+      this.pagination.pageSize = data.page_limit;
       this.list = data.users;
     });
 

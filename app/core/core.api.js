@@ -35,7 +35,9 @@ const api = {
 		import: `${prefix}/import/user`,
 	},
 	bank: {
-		get: `${prefix}/bank/list`
+		get: `${prefix}/bank/list`,
+		add: `${prefix}/bank/add`,
+		set: `${prefix}/bank/set`
 	},
 	log: {
 		list: `${prefix}/log/list`
