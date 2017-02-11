@@ -1,6 +1,6 @@
 {
   "app.css": "app-30bdb36ca8.css",
-  "app.js": "app-30f3ef5a6f.js",
+  "app.js": "app-fd02093f3f.js",
   "common/bg_avatar.png": "common/bg_avatar-f69bbf430c.png",
   "common/blank.gif": "common/blank-fc94fb0c3e.gif",
   "common/closedoor.png": "common/closedoor-8967f96621.png",
@@ -13,6 +13,6 @@
   "common/woman.png": "common/woman-796cb471e8.png",
   "modules/tv_pic_big.png": "modules/tv_pic_big-1f714aab50.png",
   "modules/tv_pic_small.png": "modules/tv_pic_small-557fad4040.png",
-  "vendor.css": "vendor-6dbe8e7de0.css",
-  "vendor.js": "vendor-b739c649cd.js"
+  "vendor.css": "vendor-4cf79c9f97.css",
+  "vendor.js": "vendor-715d2fb4b5.js"
 }
