@@ -1,5 +1,5 @@
 export default class Controller {
-  constructor($scope, $state, $validation, $uibModalInstance, toastr, AccountService, info) {
+  constructor($scope, $state, $validation, $uibModalInstance, toastr, BankService, info) {
     'ngInject';
 
     this._scope = $scope;
@@ -10,14 +10,12 @@ export default class Controller {
     this._modalInstance = $uibModalInstance;
     this._toastr = toastr;
 
-    this._service = AccountService;
+    this._service = BankService;
 
     this.info = info;
 
     this.inputInfo = {
-      true_name: '',
-      phone: '',
-      role: ''
+      name: ''
     };
 
     this.autoCompleteOptions = {

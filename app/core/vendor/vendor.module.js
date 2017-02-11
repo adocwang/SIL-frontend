@@ -36,6 +36,8 @@ import 'angular-validation';
 import 'angular-validation/dist/angular-validation-rule';
 import 'angular-validation-match';
 
+import 'angular-mdeditor';
+
 import blockUIConfig        from './config/blockUI.config';
 import toastrConfig         from './config/toastr.config';
 import uibPaginationConfig  from './config/uibPagination.config';
@@ -64,7 +66,9 @@ export default angular.module('app.core.vendor', [
   'angularMoment',
   'validation',
   'validation.rule',
-  'validation.match'
+  'validation.match',
+
+  'ui.mdeditor'
 ])
 .config(blockUIConfig)
 .config(toastrConfig)

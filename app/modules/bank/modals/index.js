@@ -1,5 +1,9 @@
+import branchConfig from './branch';
 import addConfig from './add';
+import mapConfig from './map';
 
 export {
-  addConfig
+  branchConfig,
+  addConfig,
+  mapConfig
 }

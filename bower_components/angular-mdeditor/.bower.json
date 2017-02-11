@@ -1,0 +1,39 @@
+{
+  "name": "angular-mdeditor",
+  "authors": [
+    "Harrie <varharrie@gmail.com>"
+  ],
+  "description": "a markdown editor base on angular directive.",
+  "main": "src/angular-mdeditor.js",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "markdown",
+    "directive"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/varHarrie/angular-mdeditor.git",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "highlight": "~9.0.0",
+    "font-awesome": "fontawesome#~4.5.0",
+    "marked": "~0.3.5",
+    "codemirror": "~5.10.0",
+    "showdown": "~1.3.0"
+  },
+  "_release": "f847d66939",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f847d669395f74df159627691e310178a7fe6ba4"
+  },
+  "_source": "https://github.com/germanyt/angular-mdeditor.git",
+  "_target": "master",
+  "_originalSource": "https://github.com/germanyt/angular-mdeditor.git"
+}

@@ -15,8 +15,26 @@ export default class Service {
   list(params) {
     
     this._httpHelper.blockUI.start();
+    let url = this._api.get;
+    if (params.state) {
+      url = this._api.get+"?state="+params.state;
+    }
 
-    return this._http.get(this._api.get, params).then(this._httpHelper.verify,  this._httpHelper.error);
+    return this._http.get(url).then(this._httpHelper.verify,  this._httpHelper.error);
   }
 
+  add(params) {
+    
+    this._httpHelper.blockUI.start();
+
+    return this._http.post(this._api.add, params).then(this._httpHelper.verify,  this._httpHelper.error);
+  }
+
+
+  set(params) {
+    
+    this._httpHelper.blockUI.start();
+
+    return this._http.post(this._api.set, params).then(this._httpHelper.verify,  this._httpHelper.error);
+  }
 }
