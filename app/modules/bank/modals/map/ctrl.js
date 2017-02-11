@@ -30,38 +30,40 @@ export default class Controller {
     }
 
     this.opts = {
-      centerAndZoom: {
-          longitude: 116.404,
-          latitude: 39.915,
-          zoom: 11
+      center: {
+        longitude: 116.404,
+        latitude: 39.915
       },
+      zoom: 11,
+      city: 'BeiJing',
       enableScrollWheelZoom: true
     }
-
   }
 
-  getCoord(e) {
-    var pt = e.point;
-    this.lat = pt.lat;
-    this.lng = pt.lng;
+  loadMap(map) {
     var that = this;
-    new BMap.Geocoder().getLocation(
-      pt, function(rs){
-      var addComp = rs.addressComponents;
-      var r = confirm(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
-      if (r) {
-        that._service.set({
-          id: that.info.id,
-          address: addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber,
-          coordinates: that.lat+ "," + that.lng
-        }).then(data => {
-          that.cancel();
-          that._toastr.success('设置成功');
-          that._state.reload();
-        });
-      }
-    })
-  }
+    map.addEventListener("click",function(e){
+      var pt = e.point;
+      that.lat = pt.lat;
+      that.lng = pt.lng;
+      new BMap.Geocoder().getLocation(
+        pt, function(rs){
+        var addComp = rs.addressComponents;
+        var r = confirm(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+        if (r) {
+          that._service.set({
+            id: that.info.id,
+            address: addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber,
+            coordinates: that.lat+ "," + that.lng
+          }).then(data => {
+            that.cancel();
+            that._toastr.success('设置成功');
+            that._state.reload();
+          });
+        }
+      })
+    });
+  };
 
   cancel() {
     this._modalInstance.close();

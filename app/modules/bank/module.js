@@ -16,7 +16,7 @@ export default angular.module('app.modules.bank', [ngBaiduMap])
 
 .component('bankList', List)
 .config(config)
-.config(['mapScriptServiceProvider', function(provider) {
-    provider.setKey('8BEaSdo8E7VEHjM0pxWs8gIsHhkDlOOW');
-}])
+// .config(['mapScriptServiceProvider', function(provider) {
+//     provider.setKey('8BEaSdo8E7VEHjM0pxWs8gIsHhkDlOOW');
+// }])
 ;
