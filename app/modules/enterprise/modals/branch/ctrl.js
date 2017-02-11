@@ -27,7 +27,8 @@ export default class Controller {
 
   _getBankList() {
     this._service.getBankList().then(data => {
-      this.list = data.subordinate;
+      // console.log(data);
+      this.list = data;
     });
   }
 

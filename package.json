@@ -24,7 +24,7 @@
   "dependencies": {
     "angular": "~1.5.7",
     "angular-auto-complete": "~1.2.0",
-    "angular-baidu-map": "^3.1.0",
+    "angular-baidu-map": "~2.2.0",
     "angular-block-ui": "https://github.com/huguangju/angular-block-ui/tarball/patch-1",
     "angular-datepicker": "https://github.com/Andyczc/angular-datepicker/tarball/master",
     "angular-dropzone": "https://github.com/tbenbrahim/angular-dropzone/tarball/master",
