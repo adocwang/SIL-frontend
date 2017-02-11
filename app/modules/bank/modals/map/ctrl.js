@@ -44,29 +44,26 @@ export default class Controller {
     var pt = e.point;
     this.lat = pt.lat;
     this.lng = pt.lng;
+    var that = this;
     new BMap.Geocoder().getLocation(
       pt, function(rs){
       var addComp = rs.addressComponents;
-      confirm(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+      var r = confirm(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+      if (r) {
+        that._service.set({
+          id: that.info.id,
+          address: addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber,
+          coordinates: that.lat+ "," + that.lng
+        }).then(data => {
+          that.cancel();
+          that._toastr.success('设置成功');
+          that._state.reload();
+        });
+      }
     })
   }
 
   cancel() {
     this._modalInstance.close();
-  }
-
-  submit(form) {
-    //验证表单
-      this.saveFunc();
-  }
-
-
-  saveFunc() {
-    const data = this.inputInfo;
-    this._service.add(data).then(data => {
-      this._toastr.success('添加成功');
-      this.cancel();
-      this._state.reload();
-    })
   }
 }

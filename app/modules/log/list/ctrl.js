@@ -37,21 +37,12 @@ class ListController extends Pagination {
   _getList() {
     let params = this._filterEmptyValue();
     params.page = this.pagination.page;
-    this.pagination.pageSize = 5;
 
-    // this._service.list(params).then(data => {
-    //   this.pagination.count = 10;
-    //   this.list = data.users;
-    // });
-    this.pagination.count = 10;
-    this.list = [{
-      time: '2016-08-12',
-      module: 'test',
-      action: 'action',
-      params: 'test=test',
-      person: 'Cesc'
-    }];
-
+    this._service.list(params).then(data => {
+      this.pagination.count = data.count;
+      this.pagination.pageSize = data.page_limit;
+      this.list = data.cm_tips;
+    });
   }
 
   pageChanged() {

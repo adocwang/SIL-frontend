@@ -114,6 +114,17 @@ class ListController extends Pagination {
     });
   }
 
+  redelete(item) {
+    this._service.set({
+      id: item.id,
+      state: 1
+    }).then(data => {
+      this._toastr.success('取消删除成功');
+      this._state.reload();
+    });
+  }
+
+
   assignBranch(item) {
     const resolve = {
       info: function(){
