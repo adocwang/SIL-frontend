@@ -1,11 +1,11 @@
 {
   "name": "community-pc",
   "version": "0.1.0",
-  "author": "Frontend Team from MagiCare",
+  "author": "Frontend Team from Adoc",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "http://gitlab.magicare.me/web/community-pc.git"
+    "url": "https://github.com/adocwang/SIL-frontend.git"
   },
   "keywords": [],
   "private": true,

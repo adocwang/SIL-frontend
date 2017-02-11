@@ -1,0 +1,30 @@
+{
+  "name": "angular-mdeditor",
+  "version": "1.0.0",
+  "description": "angular markdown editor",
+  "main": "src/angular-mdeditor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/germanyt/angular-mdeditor.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/germanyt/angular-mdeditor/issues"
+  },
+  "homepage": "https://github.com/germanyt/angular-mdeditor#readme",
+  "dependencies": {
+    "angular": "~1.5.8",
+    "highlight.js": "~9.9.0",
+    "font-awesome": "fontawesome#~4.5.0",
+    "marked": "~0.3.5",
+    "codemirror": "~5.10.0",
+    "showdown": "~1.3.0"
+  }
+}

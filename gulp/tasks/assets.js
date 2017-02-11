@@ -160,11 +160,10 @@ gulp.task('iconFont', function () {
 
 });
 
-
 gulp.task('vendorFont', function () {
 
   // move bootstrap's fonts to dist
-  return gulp.src('./app/bower/bootstrap/dist/fonts/*')
-    .pipe(gulp.dest(config.fonts.dest));
+  return gulp.src('./bower_components/font-awesome/fonts/*')
+    .pipe(gulp.dest('./build/css/fonts'));
 
 });
