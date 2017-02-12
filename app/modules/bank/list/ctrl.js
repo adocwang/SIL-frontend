@@ -96,7 +96,8 @@ class ListController extends Pagination {
   setMap(item) {
     const resolve = {
       info: function(){
-        return item;      }
+        return item;      
+      }
     };
 
     const options = {...mapConfig, resolve};
