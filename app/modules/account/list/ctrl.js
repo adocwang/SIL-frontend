@@ -1,5 +1,5 @@
 import Pagination from '../../../core/components/mcPagination/mc-pagination.class';
-import {addConfig} from '../modals';
+import {addConfig, branchConfig} from '../modals';
 
 class ListController extends Pagination {
 
@@ -77,6 +77,18 @@ class ListController extends Pagination {
     };
 
     const options = {...addConfig, resolve};
+
+    this._modal.open( options );
+  }
+
+  assignBranch(item) {
+    const resolve = {
+      info: function(){
+        return item;
+      }
+    };
+
+    const options = {...branchConfig, resolve};
 
     this._modal.open( options );
   }
