@@ -5,7 +5,7 @@ export default class ProfileService {
     'ngInject';
 
 	    this.info = {
-	      name: 'niubi',
+	      name: '您好',
 	      avatar: '/images/common/man.png'
 	    }
 

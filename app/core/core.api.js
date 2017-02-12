@@ -42,6 +42,12 @@ const api = {
 	log: {
 		list: `${prefix}/log/list`
 	},
+	process: {
+		tipsList: `${prefix}/cm_tip/list`,
+		tipsGet: `${prefix}/cm_tip/get/{id}`,
+		tipsSet: `${prefix}/cm_tip/set`,
+		tipsAdd: `${prefix}/cm_tip/add`
+	}
 }
 
 export default api;

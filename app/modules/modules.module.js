@@ -12,6 +12,8 @@ import accountModule        from './account/module';
 import logModule        from './log/module';
 import bankModule        from './bank/module';
 
+import processModule      from './process/module';
+
 export default angular.module('app.modules', [
   dashboardModule.name,
   demoModule.name,
@@ -23,4 +25,5 @@ export default angular.module('app.modules', [
   accountModule.name,
   logModule.name,
   bankModule.name,
+  processModule.name,
 ]);

@@ -36,7 +36,7 @@ angular.module('ui.mdeditor', [
 		{separator:true},
 		{action:'ul',icon:'fa fa-list-ul',tip:'无序列表(Ctrl+U)'},
 		{action:'ol',icon:'fa fa-list-ol',tip:'有序列表(Ctrl+O)'},
-		{action:'code',icon:'fa fa-code',tip:'代码(Ctrl+K)'},
+		// {action:'code',icon:'fa fa-code',tip:'代码(Ctrl+K)'},
 		{action:'quote',icon:'fa fa-quote-left',tip:'引用(Ctrl+Q)'},
 		//{action:'indent',icon:'fa fa-indent',tip:'缩进(Tab)',keycode:9,ctrl:false},
 		//{action:'outdent',icon:'fa fa-outdent',tip:'减小缩进(Tab)',keycode:9,ctrl:false,shift:true},
@@ -47,8 +47,8 @@ angular.module('ui.mdeditor', [
 		{separator:true},
 		{action:'undo',icon:'fa fa-undo',tip:'撤销'},
 		{action:'redo',icon:'fa fa-repeat',tip:'重做'},
-		{action:'preview',icon:'fa fa-eye',tip:'浏览'},
-		{action:'fullscreen',icon:'fa fa-arrows-alt',tip:'全屏'}
+		// {action:'preview',icon:'fa fa-eye',tip:'浏览'},
+		// {action:'fullscreen',icon:'fa fa-arrows-alt',tip:'全屏'}
 	],
 	shortcut:{
 		'Ctrl-B':'bold',
@@ -197,10 +197,10 @@ angular.module('ui.mdeditor', [
 }])
 .directive('mdeditor', ['mdeditorConfig','actions', function(mdeditorConfig,actions){
 
-	console.log('============', mdeditorConfig);
 	return {
 		restrict:'AE',
 		scope:{
+			defaultText: '=',
 			text:'=',
 			options:'=?',
 			classNames:'=?',
@@ -276,9 +276,17 @@ angular.module('ui.mdeditor', [
 					codemirror.setValue($scope.text);
 				}
 
-				codemirror.on('change',function(instance){
+				var destroyWatchText = $scope.$watch('defaultText', function(){
+					if($scope.defaultText) {
+						codemirror.setValue($scope.defaultText);
+					}
+				});
+
+				$scope.$on('$destroy', destroyWatchText);
+
+				codemirror.on('change',function(instance, event){
 					var val=instance.getValue();
-					if($scope.text!==val){
+					if($scope.text!==val ){
 						$scope.text=instance.getValue();
 						var phase=$scope.$root.$$phase;
 						if(phase!=='$apply'&&phase!=='digest'){
