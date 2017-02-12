@@ -5,7 +5,7 @@ export default class Service {
     this._http = $http;
     // this.$q = $q;
     this._httpHelper = httpHelper;
-
+    this._apiMap = ApiMap;
     this._api = ApiMap.person;
 
     this._rootScope = $rootScope;
@@ -38,6 +38,12 @@ export default class Service {
     this._httpHelper.blockUI.start();
     
     return this._http.post(this._api.add, params).then(this._httpHelper.verify,  this._httpHelper.error);
+  }
+
+  getBankList(params) {
+    this._httpHelper.blockUI.start();
+    return this._http.get(this._apiMap.bank.get, {params: params})
+      .then(this._httpHelper.verify, this._httpHelper.error);
   }
 
 }

@@ -1,5 +1,9 @@
 <section class="content-header clearfix">
-    <div class="page-header"><h4>资料设置</h4></div>
+    <h4>资料设置</h4>
+    <a href="javascript:void(0)" class="btn btn-default pull-right" ng-click="$root.back();">返回</a>
+</section>
+<section class="content body-content" block-ui="main">
+
     <div class="form-horizontal">
         <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">姓名</label>
@@ -28,8 +32,8 @@
               </button>
               <ul class="dropdown-menu">
                 <li><a ng-click="vm.person.role_name='管理员';vm.person.role='ROLE_ADMIN'" href="javascript:void(0)">管理员</a></li>
-                <li><a ng-click="vm.person.role_name='分行行长';vm.person.role='ROLE_BRANCH_ADMIN'" href="javascript:void(0)">分行行长</a></li>
-                <li><a ng-click="vm.person.role_name='支行行长';vm.person.role='ROLE_END_ADMIN'" href="javascript:void(0)">支行行长</a></li>
+                <li><a ng-click="vm.person.role_name='分行行长';vm.person.role='ROLE_BRANCH_PRESIDENT'" href="javascript:void(0)">分行行长</a></li>
+                <li><a ng-click="vm.person.role_name='支行行长';vm.person.role='ROLE_END_PRESIDENT'" href="javascript:void(0)">支行行长</a></li>
                 <li><a ng-click="vm.person.role_name='客户经理';vm.person.role='ROLE_CUSTOMER_MANAGER'" href="javascript:void(0)">客户经理</a></li>
               </ul>
             </div>
@@ -53,5 +57,4 @@
             <button type="button" ng-click="vm.setUser()" class="btn btn-success">提交</button>
         </div>
     </div>
-
 </section>

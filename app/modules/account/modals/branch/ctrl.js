@@ -1,5 +1,5 @@
 export default class Controller {
-  constructor($scope, $state, $validation, $uibModalInstance, toastr, BankService, info) {
+  constructor($scope, $state, $validation, $uibModalInstance, toastr, AccountService, info) {
     'ngInject';
 
     this._scope = $scope;
@@ -10,7 +10,7 @@ export default class Controller {
     this._modalInstance = $uibModalInstance;
     this._toastr = toastr;
 
-    this._service = BankService;
+    this._service = AccountService;
 
     this.info = info;
 
@@ -26,9 +26,8 @@ export default class Controller {
   }
 
   _getBankList() {
-    this._service.list({
-      state: 1
-    }).then(data => {
+    this._service.getBankList().then(data => {
+      // console.log(data);
       this.list = data;
     });
   }
@@ -45,9 +44,10 @@ export default class Controller {
   }
 
   saveFunc() {
+    // console.log('submit')
     this._service.set({
-      superior_id: this.inputInfo.branch,
-      id: this.info.id,
+      user_id: this.info.id,
+      bank_id: this.inputInfo.branch
     }).then(data => {
       this.cancel();
       this._toastr.success('设置成功');

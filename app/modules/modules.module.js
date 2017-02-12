@@ -11,6 +11,7 @@ import personModule         from './person/module';
 import accountModule        from './account/module';
 import logModule        from './log/module';
 import bankModule        from './bank/module';
+import sysconfigModule        from './sysconfig/module';
 
 import processModule      from './process/module';
 
@@ -26,4 +27,5 @@ export default angular.module('app.modules', [
   logModule.name,
   bankModule.name,
   processModule.name,
+  sysconfigModule.name,
 ]);

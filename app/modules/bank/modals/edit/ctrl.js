@@ -15,23 +15,23 @@ export default class Controller {
     this.info = info;
 
     this.inputInfo = {
-      branch: info.bank && info.bank.id
+      name: this.info.name
     };
 
-    this.list = null;
-
-
-    this._getBankList();
+    this.autoCompleteOptions = {
+      minimumChars: 1,
+      data: function (term) {
+        term = term.toUpperCase();
+        var match = _.filter(info.agencyList, function (value) {
+            return value.startsWith(term);
+        });
+        return match;
+      }
+    }
 
   }
 
-  _getBankList() {
-    this._service.list({
-      state: 1
-    }).then(data => {
-      this.list = data;
-    });
-  }
+  
 
   cancel() {
     this._modalInstance.close();
@@ -45,13 +45,14 @@ export default class Controller {
   }
 
   saveFunc() {
-    this._service.set({
-      superior_id: this.inputInfo.branch,
+    const data = {
       id: this.info.id,
-    }).then(data => {
+      name: this.inputInfo.name
+    }
+    this._service.set(data).then(data => {
+      this._toastr.success('修改成功');
       this.cancel();
-      this._toastr.success('设置成功');
       this._state.reload();
-    });
+    })
   }
 }

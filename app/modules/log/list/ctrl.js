@@ -41,7 +41,7 @@ class ListController extends Pagination {
     this._service.list(params).then(data => {
       this.pagination.count = data.count;
       this.pagination.pageSize = data.page_limit;
-      this.list = data.cm_tips;
+      this.list = data.logs;
     });
   }
 
