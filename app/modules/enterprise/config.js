@@ -4,7 +4,7 @@ function Config($stateProvider) {
   $stateProvider
     .state('enterprise', {
         url: '/enterprise?page&role_a_disable&name&state&bank_name',
-        abstract: true,
+        // abstract: true,
         template : '<ui-view><enterprise-list></enterprise-list></ui-view>',
         title: '企业分配',
         sidebarMeta: {
