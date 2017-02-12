@@ -42,6 +42,9 @@ const api = {
 	log: {
 		list: `${prefix}/log/list`
 	},
+	sysconfig: {
+		get: ``
+	},
 }
 
 export default api;

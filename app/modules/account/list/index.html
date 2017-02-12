@@ -86,7 +86,10 @@
           <span class="text-danger" ng-if="item.state==2">已冻结</span>
           <span class="text-danger" ng-if="item.state==3">已删除</span>
         </td>
-        <td><a ui-sref="account.detail({id: item.id})">查看<i class="icon-angle-right"></i></a></td>
+        <td>
+          <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配银行</a>
+          <a ui-sref="account.detail({id: item.id})">查看<i class="icon-angle-right"></i></a>
+        </td>
       </tr>
     </table>
   </div>

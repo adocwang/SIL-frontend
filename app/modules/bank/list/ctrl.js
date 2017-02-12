@@ -102,6 +102,7 @@ class ListController extends Pagination {
 
     const options = {...mapConfig, resolve};
 
+    var modal = this.modal;
     this._modal.open( options );
   }
 

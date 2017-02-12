@@ -11,6 +11,7 @@ import personModule         from './person/module';
 import accountModule        from './account/module';
 import logModule        from './log/module';
 import bankModule        from './bank/module';
+import sysconfigModule        from './sysconfig/module';
 
 export default angular.module('app.modules', [
   dashboardModule.name,
@@ -23,4 +24,5 @@ export default angular.module('app.modules', [
   accountModule.name,
   logModule.name,
   bankModule.name,
+  sysconfigModule.name,
 ]);
