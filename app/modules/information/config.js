@@ -5,8 +5,8 @@ function Config($stateProvider) {
     .state('information', {
         url: '/information',
         abstract: true,
-        template : '<ui-view></ui-view>',
-        title: '企业信息',
+        template : '<ui-view><information-setting></information-setting></ui-view>',
+        title: '企业采集设置',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
           order: 500,
