@@ -1,10 +1,13 @@
 class McSiderbarController {
 
-  constructor(mcSidebarService, ProfileService) {
+  constructor(mcSidebarService) {
     'ngInject';
 
     this.menuItems = mcSidebarService.getMenuItems();
-    this.info = ProfileService.getInfo();
+    this.info = {
+      name: '浦发 | 投贷联动',
+      avatar: '/images/common/logo.png'
+    };
   }
 
 }

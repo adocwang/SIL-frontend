@@ -32,9 +32,9 @@ function Config($stateProvider) {
         url: '/setting',
         template: '<information-setting></information-setting>',
         title: '采集设置',
-        sidebarMeta: {
-          order: 30
-        }
+        // sidebarMeta: {
+        //   order: 30
+        // }
     })
     ;
 

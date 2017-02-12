@@ -31,7 +31,7 @@ export default class Controller {
 
   _getUserList() {
     this._service.getUserList({state: 1, page_limit: 1000}).then(data => {
-      this.list = data.users.filter( item => {return true;} );
+      this.list = data.users.filter( item => {return item.role_name == 'ROLE_CUSTOMER_MANAGER';} );
     })
   }
 

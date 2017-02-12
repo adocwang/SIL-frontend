@@ -7,10 +7,10 @@ function demoConfig($stateProvider) {
         abstract: true,
         template : '<ui-view></ui-view>',
         title: 'DEMO',
-        sidebarMeta: {
-          icon: 'icon-sidebar_members_ic',
-          order: 100,
-        }
+        // sidebarMeta: {
+        //   icon: 'icon-sidebar_members_ic',
+        //   order: 100,
+        // }
     })
     .state('demo.list', {
         url: '/list?page&gender&keyword',

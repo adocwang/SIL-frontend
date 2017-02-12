@@ -1,5 +1,5 @@
 <section class="content-header">
-  <h4 class="title">消息列表</h4>
+  <h4 class="title">话术列表</h4>
 </section>
 
 <section class="content body-content body-content-compact block-ui block-ui-message-custom message-list" block-ui="main">
@@ -25,12 +25,9 @@
           </label> -->
         </td>
         <td class="text-left">
-          <a ui-sref="message.detail({id: item.id})" style="color: #323232;">
-            <strong ng-if="item.state === 0">{{item.title}}</strong>
-            <span ng-if="item.state !== 0">{{item.title}}</span>
-          </a>
+          {{item.title}}
         </td>
-        <td><a ui-sref="message.detail({id: item.id})">查看<i class="icon-angle-right"></i></a></td>
+        <td><a ui-sref="process.add({id: item.id})">编辑<i class="icon-angle-right"></i></a></td>
       </tr>
     </table>
   </div>
