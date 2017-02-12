@@ -1,12 +1,13 @@
 {
   "app.css": "app-30bdb36ca8.css",
-  "app.js": "app-ca7b52bdaa.js",
+  "app.js": "app-d7e25325d7.js",
   "common/bg_avatar.png": "common/bg_avatar-f69bbf430c.png",
   "common/blank.gif": "common/blank-fc94fb0c3e.gif",
   "common/closedoor.png": "common/closedoor-8967f96621.png",
   "common/favicon.ico": "common/favicon-79995fe704.ico",
   "common/lasheng.png": "common/lasheng-5e33d47c3b.png",
   "common/loading.gif": "common/loading-6d065c4f0d.gif",
+  "common/logo.png": "common/logo-adba2188c7.png",
   "common/man.png": "common/man-c54e94cb8c.png",
   "common/question.png": "common/question-5f4ec47b73.png",
   "common/warning.png": "common/warning-b2ba53df0e.png",
@@ -14,5 +15,5 @@
   "modules/tv_pic_big.png": "modules/tv_pic_big-1f714aab50.png",
   "modules/tv_pic_small.png": "modules/tv_pic_small-557fad4040.png",
   "vendor.css": "vendor-4cf79c9f97.css",
-  "vendor.js": "vendor-2663a494d5.js"
+  "vendor.js": "vendor-715d2fb4b5.js"
 }
