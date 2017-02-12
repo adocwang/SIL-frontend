@@ -1,5 +1,5 @@
 import Pagination from '../../../core/components/mcPagination/mc-pagination.class';
-import {branchConfig, addConfig, mapConfig} from '../modals';
+import {branchConfig, addConfig, mapConfig, editConfig} from '../modals';
 
 
 class ListController extends Pagination {
@@ -105,6 +105,20 @@ class ListController extends Pagination {
     var modal = this.modal;
     this._modal.open( options );
   }
+
+  setName(item) {
+    const resolve = {
+      info: function(){
+        return item;      
+      }
+    };
+
+    const options = {...editConfig, resolve};
+
+    var modal = this.modal;
+    this._modal.open( options );
+  }
+
 
   delete(item) {
     this._service.set({

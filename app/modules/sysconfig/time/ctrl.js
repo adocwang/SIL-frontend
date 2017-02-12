@@ -2,7 +2,7 @@ import Pagination from '../../../core/components/mcPagination/mc-pagination.clas
 
 class ListController extends Pagination {
 
-  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, sysconfigService) {
+  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, ConfigService) {
     'ngInject';
 
     super($injector);
@@ -14,7 +14,7 @@ class ListController extends Pagination {
 
     this._toastr = toastr;
 
-    this._service = sysconfigService;
+    this._service = ConfigService;
 
     this.filters = {};
     this._init();
@@ -27,22 +27,23 @@ class ListController extends Pagination {
 
   
   _get() {
-    let params = this._filterEmptyValue();
-    params.page = this.pagination.page;
+    //let params = this._filterEmptyValue();
 
-    this._service.list(params).then(data => {
-      this.pagination.count = data.count;
-      this.pagination.pageSize = data.page_limit;
-      this.list = data.logs;
+    this._service.getSpecial('refresh_time').then(data => {
+      this.keyValue = data;
     });
   }
 
-  pageChanged() {
-    this._getList();
-  }
-
-  reSearch() {
-    this._getList();
+  setConfig() {
+    const data = {
+      key: "refresh_time",
+      value: this.keyValue
+    };
+    this._service.setSpecial(data).then(data => {
+      this._toastr.success('设置成功');
+      this.cancel();
+      this._state.reload();
+    })
   }
 }
 
