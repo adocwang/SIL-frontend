@@ -13,9 +13,10 @@ export default class Controller {
     this._service = BankService;
 
     this.info = info;
+
     if (this.info.coordinates == null ) {
-      this.longitude = 114.062663,
-      this.latitude = 22.549316
+      this.longitude = 116.331398,
+      this.latitude = 39.897445
     } else {
       [this.longitude, this.latitude] = this.info.coordinates.split(",");
     }
@@ -32,11 +33,27 @@ export default class Controller {
   }
 
   loadMap(map) {
+    map.disableAutoResize();
+    map.enableAutoResize();
+    if (this.info.coordinates == null) {
+      function myFun(result){
+        var cityName = result.name;
+        map.setCenter(cityName);
+      }
+      var myCity = new BMap.LocalCity();
+      myCity.get(myFun);
+    } else {
+      var point = new BMap.Point(this.longitude,this.latitude);
+      new BMap.Geocoder().getLocation(
+          point, function(rs){
+            map.setCenter(rs.addressComponents.city);
+          });
+    }
     var that = this;
     map.addEventListener("click",function(e){
       var pt = e.point;
-      that.lat = pt.lat;
-      that.lng = pt.lng;
+      that.latitude = pt.lat;
+      that.longitude = pt.lng;
       new BMap.Geocoder().getLocation(
         pt, function(rs){
         var addComp = rs.addressComponents;
@@ -45,7 +62,7 @@ export default class Controller {
           that._service.set({
             id: that.info.id,
             address: addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber,
-            coordinates: that.lng+ "," + that.lat
+            coordinates: that.longitude+ "," + that.latitude
           }).then(data => {
             that.cancel();
             that._toastr.success('设置成功');
