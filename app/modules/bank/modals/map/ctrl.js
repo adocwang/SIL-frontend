@@ -13,29 +13,20 @@ export default class Controller {
     this._service = BankService;
 
     this.info = info;
-
-    this.inputInfo = {
-      name: ''
-    };
-
-    this.autoCompleteOptions = {
-      minimumChars: 1,
-      data: function (term) {
-        term = term.toUpperCase();
-        var match = _.filter(info.agencyList, function (value) {
-            return value.startsWith(term);
-        });
-        return match;
-      }
+    if (this.info.coordinates == null ) {
+      this.longitude = 114.062663,
+      this.latitude = 22.549316
+    } else {
+      [this.longitude, this.latitude] = this.info.coordinates.split(",");
     }
 
     this.opts = {
       center: {
-        longitude: 116.404,
-        latitude: 39.915
+        longitude: this.longitude,
+        latitude: this.latitude
       },
       zoom: 11,
-      city: 'BeiJing',
+      city: 'ShenZhen',
       enableScrollWheelZoom: true
     }
   }
@@ -54,7 +45,7 @@ export default class Controller {
           that._service.set({
             id: that.info.id,
             address: addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber,
-            coordinates: that.lat+ "," + that.lng
+            coordinates: that.lng+ "," + that.lat
           }).then(data => {
             that.cancel();
             that._toastr.success('设置成功');

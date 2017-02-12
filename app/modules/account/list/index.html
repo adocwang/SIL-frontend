@@ -71,6 +71,7 @@
         <th class="col-m-1 text-center">手机号</th>
         <th class="col-m-1 text-center">所属角色</th>
         <th class="col-m-1 text-center">银行名称</th>
+        <th class="col-m-1 text-center">状态</th>
         <th class="col-m-1 text-center">操作</th>
       </tr>
       <tr ng-repeat="item in vm.list">
@@ -79,6 +80,12 @@
         <td>{{item.phone}}</td>
         <td>{{item.role_name}}</td>
         <td>{{item.bank_name}}</td>
+        <td>
+          <span class="text-muted" ng-if="item.state==0">未激活</span>
+          <span class="text-success" ng-if="item.state==1">正常</span>
+          <span class="text-danger" ng-if="item.state==2">已冻结</span>
+          <span class="text-danger" ng-if="item.state==3">已删除</span>
+        </td>
         <td><a ui-sref="account.detail({id: item.id})">查看<i class="icon-angle-right"></i></a></td>
       </tr>
     </table>
