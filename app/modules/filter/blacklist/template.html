@@ -1,0 +1,48 @@
+<section class="content-header">
+  <button type="button" class="btn btn-success pull-right m-l-sm" style="position: relative; z-index: 2;"
+          ng-click="vm.add()"><i class="icon-Plus"></i> 添加
+  </button>
+
+  <div class="options">
+    <div class="option-item option-time">
+      <ul class="clearfix">
+        <li>
+          <div class="input-group search-box">
+            <input ng-model="vm.filters.name" type="text" placeholder="请输公司名查询" class="form-control"
+                    code="13" key-event="vm.reSearch();">
+            <span class="input-group-btn">
+              <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+</section>
+
+<section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
+  <empty-tip ng-if="vm.list.length === 0"></empty-tip>
+
+  <div class="panel" ng-if="vm.list.length > 0">
+    <table class="table table-striped text-center">
+      <tr>
+        <th class="col-m-5 text-center">公司名称</th>
+        <!-- <th class="col-m-2 text-center">备注</th> -->
+        <th class="col-m-2 text-center">操作</th>
+      </tr>
+      <tr ng-repeat="item in vm.list">
+        <td>{{item.name}}</td>
+        <!-- <td>
+          <span class="text-success" ng-if="item.state==1">正常</span>
+          <span class="text-danger" ng-if="item.state==3">已删除</span>
+        </td> -->
+        <td>
+          <a href="javascript:void(0)" class="text-danger" ng-click="vm.del(item)">删除</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <mc-pagination total-items="vm.pagination.count" items-per-page="vm.pagination.pageSize" current-page="vm.pagination.page" page-change="vm.pageChanged()"></mc-pagination>
+
+</section>
+
