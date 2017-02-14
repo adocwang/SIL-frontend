@@ -4,7 +4,7 @@ import {branchConfig, manageConfig} from '../modals';
 
 class ListController extends Pagination {
 
-  constructor($injector, $state, $location, $stateParams, toastr, $uibModal, EnterpriseService) {
+  constructor($injector, $state, $location, $stateParams, sweet, toastr, $uibModal, EnterpriseService) {
     'ngInject';
 
     super($injector);
@@ -14,6 +14,7 @@ class ListController extends Pagination {
     this._stateParams = $stateParams;
     this._modal = $uibModal;
 
+    this._sweet = sweet;
     this._toastr = toastr;
 
     this._service = EnterpriseService;
@@ -105,15 +106,35 @@ class ListController extends Pagination {
   }
 
   assign(item) {
-    const resolve = {
-      info: function(){
-        return item;
-      }
-    };
+    let {bank} = item;
+    if (bank && bank.id) {
+      const resolve = {
+        info: function(){
+          return item;
+        }
+      };
 
-    const options = {...manageConfig, resolve};
+      const options = {...manageConfig, resolve};
 
-    this._modal.open( options );
+      this._modal.open( options );
+    } else {
+      this._sweet.show({
+        title: '请先分配银行',
+        showCancelButton: false,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        closeOnConfirm: true,
+        imageUrl: '/images/common/warning.png'
+      }, sure => {
+        // if (sure) {
+        //   this.careList.splice(index, 1);
+        //   this._toastr.success('删除成功！', '提示');
+        // } else {
+        //   return;
+        // }
+      });
+    }
   }
 
   assignBranch(item) {

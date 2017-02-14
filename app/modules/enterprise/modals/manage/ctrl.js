@@ -30,8 +30,16 @@ export default class Controller {
   }
 
   _getUserList() {
-    this._service.getUserList({state: 1, page_limit: 1000}).then(data => {
-      this.list = data.users.filter( item => {return item.role_name == 'ROLE_CUSTOMER_MANAGER';} );
+    let {bank} = this.info;
+    let params = {
+      state: 1,
+      bank_id: bank.id,
+      bank_name: bank.name,
+      role_en_name: 'ROLE_CUSTOMER_MANAGER',
+      page_limit: 1000
+    };
+    this._service.getUserList(params).then(data => {
+      this.list = data.users;
     })
   }
 

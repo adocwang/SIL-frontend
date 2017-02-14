@@ -15,6 +15,7 @@ import sysconfigModule        from './sysconfig/module';
 
 import processModule      from './process/module';
 import loanModule         from './loan/module';
+import filterModule      from './filter/module';
 
 export default angular.module('app.modules', [
   dashboardModule.name,
@@ -30,4 +31,5 @@ export default angular.module('app.modules', [
   processModule.name,
   sysconfigModule.name,
   loanModule.name,
+  filterModule.name,
 ]);

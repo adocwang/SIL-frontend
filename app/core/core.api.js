@@ -47,6 +47,13 @@ const api = {
 		tipsGet: `${prefix}/cm_tip/get/{id}`,
 		tipsSet: `${prefix}/cm_tip/set`,
 		tipsAdd: `${prefix}/cm_tip/add`
+	},
+	filter: {
+		blacklist: {
+			list: `${prefix}/blacklist/list`,
+			add: `${prefix}/blacklist/add`,
+			del: `${prefix}/blacklist/del`,
+		}
 	}
 }
 
