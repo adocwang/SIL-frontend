@@ -2,7 +2,7 @@
 
 git checkout gh-pages
 git pull --rebase
-git merge master
+git merge master --no-ff
 rm -rf build
 npm run build
 git add .
