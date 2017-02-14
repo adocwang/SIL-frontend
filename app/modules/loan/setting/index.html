@@ -1,0 +1,82 @@
+<section class="content-header">
+  <h4 class="title">贷款决策条件设置</h4>
+</section>
+
+<section class="content body-content block-ui block-ui-message-custom" block-ui="main">
+  <form name="Form" class="form-horizontal">
+
+    <div class="form-group" ng-repeat="project in vm.loanList">
+      <div class="col-sm-1">
+        <label class="control-label">条件名称</label>
+      </div>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" ng-model="project.title" validator="required">
+      </div>
+      <div class="col-sm-6">
+        <div class="clearfix">
+          <label class="col-sm-2 control-label">条件类型</label>
+          <div class="col-sm-2">
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{vm.typeList[project.option_type]}}
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" style="min-width: 60px">
+                <li><a ng-click="project.option_type='integer';vm.typeChange(project)" href="javascript:void(0)">数值</a></li>
+                <li><a ng-click="project.option_type='string';vm.typeChange(project)" href="javascript:void(0)">文本</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <label class="control-label">默认分数</label>
+          </div>
+          <div class="col-sm-2">
+            <input type="text" class="form-control" ng-model="project.default_point" validator="required">
+          </div>
+          <!-- <div class="col-sm-2 text-center pull-right control-label">
+            <a href="javascript:void(0);" ng-click="vm.addItem(project)">添加字段</a>
+          </div> -->
+        </div>
+        <div class="form-group" ng-repeat="item in project.options" style="margin:0px;">
+          <div class="clearfix m-b-sm">
+            <label class="col-sm-1 control-label" style="width: 10%">符号</label>
+            <div class="col-sm-2">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{item.condition}}
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" style="min-width: 60px">
+                  <li ng-repeat="condition in vm.conditionList[project.option_type]"><a ng-click="item.condition=condition;" href="javascript:void(0)">{{condition}}</a></li>
+                </ul>
+              </div>
+            </div>
+            <label class="col-sm-1 control-label" style="width: 13%">字段值</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" ng-model="item.title" validator="required">
+            </div>
+            <label class="col-sm-1 control-label" style="width: 10%">分数</label>
+            <div class="col-sm-2">
+              <input type="text" class="form-control" ng-model="item.point" validator="required">
+            </div>
+            <div class="col-sm-1 control-label pull-right" style="width: 10%">
+              <a href="javascript:void(0);" class="text-danger" ng-click="vm.deleteItem(project, $index)">删除</a>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-4 text-center pull-right control-label">
+            <a href="javascript:void(0);" ng-click="vm.addItem(project)">添加字段</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1">
+        <button class="btn btn-default pull-right" ng-click="vm.addProject()" ng-if="$index == (vm.loanList.length-1)">添加条件</button>
+        <button class="btn btn-danger" ng-click="vm.deleteProject($index)" ng-if="$index >= 0 && $index < (vm.loanList.length-1)">删除条件</button>
+      </div>
+    </div>
+  </form>
+  <div class="m-l-xl m-b-md">
+    <button type="button" class="btn btn-success btn-sm" ng-click="vm.submit(Form)">保存</button>
+  </div>
+</section>

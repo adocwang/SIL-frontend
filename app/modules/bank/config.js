@@ -4,8 +4,8 @@ function Config($stateProvider) {
   $stateProvider
     .state('bank', {
         url: '/bank',
-        abstract: true,
-        template : '<ui-view></ui-view>',
+        //abstract: true,
+        template : '<ui-view><bank-list></bank-list></ui-view>',
         title: '银行管理',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
@@ -15,10 +15,7 @@ function Config($stateProvider) {
     .state('bank.list', {
         url: '',
         template: '<bank-list></bank-list>',
-        title: '银行列表',
-        sidebarMeta: {
-          order: 10
-        }
+        title: '银行列表'
     })
 
 }

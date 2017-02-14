@@ -14,6 +14,7 @@ import bankModule        from './bank/module';
 import sysconfigModule        from './sysconfig/module';
 
 import processModule      from './process/module';
+import loanModule         from './loan/module';
 import filterModule      from './filter/module';
 
 export default angular.module('app.modules', [
@@ -29,5 +30,6 @@ export default angular.module('app.modules', [
   bankModule.name,
   processModule.name,
   sysconfigModule.name,
+  loanModule.name,
   filterModule.name,
 ]);
