@@ -20,8 +20,17 @@ class Controller {
 
 
     this.conditionList = {
-      'string': ['='],
-      'integer': ['<', '<=', '>', '>=', '=']
+      'string': {
+        '=': '完全匹配',
+        'like': '包含 '
+      },
+      'integer': {
+        '<': '<',
+        '<=': '<=',
+        '>': '>',
+        '>=': '>=',
+        '=': '='
+      }
     };
 
     this.typeList = {
@@ -126,7 +135,7 @@ class Controller {
 
     this._service.setSpecial({
       key: 'loan_condition',
-      value: JSON.stringify(this.loanList)
+      value: angular.toJson(this.loanList)
     }).then(data => {
       this._toastr.success('保存成功');
     });

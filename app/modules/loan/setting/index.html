@@ -12,7 +12,7 @@
       <div class="col-sm-2">
         <input type="text" class="form-control" ng-model="project.title" validator="required">
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-7">
         <div class="clearfix">
           <label class="col-sm-2 control-label">条件类型</label>
           <div class="col-sm-2">
@@ -43,11 +43,11 @@
             <div class="col-sm-2">
               <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{item.condition}}
+                  {{vm.conditionList[project.option_type][item.condition]}}
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" style="min-width: 60px">
-                  <li ng-repeat="condition in vm.conditionList[project.option_type]"><a ng-click="item.condition=condition;" href="javascript:void(0)">{{condition}}</a></li>
+                  <li ng-repeat="(id, condition) in vm.conditionList[project.option_type]"><a ng-click="item.condition=id;" href="javascript:void(0)">{{condition}}</a></li>
                 </ul>
               </div>
             </div>
