@@ -1,6 +1,6 @@
 {
   "app.css": "app-30bdb36ca8.css",
-  "app.js": "app-dc44b9e5ba.js",
+  "app.js": "app-393284f8e9.js",
   "common/bg_avatar.png": "common/bg_avatar-f69bbf430c.png",
   "common/blank.gif": "common/blank-fc94fb0c3e.gif",
   "common/closedoor.png": "common/closedoor-8967f96621.png",
@@ -15,5 +15,5 @@
   "modules/tv_pic_big.png": "modules/tv_pic_big-1f714aab50.png",
   "modules/tv_pic_small.png": "modules/tv_pic_small-557fad4040.png",
   "vendor.css": "vendor-4cf79c9f97.css",
-  "vendor.js": "vendor-715d2fb4b5.js"
+  "vendor.js": "vendor-2663a494d5.js"
 }
