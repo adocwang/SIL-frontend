@@ -56,7 +56,7 @@ class Controller {
   _getTemplate() {
     this._service.get(this.key).then(data => {
       if(data) {
-        this.collectList = JSON.parse(data);
+        this.collectList = angular.fromJson(data);
       } else {
         this.initCollectInfo();
       }
@@ -138,7 +138,7 @@ class Controller {
 
     this._service.set({
       key: this.key,
-      value: JSON.stringify(this.collectList)
+      value: angular.toJson(this.collectList)
     }).then(data => {
       this._toastr.success('保存成功');
     });

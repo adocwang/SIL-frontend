@@ -148,7 +148,7 @@ class Controller {
 
     this._service.get(this.key).then(data => {
       if(data) {
-        this.list = JSON.parse(data);
+        this.list = angular.fromJson(data);
       } else {
         this.initCollect();
       }
@@ -210,7 +210,7 @@ class Controller {
   saveFunc(form) {
     this._service.set({
       key: this.key,
-      value: JSON.stringify(this.list)
+      value: angular.toJson(this.list)
     }).then(data => {
       form.$pristine = true;
       this._toastr.success('添加成功');
