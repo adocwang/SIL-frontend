@@ -29,7 +29,7 @@ class ListController extends Pagination {
   _get() {
     //let params = this._filterEmptyValue();
 
-    this._service.getSpecial('refresh_time').then(data => {
+    this._service.get('refresh_time').then(data => {
       this.keyValue = data;
     });
   }
@@ -39,7 +39,7 @@ class ListController extends Pagination {
       key: "refresh_time",
       value: this.keyValue
     };
-    this._service.setSpecial(data).then(data => {
+    this._service.set(data).then(data => {
       this._toastr.success('设置成功');
       this.cancel();
       this._state.reload();

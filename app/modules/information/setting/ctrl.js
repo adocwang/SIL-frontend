@@ -18,6 +18,8 @@ class Controller {
 
     this.filters = {};
 
+    this.key = 'finding.template';
+
 
     this.typeList = [
       {
@@ -52,12 +54,14 @@ class Controller {
   }
 
   _getTemplate() {
-    this._service.getSpecial('finding.template').then(data => {
+    this._service.get(this.key).then(data => {
       if(data) {
         this.collectList = JSON.parse(data);
       } else {
         this.initCollectInfo();
       }
+    }).catch(e => {
+      this.initCollectInfo();
     });
   }
 
@@ -128,12 +132,12 @@ class Controller {
   }
 
   saveFunc() {
-    console.log('submit')
+    // console.log('submit')
 
-    console.log(this.collectList, JSON.stringify(this.collectList));
+    // console.log(this.collectList, JSON.stringify(this.collectList));
 
-    this._service.setSpecial({
-      key: 'finding.template',
+    this._service.set({
+      key: this.key,
       value: JSON.stringify(this.collectList)
     }).then(data => {
       this._toastr.success('保存成功');

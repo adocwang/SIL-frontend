@@ -3,22 +3,30 @@ function Config($stateProvider) {
 
   $stateProvider
     .state('filter', {
-        url: '/filter',
-        abstract: true,
-        template : '<ui-view></ui-view>',
-        title: '企业筛选',
-        sidebarMeta: {
-          icon: 'icon-sidebar_members_ic',
-          order: 400,
-        }
+      url: '/filter',
+      abstract: true,
+      template : '<ui-view></ui-view>',
+      title: '企业筛选',
+      sidebarMeta: {
+        icon: 'icon-sidebar_members_ic',
+        order: 400,
+      }
     })
     .state('filter.blacklist', {
-        url: '?page&name',
-        template: '<filter-blacklist></filter-blacklist>',
-        title: '黑名单',
-        sidebarMeta: {
-          order: 30
-        }
+      url: '?page&name',
+      template: '<filter-blacklist></filter-blacklist>',
+      title: '黑名单',
+      sidebarMeta: {
+        order: 30
+      }
+    })
+    .state('filter.condition', {
+      url: '/condition',
+      template: '<filter-condition></filter-condition>',
+      title: '准入条件',
+      sidebarMeta: {
+        order: 50
+      }
     })
     // .state('filter.add', {
     //   url: '/add?id',

@@ -2,9 +2,9 @@
 const prefix = 'http://silapi.adoc.wang';
 const api = {
 	config: {
-		get: `${prefix}/client_config/list/web`,
-		getSpecial: `${prefix}/client_config/get_special/{key}`,
-		setSpecial: `${prefix}/client_config/set_special`,
+		list: `${prefix}/client_config/list/web`,
+		get: `${prefix}/client_config/get_special/{key}`,
+		set: `${prefix}/client_config/set_special`,
 	},
 	message: {
 		getList: `${prefix}/message/list`,
