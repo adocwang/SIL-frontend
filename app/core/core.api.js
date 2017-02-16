@@ -54,6 +54,9 @@ const api = {
 			add: `${prefix}/blacklist/add`,
 			del: `${prefix}/blacklist/del`,
 		}
+	},
+	loan: {
+		get: `${prefix}/loan_decision/get_result`
 	}
 }
 

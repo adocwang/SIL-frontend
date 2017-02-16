@@ -1,0 +1,41 @@
+<section class="content-header">
+  <h4 class="title">贷款决策条件设置</h4>
+</section>
+
+<section class="content body-content block-ui block-ui-message-custom" block-ui="main">
+  <form name="Form" class="form-horizontal">
+
+    <div class="form-group" ng-repeat="project in vm.loanList">
+      <div class="col-sm-2" style="width:10%">
+        <label class="control-label">条件名称：</label>
+      </div>
+      <div class="col-sm-2">
+        <label class="control-label">{{project.title}}</label>
+      </div>
+      <div class="col-sm-1">
+        <label class="control-label">字段值：</label>
+      </div>
+      <div class="col-sm-3">
+          <input type="text" class="form-control" ng-model="project.value" validator="required">
+      </div>
+      <div class="col-sm-1">
+        <label class="control-label">分数：</label>
+      </div>
+      <div class="col-sm-1">
+        <label class="control-label">{{project.point}}</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-1">
+        <label class="control-label">总分：</label>
+      </div>
+      <div class="col-sm-2">
+        <label class="control-label">100</label>
+      </div>
+    </div>
+  </form>
+  <div class="m-l-xl m-b-md">
+    <button class="btn btn-primary" ng-click="vm.reCount(Form)">重新计算</button>
+    <button type="button" class="btn btn-success btn-sm" ng-click="vm.submit(Form)">保存</button>
+  </div>
+</section>
