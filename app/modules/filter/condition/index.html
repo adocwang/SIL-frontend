@@ -1,0 +1,83 @@
+<section class="content-header clearfix">
+  <h4 class="title">
+    设置准入条件
+  </h4>
+  <!-- <a href="javascript:void(0)" class="btn btn-default pull-right" ng-click="$root.back();">返回</a> -->
+</section>
+<section class="content body-content block-ui block-ui-message-custom message-detail p-m" block-ui="main">
+	<form class="form-horizontal" name="vm.Form">
+    <!-- <div class="form-group clearfix">
+      <label for="noteInput" class="col-sm-1 control-label">标题：</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" ng-model="vm.inputInfo.title" placeholder="请输入"
+          validator="required">
+      </div>
+    </div>
+    <div class="form-group clearfix">
+	    <div class="clearfix">
+	      <label for="noteInput" class="col-sm-1 control-label">内容：</label>
+      </div>
+    	<div class="col-sm-6">
+				<mdeditor default-text="vm.defaultContent" text="vm.inputInfo.content"></mdeditor>
+				<input type="hidden" ng-model="vm.inputInfo.content" validator="required" />
+			</div>
+			<div class="col-sm-6">
+				<h5>内容预览</h5>
+				<p ng-bind-html="vm.html" style="background: #fff; height: 306px; overflow: auto; border: 1px solid #ddd; padding: 5px;"></p>
+			</div>
+    </div> -->
+    <div class="panel text-center">
+      
+      <div class="form-group clearfix">
+        <div class="col-sm-1 text-center">分组号</div>
+        <div class="col-sm-11">
+          <div class="col-sm-4">项目</div>
+          <div class="col-sm-1">类型</div>
+          <div class="col-sm-1">条件</div>
+          <div class="col-sm-4">值</div>
+          <div class="col-sm-2">操作</div>
+        </div>
+      </div>
+      <div class="form-group clearfix" ng-repeat="group in vm.list">
+        <div class="col-sm-1">{{$index + 1}}</div>
+        <div class="col-sm-11">
+          <div class="form-group clearfix" ng-repeat="item in group.list">
+            <div class="col-sm-4"><input type="text" class="form-control" ng-model="item.title" placeholder="请输入名称"
+            validator="required"></div>
+            <div class="col-sm-1">
+              <select class="form-control c-select" ng-model="item.type" ng-options="c.value as c.name for c in vm.typeList" validator="required">
+              </select>
+            </div>
+            <div class="col-sm-1">
+              <select class="form-control c-select" ng-model="item.condition" ng-options="c.value as c.name for c in vm.conditionList[item.type]" validator="required">
+              </select>
+            </div>
+            <div class="col-sm-4"><input type="text" class="form-control" ng-model="item.value" placeholder="请输入值"
+            validator="required"></div>
+            <div class="col-sm-2">
+              <a href="javascript:void(0);" class="text-danger" ng-click="vm.delItem(group, $index)">删除</a>
+            </div>
+          </div>
+          <div class="form-group clearfix">
+              <label class="control-label pull-left">分组条件关系设置：</label>
+              <div class="col-sm-3">
+                <select class="form-control c-select" ng-model="group.condition" ng-options="c.value as c.name for c in vm.groupCondition" validator="required">
+                </select>
+              </div>
+          </div>
+          <div class="m-t-md m-b-md m-l-xl text-left">
+            <button class="btn btn-sm btn-default" ng-click="vm.addItem(group)">组内添加</button>
+            <button class="btn btn-sm btn-danger" ng-click="vm.delGroup($index)">删除组</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-l-xl m-t-sm text-left">
+      <button class="btn btn-default" ng-click="vm.addGroup();">添加组</button>
+    </div>
+    
+  </form>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success btn-sm" ng-click="vm.submit(vm.Form)"> 保存</button>
+  </div>
+</section>

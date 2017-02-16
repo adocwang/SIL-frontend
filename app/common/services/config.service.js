@@ -12,11 +12,11 @@ export default class Service {
     this._state = $state;
   }
 
-  get(params) {
+  list(params) {
     
     this._httpHelper.blockUI.start();
 
-    return this._http.get(this._api.get, {params: params}).then(this._httpHelper.verify,  this._httpHelper.error);
+    return this._http.get(this._api.list, {params: params}).then(this._httpHelper.verify,  this._httpHelper.error);
   }
 
   set(data) {
@@ -26,18 +26,18 @@ export default class Service {
     return this._http.post(this._api.set, data).then(this._httpHelper.verify, this._httpHelper.error);
   }
 
-  getSpecial(key, params) {
+  get(key, params) {
     
     this._httpHelper.blockUI.start();
 
-    return this._http.get(this._api.getSpecial.replace(/\{key\}/, key), {params: params}).then(this._httpHelper.verify,  this._httpHelper.error);
+    return this._http.get(this._api.get.replace(/\{key\}/, key), {params: params}).then(this._httpHelper.verify,  this._httpHelper.error);
   }
 
-  setSpecial(data) {
+  // setSpecial(data) {
     
-    this._httpHelper.blockUI.start();
+  //   this._httpHelper.blockUI.start();
 
-    return this._http.post(this._api.setSpecial, data).then(this._httpHelper.verify, this._httpHelper.error);
-  }
+  //   return this._http.post(this._api.setSpecial, data).then(this._httpHelper.verify, this._httpHelper.error);
+  // }
 
 }
