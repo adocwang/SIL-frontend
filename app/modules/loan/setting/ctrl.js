@@ -48,7 +48,7 @@ class Controller {
   }
 
   _getTemplate() {
-    this._service.get('loan_condition').then(data => {
+    this._service.get('loan.decision_condition').then(data => {
       if(data && !jQuery.isEmptyObject(data)) {
         this.loanList = JSON.parse(data);
       } else {
@@ -134,7 +134,7 @@ class Controller {
     //console.log(this.loanList, JSON.stringify(this.loanList));
 
     this._service.set({
-      key: 'loan_condition',
+      key: 'loan.decision_condition',
       value: angular.toJson(this.loanList)
     }).then(data => {
       this._toastr.success('保存成功');
