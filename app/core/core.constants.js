@@ -14,6 +14,8 @@ const coreConstants = {
     weeks : ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
     months : _.range(1, 32) // 1-31号
   },
+
+  accessKey: 'role.access',
   
   //alarmTypeList: window.pageConf.alarmTypeList,
   cropOptions: {
