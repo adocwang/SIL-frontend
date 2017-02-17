@@ -23,13 +23,13 @@ function coreRun($rootScope, AppSettings, $log, $state, $stateParams, $location,
 
   $rootScope.$on('$stateChangeStart',
     (event, toState, toParams, fromState, fromParams) => {
-    if (access[toState.name] || whiteList.indexOf(toState.name) >= 0 ) {
-      return;
-    }
+    // if (access[toState.name] || whiteList.indexOf(toState.name) >= 0 ) {
+    //   return;
+    // }
 
-    toastr.error('页面不存在或没有权限', 'Forbidden');
+    // toastr.error('页面不存在或没有权限', 'Forbidden');
 
-    event.preventDefault();
+    // event.preventDefault();
   });
 
 
