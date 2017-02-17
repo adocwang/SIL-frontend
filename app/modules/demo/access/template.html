@@ -1,0 +1,31 @@
+<section class="content-header">
+  权限设置
+</section>
+
+<section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
+
+
+  <div class="panel">
+    <table class="table table-striped text-center">
+      <tr>
+        <th class="col-m-1 text-center">姓名</th>
+        <th class="col-m-1 text-center">性别</th>
+        <th class="col-m-1 text-center" ng-repeat="item in vm.roleList">{{item.name}}</th>
+      </tr>
+      <tr ng-repeat="item in vm.list">
+        <td>{{item.name}}</td>
+        <td>{{item.title}}</td>
+        <td ng-repeat="role in vm.roleList">
+          <label class="mc-radio">
+            <input type="checkbox" ng-model="vm.access[role.value][item.name]" />
+            <i class="icon-check"></i>
+          </label>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success btn-sm" ng-click="vm.submit()"> 保存</button>
+  </div>
+</section>
