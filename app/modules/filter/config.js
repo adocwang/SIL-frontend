@@ -9,7 +9,7 @@ function Config($stateProvider) {
       title: '企业筛选',
       sidebarMeta: {
         icon: 'icon-sidebar_members_ic',
-        order: 400,
+        order: 500,
       }
     })
     .state('filter.blacklist', {

@@ -9,7 +9,7 @@ function Config($stateProvider) {
         title: '投资机构',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
-          order: 300,
+          order: 350,
         }
     })
     // .state('investment.list', {
