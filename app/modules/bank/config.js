@@ -9,14 +9,14 @@ function Config($stateProvider) {
         title: '银行管理',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
-          order: 30,
+          order: 300,
         }
     })
-    .state('bank.list', {
-        url: '',
-        template: '<bank-list></bank-list>',
-        title: '银行列表'
-    })
+    // .state('bank.list', {
+    //     url: '',
+    //     template: '<bank-list></bank-list>',
+    //     title: '银行列表'
+    // })
 
 }
 

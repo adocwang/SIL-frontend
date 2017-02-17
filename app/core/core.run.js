@@ -1,4 +1,4 @@
-function coreRun($rootScope, AppSettings, $log, $state, $stateParams, $location, $window, $timeout, AccessControlService) {
+function coreRun($rootScope, AppSettings, $log, $state, $stateParams, $location, $window, $timeout, toastr, ProfileService) {
   'ngInject';
 
   // 把常用的工具挂载到$rootScope上, 在所有scope上直接可用
@@ -6,6 +6,31 @@ function coreRun($rootScope, AppSettings, $log, $state, $stateParams, $location,
   $rootScope.$state = $state;
   $rootScope.$stateParams = $stateParams;
   $rootScope.$location = $location;
+
+  const access = ProfileService.access;
+
+  // 所有人都能访问的白名单列表
+  const whiteList = [
+    'dashboard'
+  ];
+
+  const token = localStorage.getItem('SIL_TOKEN');
+  const uid = localStorage.getItem('SIL_UID');
+
+  if(!token || !uid) {
+    $window.location.href = '/login.html';
+  }
+
+  $rootScope.$on('$stateChangeStart',
+    (event, toState, toParams, fromState, fromParams) => {
+    // if (access[toState.name] || whiteList.indexOf(toState.name) >= 0 ) {
+    //   return;
+    // }
+
+    // toastr.error('页面不存在或没有权限', 'Forbidden');
+
+    // event.preventDefault();
+  });
 
 
   // change page title based on state

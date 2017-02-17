@@ -70,7 +70,14 @@ class Controller {
       id: 1,
       data: angular.toJson(this.loanList)
     };
-    this._getTemplate(data, '保存成功');
+    this._service.get(data).then(data => {
+      if(data && !jQuery.isEmptyObject(data)) {
+        this.loanList = data;
+        this._toastr.success('保存成功');
+      } else {
+        this.initCollectInfo();
+      }
+    });
   }
 
 }

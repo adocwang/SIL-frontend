@@ -9,7 +9,7 @@ function Config($stateProvider) {
         title: '贷款流程',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
-          order: 400,
+          order: 600,
         }
     })
     .state('process.tips', {

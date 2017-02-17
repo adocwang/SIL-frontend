@@ -30,7 +30,9 @@ class ListController extends Pagination {
     //let params = this._filterEmptyValue();
 
     this._service.get('refresh_time').then(data => {
-      this.keyValue = data;
+      if(typeof(data) == 'string') {
+        this.keyValue = data;
+      }
     });
   }
 

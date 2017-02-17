@@ -1,13 +1,12 @@
 class McSidebarServer {
 
-  constructor($rootScope, $state) {
+  constructor($state) {
     'ngInject';
 
     this.$state = $state;
     this.staticMenuItems = [];
     this._isMenuCollapsed = true;
 
-    this._scope = $rootScope;
   }
 
   getMenuItems() {

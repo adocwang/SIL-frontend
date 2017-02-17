@@ -28,6 +28,14 @@ function demoConfig($stateProvider) {
         order: 10
       }
     })
+    .state('demo.access', {
+      url: '/access',
+      template: '<demo-access></demo-access>',
+      title: 'access',
+      sidebarMeta: {
+        order: 10
+      }
+    })
     ;
 
 }
