@@ -9,7 +9,7 @@ function Config($stateProvider) {
         title: '企业采集设置',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
-          order: 500,
+          order: 600,
         }
     })
     // .state('information.list', {

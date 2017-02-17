@@ -9,14 +9,14 @@ function Config($stateProvider) {
         title: '日志管理',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
-          order: 20,
+          order: 2000,
         }
     })
-    .state('log.list', {
-        url: '',
-        template: '',
-        title: '日志列表'
-    })
+    // .state('log.list', {
+    //     url: '',
+    //     template: '',
+    //     title: '日志列表'
+    // })
     ;
 
 }

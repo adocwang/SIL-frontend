@@ -9,7 +9,7 @@ function Config($stateProvider) {
         title: '账号管理',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
-          order: 1,
+          order: 100,
         }
     })
     .state('account.list', {
