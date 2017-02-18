@@ -28,7 +28,7 @@ export default class httpHelper{
       if(res.data.code === 0) {
         resolve(res.data.data);
       }else {
-        this.toastr.error(res.data.code_info || this._errorInfo[res.data.code], '错误');
+        this.toastr.error(res.data.info || this._errorInfo[res.data.code], '错误');
         reject(res);
       }
     });
