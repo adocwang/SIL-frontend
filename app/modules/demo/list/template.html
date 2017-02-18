@@ -28,6 +28,18 @@
             </li>
         </ul>
     </div>
+    
+    <div class="option-item large">
+        <span class="item-title">时间选择：</span>
+           
+        <div class="item-content">
+             <a href="javascript:;" class="btn" ng-class="{'btn-default': true, 'btn-toggle active': !vm.filters.start_date && !vm.filters.end_date}" ng-click="vm.showAllTime()">
+                    全部
+            </a>
+            <mc-datepicker id="startDatePicker" start-date="vm.start_date" max-date="vm.startTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'date'" change-by="close"></mc-datepicker> --
+            <mc-datepicker id="endDatePicker" start-date="vm.end_date" min-date="vm.endTimeMinLimit" max-date="vm.endTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'date'" change-time="vm.changeTime('end')" change-by="close"></mc-datepicker>
+        </div>
+    </div>
 </section>
 
 <section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
