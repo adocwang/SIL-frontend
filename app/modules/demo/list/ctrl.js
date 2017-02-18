@@ -16,6 +16,12 @@ class ListController extends Pagination {
     this.genderList = AppSettings.genderList;
     this.filters = {};
 
+    this.start_date = moment();
+
+    this.end_date = moment();
+    this.startTimeMaxLimit = moment();
+    this.endTimeMaxLimit = moment();
+
     this._init();
 
   }
@@ -74,6 +80,25 @@ class ListController extends Pagination {
     const options = {...editConfiguration, resolve};
 
     this._modal.open( options );
+  }
+
+
+// datepicker
+  changeTime(type) {
+    let values = {
+        minDate: false,
+        maxDate: false
+    }
+    if (type == 'start') {
+      this.filters.start_date = this.start_date.format('YYYY-MM-DD');
+      this.endTimeMinLimit = this.start_date;
+      values.minDate = this.start_date;
+      values.maxDate = moment();
+    } else {
+      this.filters.end_date = this.end_date.format('YYYY-MM-DD');
+      this.startTimeMaxLimit = this.end_date;
+      values.maxDate = this.end_date;
+    }
   }
 
 }

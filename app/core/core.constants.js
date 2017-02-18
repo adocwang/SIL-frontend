@@ -22,6 +22,7 @@ const coreConstants = {
   },
 
   accessKey: 'role.access',
+  roleListKey: 'role.list',
   
   //alarmTypeList: window.pageConf.alarmTypeList,
   cropOptions: {
