@@ -11,10 +11,11 @@
             </span>
           </div>
         </li>
+        <li>
+          <mc-datepicker id="startDatePicker" start-date="vm.start_date" max-date="vm.startTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'minutes'" change-time="vm.changeTime('start')" change-by="close"></mc-datepicker> --
+          <mc-datepicker id="endDatePicker" start-date="vm.end_date" min-date="vm.endTimeMinLimit" max-date="vm.endTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'minutes'" change-time="vm.changeTime('end')" change-by="close"></mc-datepicker>
+        </li>
       </ul>
-    </div>
-    <div>
-      <mc-batch-upload-user></mc-batch-upload-user>
     </div>
 </section>
 

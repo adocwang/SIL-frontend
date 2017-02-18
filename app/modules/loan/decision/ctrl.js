@@ -18,6 +18,7 @@ class Controller {
     this._service = LoanService;
 
     this.filters = {};
+    this.loanList = [];
 
     this._init();
 
@@ -42,6 +43,14 @@ class Controller {
       data: angular.toJson(this.loanList)
     };
     this._getTemplate(data,'重新计算成功');
+  }
+
+  getTotal() {
+    var total = 0;
+    this.loanList.forEach(function(loan){
+      total += parseInt(loan.point);
+    });
+    return total;
   }
 
   _getTemplate(data, msg='') {

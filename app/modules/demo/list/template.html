@@ -36,8 +36,8 @@
              <a href="javascript:;" class="btn" ng-class="{'btn-default': true, 'btn-toggle active': !vm.filters.start_date && !vm.filters.end_date}" ng-click="vm.showAllTime()">
                     全部
             </a>
-            <mc-datepicker id="startDatePicker" start-date="vm.start_date" max-date="vm.startTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'date'" change-by="close"></mc-datepicker> --
-            <mc-datepicker id="endDatePicker" start-date="vm.end_date" min-date="vm.endTimeMinLimit" max-date="vm.endTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'date'" change-time="vm.changeTime('end')" change-by="close"></mc-datepicker>
+            <mc-datepicker id="startDatePicker" start-date="vm.start_date" max-date="vm.startTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'minutes'" change-by="close"></mc-datepicker> --
+            <mc-datepicker id="endDatePicker" start-date="vm.end_date" min-date="vm.endTimeMinLimit" max-date="vm.endTimeMaxLimit" time-source="" ctrl-alias="vm" min-view="'minutes'" change-time="vm.changeTime('end')" change-by="close"></mc-datepicker>
         </div>
     </div>
 </section>
