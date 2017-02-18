@@ -56,7 +56,8 @@ const api = {
 		}
 	},
 	loan: {
-		get: `${prefix}/loan_decision/get_result`
+		get: `${prefix}/loan_decision/get_result`,
+		set: `${prefix}/loan_decision/set_result`
 	}
 }
 
