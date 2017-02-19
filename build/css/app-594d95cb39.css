@@ -1147,6 +1147,21 @@ service-list .list.content-header .options .option-item ul li {
 .form-inline .block-line > div > label {
   margin-right: 15px;
 }
+.mc-message {
+  position: relative;
+}
+.mc-message .backen {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 18px;
+  height: 18px;
+  background-color: #f40;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50%;
+  text-align: center;
+}
 .message-list .mc-radio {
   margin: 0;
   padding: 0;
