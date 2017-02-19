@@ -1,6 +1,7 @@
 import angular from 'angular';
 import config  from './config';
 import service from './service';
+import filterValue from './filter';
 import List  from './list/';
 import Detail  from './detail/';
 
@@ -10,7 +11,7 @@ import Detail  from './detail/';
 
 
 export default angular.module('app.modules.enterprise', [])
-// .filter('filterType', filterType)
+.filter('filterValue', filterValue)
 .service('EnterpriseService', service)
 
 .component('enterpriseList', List)

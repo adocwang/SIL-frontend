@@ -37,11 +37,12 @@ class McMainHeaderController {
 
   getMsg() {
     this._msgService.getList({page: 1, page_limit: 10}).then(data => {
-      let len = data.filter(item => item.state === 0).length;
+      let unreadList = data.messages.filter(item => item.state === 0);
+      let len = unreadList.length;
       if (len > 0) {
-        let newMsgId = data[0].id;
+        let newMsgId = unreadList[0].id;
         if ( newMsgId != this.newMsgId) {
-          this._toastr.success(data[0].content, '新消息');
+          this._toastr.success(unreadList[0].content, '新消息');
           this.newMsgId = newMsgId;
         }
       }
