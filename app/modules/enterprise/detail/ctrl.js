@@ -33,8 +33,8 @@ class Controller {
   _getDetail() {
 
     this._service.get(this.id).then(data => {
-      console.log(data);
-      this.info = data;
+      // console.log(data);
+      this.info = data.detail;
       // this.info = mock_data.data;
     });
 
