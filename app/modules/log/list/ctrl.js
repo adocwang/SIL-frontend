@@ -17,6 +17,15 @@ class ListController extends Pagination {
     this._service = LogService;
 
     this.filters = {};
+
+    this.start_date = moment().add(-1, 'days');
+    this.filters.time_from = this.start_date.unix();
+    this.end_date = moment();
+    this.filters.time_to = this.end_date.unix();
+
+    this.startTimeMaxLimit = moment();
+    this.endTimeMaxLimit = moment();
+
     this._init();
 
   }
@@ -51,6 +60,25 @@ class ListController extends Pagination {
 
   reSearch() {
     this._getList();
+  }
+
+  // datepicker
+  changeTime(type) {
+    let values = {
+        minDate: false,
+        maxDate: false
+    }
+    if (type == 'start') {
+      this.filters.time_from = this.start_date.unix();
+      this.endTimeMinLimit = this.start_date;
+      values.minDate = this.start_date;
+      values.maxDate = moment();
+    } else {
+      this.filters.time_to = this.end_date.unix();
+      this.startTimeMaxLimit = this.end_date;
+      values.maxDate = this.end_date;
+    }
+    this.reSearch();
   }
 }
 
