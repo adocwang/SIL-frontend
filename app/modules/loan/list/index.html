@@ -1,0 +1,80 @@
+<section class="content-header">
+  <div class="options">
+    <div class="option-item option-time">
+      <ul class="clearfix">
+        <li>
+          <div class="input-group search-box">
+            <input ng-model="vm.filters.name" type="text" placeholder="请输查询" class="form-control"
+                    code="13" key-event="vm.reSearch();">
+            <span class="input-group-btn">
+              <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- 
+    <div class="option-item large">
+      <span class="item-title text-right">主理状态：</span>
+      <ul class="clearfix">
+          <li>
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.gender, 'btn-toggle': !vm.filters.gender, 'active': !vm.filters.gender}" ng-click="vm.switch('gender')">
+                  全部
+              </a>
+          </li>
+          <li ng-repeat="item in vm.roleMainStatus">
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.role_a_disable != item.value, 'btn-toggle': vm.filters.role_a_disable == item.value, 'active': vm.filters.role_a_disable == item.value}" ng-click="vm.switch('role_a_disable', item.value)">
+                  {{ item.label }}
+              </a>
+          </li>
+      </ul>
+    </div>
+    <div class="option-item large">
+      <span class="item-title text-right">企业状态：</span>
+      <ul class="clearfix">
+          <li>
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.state !== undefined, 'btn-toggle': vm.filters.state === undefined, 'active': vm.filters.state === undefined}" ng-click="vm.switch('state')">
+                  全部
+              </a>
+          </li>
+          <li ng-repeat="item in vm.enterpriseStateList">
+              <a href="javascript:;" class="btn" ng-class="{'btn-default': vm.filters.state != item.value, 'btn-toggle': vm.filters.state == item.value, 'active': vm.filters.state == item.value}" ng-click="vm.switch('state', item.value)">
+                  {{ item.label }}
+              </a>
+          </li>
+      </ul>
+    </div>
+    -->
+</section>
+
+<section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
+  <empty-tip ng-if="vm.list.length === 0"></empty-tip>
+
+  <div class="panel" ng-if="vm.list.length > 0">
+    <table class="table table-striped text-center">
+      <tr>
+        <th class="col-m-1 text-center">企业名称</th>
+        <th class="col-m-1 text-center">企业地址</th>
+        <th class="col-m-1 text-center">所属银行</th>
+        <th class="col-m-1 text-center">主理</th>
+        <th class="col-m-2 text-center">协理</th>
+        <th class="col-m-1 text-center">企业状态</th>
+        <th class="col-m-1 text-center">操作</th>
+      </tr>
+      <tr ng-repeat="item in vm.list">
+        <td>{{item.name}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.bank.name}}</td>
+        <td>{{item.role_a.true_name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_a', item)">{{item.manage_a && item.manage_a.userid? '变更': '分配'}}</button> --></td>
+        <td>{{item.role_b.true_name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_b', item)">{{item.manage_b && item.manage_b.userid? '变更': '分配'}}</button> --></td>
+        <td>{{item.state | filterValue: vm.enterpriseStateList}}</td>
+        <td>
+          <a ui-sref="loan.decision({id: item.id})">修正企业贷款信息</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <mc-pagination total-items="vm.pagination.count" items-per-page="vm.pagination.pageSize" current-page="vm.pagination.page" page-change="vm.pageChanged()"></mc-pagination>
+
+</section>

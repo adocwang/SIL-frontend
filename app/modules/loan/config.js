@@ -19,13 +19,18 @@ function Config($stateProvider) {
           order: 10
         }
     })
-    .state('loan.decision', {
-        url: '/decision?id',
-        template: '<loan-decision></loan-decision>',
-        title: '贷款辅助决策信息修正',
+    .state('loan.list', {
+        url: '/list',
+        template: '<loan-list></loan-list>',
+        title: '贷款企业列表',
         sidebarMeta: {
           order: 20
         }
+    })
+    .state('loan.decision', {
+        url: '/decision?id',
+        template: '<loan-decision></loan-decision>',
+        title: '贷款辅助决策信息修正'
     })
     ;
 
