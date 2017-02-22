@@ -1,5 +1,5 @@
 export default class Controller {
-  constructor($scope, $state, $validation, $uibModalInstance, toastr, FilterService, info) {
+  constructor($scope, $state, $validation, $uibModalInstance, toastr, EnterpriseService, info) {
     'ngInject';
 
     this._scope = $scope;
@@ -10,7 +10,7 @@ export default class Controller {
     this._modalInstance = $uibModalInstance;
     this._toastr = toastr;
 
-    this._service = FilterService;
+    this._service = EnterpriseService;
 
     this.info = info;
 
@@ -35,7 +35,7 @@ export default class Controller {
 
   saveFunc() {
     const data = this.inputInfo;
-    this._service.addBlackList(data).then(data => {
+    this._service.add(data).then(data => {
       this._toastr.success('添加成功');
       this.cancel();
       this._state.reload();
