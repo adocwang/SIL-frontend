@@ -7,6 +7,7 @@ export default class Service {
     this._httpHelper = httpHelper;
 
     this._api = ApiMap.loan;
+    this._eapi  = ApiMap.enterprise;
 
     this._rootScope = $rootScope;
     this._state = $state;
@@ -26,4 +27,10 @@ export default class Service {
     return this._http.post(this._api.set, params).then(this._httpHelper.verify,  this._httpHelper.error);
   }
 
+  getList(params) {
+    
+    this._httpHelper.blockUI.start();
+
+    return this._http.post(this._eapi.getList, params).then(this._httpHelper.verify,  this._httpHelper.error);
+  }
 }

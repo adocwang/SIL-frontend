@@ -22,7 +22,8 @@ class Controller {
     this.conditionList = {
       'string': {
         '=': '完全匹配',
-        'like': '包含 '
+        'like': '包含',
+        'not_like': '不包含'
       },
       'integer': {
         '<': '<',

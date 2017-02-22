@@ -5,7 +5,7 @@ export default function httpInterceptor($q, $window, $injector, $rootScope) {
 
       response: function (response) {
         const deferred = $q.defer();
-        if (response.data && (response.data.code == 406 || response.data.code == 2002)) {
+        if (response.data && (response.data.code == 406 || response.data.code == 402 || response.data.code == 405)) {
             $window.location.href = '/login.html';
         }
 
@@ -20,7 +20,7 @@ export default function httpInterceptor($q, $window, $injector, $rootScope) {
 // localStorage.getItem('SIL_TOKEN') || 
         // $http.defaults.headers.common['authorization']
         // config.headers['extra'] = '{"token":"iamsuperman:15828516285"}';
-        config.headers['extra'] = localStorage.getItem('SIL_TOKEN') ? ('{"token":"' +localStorage.getItem('SIL_TOKEN') + '"}'): '{"token":"iamsuperman:15828516285"}';
+        config.headers['extra'] = localStorage.getItem('SIL_TOKEN') ? ('{"token":"' +localStorage.getItem('SIL_TOKEN') + '","platform":"web","version":"1.0.0"}'): '';
         $rootScope.AUTHORIZATION_TOKEN = config.headers['extra'];
 
         if(!config.headers['extra']) {

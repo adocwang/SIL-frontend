@@ -44,19 +44,19 @@ class Controller {
     this.groupCondition = [
       {
         value: 'all',
-        name: '满足所有条件方可准入'
+        name: '必须全部满足'
       },
       {
         value: 'one',
-        name: '满足至少一个方可准入'
+        name: '满足一个即可'
       },
       {
         value: 'oneNot',
-        name: '满足一个禁入'
+        name: '不同时满足'
       },
       {
         value: 'allNot',
-        name: '满足所有条件禁入'
+        name: '不能满足任何一个'
       },
     ];
 

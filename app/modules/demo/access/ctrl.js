@@ -14,30 +14,20 @@ class ListController {
     this._toastr = toastr;
 
     this.key = AppSettings.accessKey;
+    this.roleKey = AppSettings.roleListKey;
 
-    this.roleList = [
-      {
-        value: 'ROLE_ADMIN',
-        name: '总行行长'
-      },
-      {
-        value: 'ROLE_BRANCH_PRESIDENT',
-        name: '分行行长'
-      },
-      {
-        value: 'ROLE_END_PRESIDENT',
-        name: '支行行长'
-      },
-      {
-        value: 'ROLE_CUSTOMER_MANAGER',
-        name: '客户经理'
-      }
-    ];
+    this.roleList = [];
     this.getMenuItems();
     this._get();
   }
 
   _get() {
+
+    this._service.get(this.roleKey).then(data => {
+      if(data) {
+        this.roleList = angular.fromJson(data);
+      }
+    });
     this._service.get(this.key).then(data => {
       if(data) {
         this.access = angular.fromJson(data);

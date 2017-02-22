@@ -71,9 +71,11 @@
         </div>
       </div>
       <div class="col-sm-1">
-        <button class="btn btn-default pull-right" ng-click="vm.addProject()" ng-if="$index == (vm.loanList.length-1)">添加条件</button>
-        <button class="btn btn-danger" ng-click="vm.deleteProject($index)" ng-if="$index >= 0 && $index < (vm.loanList.length-1)">删除条件</button>
+        <button class="btn btn-danger" ng-click="vm.deleteProject($index)">删除条件</button>
       </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-default" ng-click="vm.addProject()">添加条件</button>
     </div>
   </form>
   <div class="m-l-xl m-b-md">
