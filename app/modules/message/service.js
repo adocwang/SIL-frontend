@@ -19,9 +19,9 @@ export default class Service {
     return this._http.get(this._api.get.replace(/\{id\}/, id)).then(this._httpHelper.verify,  this._httpHelper.error);
   }
 
-  getList(params) {
+  getList(params, hideLoading) {
     
-    this._httpHelper.blockUI.start();
+    !hideLoading && this._httpHelper.blockUI.start();
 
     return this._http.post(this._api.getList, params).then(this._httpHelper.verify,  this._httpHelper.error);
   }
