@@ -48,6 +48,7 @@ class Controller {
   getTotal() {
     var total = 0;
     this.loanList.forEach(function(loan){
+      loan.value = loan.value + '';
       total += parseInt(loan.point);
     });
     return total;

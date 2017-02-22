@@ -57,7 +57,7 @@ export default class ProfileService {
 
         return this._http.post(this._api.get, data).then(this._httpHelper.verify,  this._httpHelper.error).then(data => {
             this.info.name = data.true_name;
-            this.role = data.role;
+            this.info.role = data.role;
             this.setSession('SIL_ROLE', data.role);
             this.getUserAccess();
         });
@@ -65,14 +65,14 @@ export default class ProfileService {
 
     hanldeAccess(data) {
         let accessList = angular.fromJson(data);
-        if(accessList && accessList[this.role]) {
+        if(accessList && accessList[this.info.role]) {
             let keys = Object.keys(this.access);
             keys.forEach(key => {
                 if(!accessList[key]) {
                     delete this.access[key];
                 }
             });
-            angular.extend(this.access, accessList[this.role]);
+            angular.extend(this.access, accessList[this.info.role]);
         }
     }
 

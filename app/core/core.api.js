@@ -22,6 +22,7 @@ const api = {
 		getList: `${prefix}/enterprise/list`,
 		get: `${prefix}/enterprise/{id}`,
 		set: `${prefix}/enterprise/set`,
+		add: `${prefix}/enterprise/add`,
 	},
 	person: {
 		get: `${prefix}/user/get`,
