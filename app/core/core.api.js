@@ -38,7 +38,9 @@ const api = {
 	bank: {
 		get: `${prefix}/bank/list`,
 		add: `${prefix}/bank/add`,
-		set: `${prefix}/bank/set`
+		set: `${prefix}/bank/set`,
+		downloadTemplate: `${prefix}/export/bank_template`,
+		import: `${prefix}/import/bank`
 	},
 	log: {
 		list: `${prefix}/log/list`

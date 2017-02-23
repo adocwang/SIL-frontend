@@ -6,7 +6,7 @@ function Config($stateProvider) {
         url: '/bank',
         //abstract: true,
         template : '<ui-view><bank-list></bank-list></ui-view>',
-        title: '银行管理',
+        title: '机构管理',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
           order: 300,

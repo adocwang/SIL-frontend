@@ -8,6 +8,7 @@ import resizable       from './resizable.directive';
 import emptyTip        from './emptyTip.directive';
 import mcBatchUploadVc from './mcBatchUploadVc';
 import mcBatchUploadUser from './mcBatchUploadUser';
+import mcBatchUploadBank from './mcBatchUploadBank';
 
 
 export default angular.module('app.common.directives', [
@@ -21,3 +22,4 @@ export default angular.module('app.common.directives', [
 .directive('emptyTip', emptyTip)
 .directive('mcBatchUploadVc', mcBatchUploadVc)
 .directive('mcBatchUploadUser', mcBatchUploadUser)
+.directive('mcBatchUploadBank', mcBatchUploadBank)

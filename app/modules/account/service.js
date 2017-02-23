@@ -42,7 +42,7 @@ export default class Service {
 
   getBankList(params) {
     this._httpHelper.blockUI.start();
-    return this._http.get(this._apiMap.bank.get, {params: params})
+    return this._http.post(this._apiMap.bank.get, params)
       .then(this._httpHelper.verify, this._httpHelper.error);
   }
 
