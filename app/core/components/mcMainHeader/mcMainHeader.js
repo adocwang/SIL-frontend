@@ -36,7 +36,7 @@ class McMainHeaderController {
   }
 
   getMsg() {
-    this._msgService.getList({page: 1, page_limit: 10}).then(data => {
+    this._msgService.getList({page: 1, page_limit: 10}, true).then(data => {
       let unreadList = data.messages.filter(item => item.state === 0);
       let len = unreadList.length;
       if (len > 0) {

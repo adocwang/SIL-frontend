@@ -25,12 +25,15 @@
   <div class="panel" ng-if="vm.list.length > 0">
     <table class="table table-striped text-center">
       <tr>
-        <th class="col-m-5 text-center">公司名称</th>
-        <!-- <th class="col-m-2 text-center">备注</th> -->
+        <th class="col-m-3 text-center">公司名称</th>
+        <th class="col-m-3 text-center">信息来源</th>
+        <th class="col-m-4 text-center">备注</th>
         <th class="col-m-2 text-center">操作</th>
       </tr>
       <tr ng-repeat="item in vm.list">
         <td>{{item.name}}</td>
+        <td>{{item.source}}</td>
+        <td>{{item.note}}</td>
         <!-- <td>
           <span class="text-success" ng-if="item.state==1">正常</span>
           <span class="text-danger" ng-if="item.state==3">已删除</span>

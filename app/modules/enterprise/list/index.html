@@ -1,4 +1,7 @@
 <section class="content-header">
+  <button type="button" class="btn btn-success pull-right m-l-sm" style="position: relative; z-index: 2;"
+          ng-click="vm.add()"><i class="icon-Plus"></i> 添加
+  </button>
   <div class="options">
     <div class="option-item option-time">
       <ul class="clearfix">
@@ -53,7 +56,7 @@
       <tr>
         <th class="col-m-1 text-center">企业名称</th>
         <th class="col-m-1 text-center">企业地址</th>
-        <th class="col-m-1 text-center">所属银行</th>
+        <th class="col-m-1 text-center">所属机构</th>
         <th class="col-m-1 text-center">主理</th>
         <th class="col-m-2 text-center">协理</th>
         <th class="col-m-1 text-center">企业状态</th>
@@ -67,7 +70,9 @@
         <td>{{item.role_b.true_name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_b', item)">{{item.manage_b && item.manage_b.userid? '变更': '分配'}}</button> --></td>
         <td>{{item.state | filterValue: vm.enterpriseStateList}}</td>
         <td>
-          <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配支行</a>
+        <!-- ng-if="vm.profile.role == 'ROLE_BRANCH_PRESIDENT'" -->
+         <!-- ng-if="vm.profile.role == 'ROLE_END_PRESIDENT'" -->
+          <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配机构</a>
           <a href="javascript:void(0)" ng-click="vm.assign(item)">分配客户经理</a>
           <a ui-sref="enterprise.detail({id: item.id})">查看详情</a>
           <!-- <a href="javascript:void(0)" ng-click="vm.del(item)">删除</a>

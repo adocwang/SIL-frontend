@@ -28,14 +28,22 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a ng-click="vm.inputInfo.role_name='管理员';vm.inputInfo.role='ROLE_ADMIN'" href="javascript:void(0)">管理员</a></li>
-          <li><a ng-click="vm.inputInfo.role_name='分行行长';vm.inputInfo.role='ROLE_BRANCH_PRESIDENT'" href="javascript:void(0)">分行行长</a></li>
-          <li><a ng-click="vm.inputInfo.role_name='支行行长';vm.inputInfo.role='ROLE_END_PRESIDENT'" href="javascript:void(0)">支行行长</a></li>
-          <li><a ng-click="vm.inputInfo.role_name='客户经理';vm.inputInfo.role='ROLE_CUSTOMER_MANAGER'" href="javascript:void(0)">客户经理</a></li>
+          <li ng-repeat="role in vm.roleList"><a ng-click="vm.inputInfo.role_name=role.name;vm.inputInfo.role=role.value" href="javascript:void(0)">{{role.name}}</a></li>
         </ul>
       </div>
     </div>
-
+    <div class="form-group clearfix">
+      <label for="noteInput" class="col-sm-4 control-label">所属机构：</label>
+      <div class="btn-group col-sm-6">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{vm.inputInfo.bank_name}}
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <li ng-repeat="bank in vm.bankList"><a ng-click="vm.inputInfo.bank_name=bank.name;vm.inputInfo.bank_id=bank.id" href="javascript:void(0)">{{bank.name}}</a></li>
+        </ul>
+      </div>
+    </div>
   </form>
   <div class="modal-footer">
     <button type="button" class="btn btn-default btn-sm" ng-click="vm.cancel()">取消</button>

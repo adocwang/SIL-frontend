@@ -1,5 +1,5 @@
 export default class Controller {
-  constructor($scope, $state, $validation, $uibModalInstance, toastr, AccountService, info) {
+  constructor($scope, $state, $validation, $uibModalInstance, toastr, AccountService, info, AppSettings, ConfigService) {
     'ngInject';
 
     this._scope = $scope;
@@ -11,8 +11,13 @@ export default class Controller {
     this._toastr = toastr;
 
     this._service = AccountService;
+    this._configService = ConfigService;
+
+    this.roleKey = AppSettings.roleListKey;
 
     this.info = info;
+    this.roleList = [];
+    this.bankList = [];
 
     this.inputInfo = {
       true_name: '',
@@ -31,9 +36,29 @@ export default class Controller {
       }
     }
 
+    this._configService.get(this.roleKey).then(data => {
+      if(data) {
+        this.roleList = angular.fromJson(data);
+      }
+    });
+
+    this._service.getBankList().then(data => {
+      this.bankList = data;
+    });
+
   }
 
-  
+  assignBranch(item) {
+    const resolve = {
+      info: function(){
+        return item;
+      }
+    };
+
+    const options = {...branchConfig, resolve};
+
+    this._modal.open( options );
+  }
 
   cancel() {
     this._modalInstance.close();

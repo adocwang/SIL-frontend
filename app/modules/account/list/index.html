@@ -70,7 +70,7 @@
         <th class="col-m-1 text-center">姓名</th>
         <th class="col-m-1 text-center">手机号</th>
         <th class="col-m-1 text-center">所属角色</th>
-        <th class="col-m-1 text-center">银行名称</th>
+        <th class="col-m-1 text-center">机构名称</th>
         <th class="col-m-1 text-center">状态</th>
         <th class="col-m-1 text-center">操作</th>
       </tr>
@@ -87,7 +87,7 @@
           <span class="text-danger" ng-if="item.state==3">已删除</span>
         </td>
         <td>
-          <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配银行</a>
+          <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配机构</a>
           <a ui-sref="account.detail({id: item.id})">查看<i class="icon-angle-right"></i></a>
         </td>
       </tr>

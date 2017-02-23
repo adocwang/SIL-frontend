@@ -43,6 +43,7 @@ class DetailController {
       true_name: this.person.true_name,
       phone: this.person.phone,
       role_name: this.person.role_name,
+      role: this.person.role,
       state: this.person.state
     };
     this._service.set(params).then(data => {

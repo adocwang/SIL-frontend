@@ -46,6 +46,7 @@ class DetailController {
       new_password: this.person.new_password,
       true_name: this.person.true_name,
       phone: this.person.phone,
+      role: this.person.role,
       role_name: this.person.role_name,
       state: this.person.state
     };

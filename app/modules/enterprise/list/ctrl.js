@@ -1,10 +1,10 @@
 import Pagination from '../../../core/components/mcPagination/mc-pagination.class';
 
-import {branchConfig, manageConfig} from '../modals';
+import {branchConfig, manageConfig, addConfig} from '../modals';
 
 class ListController extends Pagination {
 
-  constructor($injector, $state, $location, $stateParams, sweet, toastr, $uibModal, EnterpriseService) {
+  constructor($injector, $state, $location, $stateParams, sweet, toastr, $uibModal, EnterpriseService, ProfileService) {
     'ngInject';
 
     super($injector);
@@ -18,6 +18,8 @@ class ListController extends Pagination {
     this._toastr = toastr;
 
     this._service = EnterpriseService;
+
+    this.profile = ProfileService.getInfo();
 
     this.roleMainStatus = [
       {
@@ -145,6 +147,18 @@ class ListController extends Pagination {
     };
 
     const options = {...branchConfig, resolve};
+
+    this._modal.open( options );
+  }
+
+  add() {
+    const resolve = {
+      info: function(){
+        return {};
+      }
+    };
+
+    const options = {...addConfig, resolve};
 
     this._modal.open( options );
   }

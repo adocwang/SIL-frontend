@@ -47,7 +47,8 @@ export default class Controller {
   saveFunc() {
     const data = {
       id: this.info.id,
-      name: this.inputInfo.name
+      name: this.inputInfo.name,
+      phone: this.inputInfo.phone
     }
     this._service.set(data).then(data => {
       this._toastr.success('修改成功');
