@@ -7,6 +7,7 @@ export default class Service {
     this._httpHelper = httpHelper;
 
     this._api = ApiMap.config;
+    this._apiMap = ApiMap;
 
     this._rootScope = $rootScope;
     this._state = $state;
@@ -39,5 +40,13 @@ export default class Service {
 
   //   return this._http.post(this._api.setSpecial, data).then(this._httpHelper.verify, this._httpHelper.error);
   // }
+
+  getRoleList() {
+    this._httpHelper.blockUI.start();
+    
+    return this._http.get(this._apiMap.auth.get).then(this._httpHelper.verify,  this._httpHelper.error);
+  }
+
+
 
 }

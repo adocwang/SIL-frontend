@@ -23,7 +23,7 @@ class ListController {
 
   _get() {
 
-    this._service.get(this.roleKey).then(data => {
+    this._service.getRoleList().then(data => {
       if(data) {
         this.roleList = angular.fromJson(data);
       }
