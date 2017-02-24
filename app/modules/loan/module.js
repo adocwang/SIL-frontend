@@ -1,4 +1,5 @@
 import angular from 'angular';
+import bootstrap from 'bootstrap';
 import config  from './config';
 import Setting  from './setting/';
 import Decision from './decision';

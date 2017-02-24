@@ -4,78 +4,99 @@
 
 <section class="content body-content block-ui block-ui-message-custom" block-ui="main">
   <form name="Form" class="form-horizontal">
-
-    <div class="form-group" ng-repeat="project in vm.loanList">
-      <div class="col-sm-1">
-        <label class="control-label">条件名称</label>
+    <div class="form-group" ng-repeat-start="loan in vm.loanList">
+      <div class="col-sm-2">
+        <label class="control-label">条件分类名称</label>
       </div>
       <div class="col-sm-2">
-        <input type="text" class="form-control" ng-model="project.title" validator="required">
+        <input type="text" class="form-control" ng-model="loan.title" validator="required">
       </div>
-      <div class="col-sm-7">
-        <div class="clearfix">
-          <label class="col-sm-2 control-label">条件类型</label>
-          <div class="col-sm-2">
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{vm.typeList[project.option_type]}}
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" style="min-width: 60px">
-                <li><a ng-click="project.option_type='integer';vm.typeChange(project)" href="javascript:void(0)">数值</a></li>
-                <li><a ng-click="project.option_type='string';vm.typeChange(project)" href="javascript:void(0)">文本</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <label class="control-label">默认分数</label>
-          </div>
-          <div class="col-sm-2">
-            <input type="text" class="form-control" ng-model="project.default_point" validator="required">
-          </div>
-          <!-- <div class="col-sm-2 text-center pull-right control-label">
-            <a href="javascript:void(0);" ng-click="vm.addItem(project)">添加字段</a>
-          </div> -->
+      <div class="col-sm-2">
+        <label class="control-label">分类总分</label>
+      </div>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" ng-model="loan.point" validator="required">
+      </div>
+      <div class="col-sm-2 text-right">
+          <a data-target="#project{{$index}}" data-toggle="collapse" class="btn btn-link" ng-click="toggle=!toggle"><span ng-hide="toggle">编辑 <i class="icon-arrow-down small"></i></span><span ng-show="toggle">收起 <i class="icon-arrow-up small"></i></span></i></a>
+      </div>
+    </div>
+    <div id="project{{$index}}" class="collapse" ng-repeat-end>
+      <div class="form-group" ng-repeat="project in loan.condition_list">
+        <div class="col-sm-1">
+          <label class="control-label">条件名称</label>
         </div>
-        <div class="form-group" ng-repeat="item in project.options" style="margin:0px;">
-          <div class="clearfix m-b-sm">
-            <label class="col-sm-1 control-label" style="width: 10%">符号</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control" ng-model="project.title" validator="required">
+        </div>
+        <div class="col-sm-7">
+          <div class="clearfix">
+            <label class="col-sm-2 control-label">条件类型</label>
             <div class="col-sm-2">
               <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{vm.conditionList[project.option_type][item.condition]}}
+                  {{vm.typeList[project.option_type]}}
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" style="min-width: 60px">
-                  <li ng-repeat="(id, condition) in vm.conditionList[project.option_type]"><a ng-click="item.condition=id;" href="javascript:void(0)">{{condition}}</a></li>
+                  <li><a ng-click="project.option_type='integer';vm.typeChange(project)" href="javascript:void(0)">数值</a></li>
+                  <li><a ng-click="project.option_type='string';vm.typeChange(project)" href="javascript:void(0)">文本</a></li>
                 </ul>
               </div>
             </div>
-            <label class="col-sm-1 control-label" style="width: 13%">字段值</label>
-            <div class="col-sm-3">
-              <input type="text" class="form-control" ng-model="item.value" validator="required">
+            <div class="col-sm-2">
+              <label class="control-label">默认分数</label>
             </div>
-            <label class="col-sm-1 control-label" style="width: 10%">分数</label>
-            <div class="col-sm-2" style="width: 12%">
-              <input type="text" class="form-control" ng-model="item.point" validator="required">
+            <div class="col-sm-2">
+              <input type="text" class="form-control" ng-model="project.default_point" validator="required">
             </div>
-            <div class="col-sm-1 control-label pull-right" style="width: 10%">
-              <a href="javascript:void(0);" class="text-danger" ng-click="vm.deleteItem(project, $index)">删除</a>
+            <!-- <div class="col-sm-2 text-center pull-right control-label">
+              <a href="javascript:void(0);" ng-click="vm.addItem(project)">添加字段</a>
+            </div> -->
+          </div>
+          <div class="form-group" ng-repeat="item in project.options" style="margin:0px;">
+            <div class="clearfix m-b-sm">
+              <label class="col-sm-1 control-label" style="width: 10%">符号</label>
+              <div class="col-sm-2">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{vm.conditionList[project.option_type][item.condition]}}
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" style="min-width: 60px">
+                    <li ng-repeat="(id, condition) in vm.conditionList[project.option_type]"><a ng-click="item.condition=id;" href="javascript:void(0)">{{condition}}</a></li>
+                  </ul>
+                </div>
+              </div>
+              <label class="col-sm-1 control-label" style="width: 13%">字段值</label>
+              <div class="col-sm-3">
+                <input type="text" class="form-control" ng-model="item.value" validator="required">
+              </div>
+              <label class="col-sm-1 control-label" style="width: 10%">分数</label>
+              <div class="col-sm-2" style="width: 12%">
+                <input type="text" class="form-control" ng-model="item.point" validator="required">
+              </div>
+              <div class="col-sm-1 control-label pull-right" style="width: 10%">
+                <a href="javascript:void(0);" class="text-danger" ng-click="vm.deleteItem(project, $index)">删除</a>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-4 text-center pull-right control-label">
+              <a href="javascript:void(0);" ng-click="vm.addItem(project)">添加条件选项</a>
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-sm-4 text-center pull-right control-label">
-            <a href="javascript:void(0);" ng-click="vm.addItem(project)">添加条件选项</a>
-          </div>
+        <div class="col-sm-1">
+          <button class="btn btn-danger" ng-click="vm.deleteProject($index)">删除条件</button>
         </div>
       </div>
-      <div class="col-sm-1">
-        <button class="btn btn-danger" ng-click="vm.deleteProject($index)">删除条件</button>
+      <div class="form-group">
+        <button class="btn btn-default" ng-click="vm.addProject(loan)">添加条件</button>
       </div>
     </div>
     <div class="form-group">
-      <button class="btn btn-default" ng-click="vm.addProject()">添加条件</button>
+      <button class="btn btn-default" ng-click="vm.addCondition()">添加分类</button>
     </div>
   </form>
   <div class="m-l-xl m-b-md">

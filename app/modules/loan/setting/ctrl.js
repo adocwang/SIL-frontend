@@ -61,16 +61,27 @@ class Controller {
   initCollectInfo() {
     this.loanList = [];
 
-    this.addProject();
+    this.addCondition();
   }
 
-  addProject() {
+  addCondition() {
+    let loanObj = {
+      title: '',
+      point: '0',
+      condition_list: []
+    }
+    this.loanList.push(loanObj);
+    this.addProject(loanObj);
+  }
+
+  addProject(loanObj) {
     let projectObj = {
       title: '',
       option_type: 'integer',
       options: []
     };
-    this.loanList.push(projectObj);
+    //this.loanList.push(projectObj);
+    loanObj.condition_list.push(projectObj);
     this.addItem(projectObj);
   }
 
@@ -108,18 +119,32 @@ class Controller {
 
   submit(form) {
     //验证表单
+    var that = this;
+    var stop = false;
     this._validationProvider.validate(form).success(() => {
       //不能超过100分数
       var point = 0;
       this.loanList.forEach(function(loan){
-        var loanPoint = parseInt(loan.default_point);
-        loan.options.forEach(function(option){
-          if (parseInt(option.point) > parseInt(loanPoint)) {
-            loanPoint = parseInt(option.point);
-          }
+        var loanPoint = 0;
+        loan.condition_list.forEach(function(condition){
+            var maxPoint = 0
+            condition.options.forEach(function(option){
+              if (option.point > maxPoint) {
+                maxPoint = parseInt(option.point);
+              }
+            })
+            loanPoint += parseInt(maxPoint);
         });
-        point += loanPoint;
+        if (loanPoint > parseInt(loan.point)) {
+          that._toastr.error(loan.title+'分类的总分超过预定分类总分');
+          stop = true;
+          return false;
+        }
+        point += parseInt(loan.point);
       });
+      if (stop) {
+        return;
+      }
       if (point > 100) {
         this._toastr.error('分数不能超过100');
         return;
