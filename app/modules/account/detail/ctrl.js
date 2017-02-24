@@ -29,9 +29,9 @@ class DetailController {
       3: '已删除'
     }
 
-    this._configService.get(this.roleKey).then(data => {
+    this._service.getRoleList().then(data => {
       if(data) {
-        this.roleList = angular.fromJson(data);
+        this.roleList = data;
       }
     });
 
