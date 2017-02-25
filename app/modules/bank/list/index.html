@@ -49,6 +49,7 @@
         <th class="col-m-1 text-center">id</th>
         <th class="col-m-1 text-center">机构</th>
         <th class="col-m-1 text-center">地址</th>
+        <th class="col-m-1 text-center">联系电话</th>
         <th class="col-m-1 text-center">上级机构</th>
         <th class="col-m-1 text-center" colspan="4">操作</th>
       </tr>
@@ -56,6 +57,7 @@
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.address}}</td>
+        <td>{{item.phone}}</td>
         <td>{{item.superior_name}}</td>
         <td width="90px">
           <a href="javascript:void(0)" ng-click="vm.setMap(item)">选取地址</a>

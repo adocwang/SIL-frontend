@@ -15,7 +15,7 @@ function Config($stateProvider) {
     // .state('bank.list', {
     //     url: '',
     //     template: '<bank-list></bank-list>',
-    //     title: '银行列表'
+    //     title: '机构列表'
     // })
 
 }
