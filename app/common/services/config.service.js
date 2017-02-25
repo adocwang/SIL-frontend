@@ -44,7 +44,7 @@ export default class Service {
   getRoleList() {
     this._httpHelper.blockUI.start();
     
-    return this._http.get(this._apiMap.auth.get).then(this._httpHelper.verify,  this._httpHelper.error);
+    return this._http.get(this._api.roleList).then(this._httpHelper.verify,  this._httpHelper.error);
   }
 
 

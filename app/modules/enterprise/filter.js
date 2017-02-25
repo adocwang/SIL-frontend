@@ -1,4 +1,4 @@
-export default function filterValue() {
+export function filterValue() {
 
     return function(val, list){
 
@@ -13,4 +13,15 @@ export default function filterValue() {
         return '';
     }
     
+}
+
+export function filterDistributeState() {
+	const stateList = {
+		1: '待分配',
+		2: '已分配',
+		3: '已认领'
+	};
+	return function(val) {
+		return stateList[val] || '';
+	}
 }

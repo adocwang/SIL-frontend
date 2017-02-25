@@ -1,7 +1,7 @@
 
 class ListController {
 
-  constructor($rootScope, $state, toastr, AppSettings, ConfigService) {
+  constructor($rootScope, $state, toastr, AppSettings, ConfigService, ProfileService) {
     'ngInject';
 
     this.$state = $state;
@@ -9,6 +9,7 @@ class ListController {
     this._isMenuCollapsed = true;
 
     this._service = ConfigService;
+    this.roleList = ProfileService.getRoleList();
 
     this._scope = $rootScope;
     this._toastr = toastr;
@@ -16,18 +17,13 @@ class ListController {
     this.key = AppSettings.accessKey;
     this.roleKey = AppSettings.roleListKey;
 
-    this.roleList = [];
+    // this.roleList = [];
     this.getMenuItems();
     this._get();
   }
 
   _get() {
 
-    this._service.getRoleList().then(data => {
-      if(data) {
-        this.roleList = angular.fromJson(data);
-      }
-    });
     this._service.get(this.key).then(data => {
       if(data) {
         this.access = angular.fromJson(data);

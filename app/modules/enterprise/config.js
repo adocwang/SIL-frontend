@@ -6,7 +6,7 @@ function Config($stateProvider) {
         url: '/enterprise?page&role_a_disable&name&state&bank_name',
         // abstract: true,
         template : '<ui-view><enterprise-list></enterprise-list></ui-view>',
-        title: '企业分配',
+        title: '企业管理',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
           order: 400,
