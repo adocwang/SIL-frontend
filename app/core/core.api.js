@@ -5,6 +5,7 @@ const api = {
 		list: `${prefix}/client_config/list/web`,
 		get: `${prefix}/client_config/get_special/{key}`,
 		set: `${prefix}/client_config/set_special`,
+		roleList: `${prefix}/auth/role_list`
 	},
 	message: {
 		getList: `${prefix}/message/list`,
