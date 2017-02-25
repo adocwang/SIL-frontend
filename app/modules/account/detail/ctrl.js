@@ -1,6 +1,6 @@
 class DetailController {
 
-  constructor($state, $stateParams, toastr, AccountService, AppSettings, ConfigService) {
+  constructor($state, $stateParams, toastr, AccountService, AppSettings, ConfigService, ProfileService) {
     'ngInject';
 
     this._state = $state;
@@ -12,6 +12,7 @@ class DetailController {
 
     this.id = this._stateParams.id;
     this.roleKey = AppSettings.roleListKey;
+    this.roleList = ProfileService.getRoleList();
 
     this.info = null;
 
@@ -28,12 +29,6 @@ class DetailController {
       2: '已冻结',
       3: '已删除'
     }
-
-    this._service.getRoleList().then(data => {
-      if(data) {
-        this.roleList = data;
-      }
-    });
 
     this._service.get(params).then(data => {
       this.person = data;

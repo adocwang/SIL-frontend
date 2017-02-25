@@ -19,6 +19,8 @@ export default class ProfileService {
 	      avatar: '/images/common/man.png'
 	    }
 
+        this.roleList = [];
+
         this.user_id = localStorage.getItem('SIL_UID') || 0;
 
         this.access = {};
@@ -27,6 +29,20 @@ export default class ProfileService {
             this.get({id: this.user_id});
         }
 
+        this._getRoleList();
+
+    }
+
+    getRoleList() {
+        return this.roleList;
+    }
+
+    _getRoleList() {
+        this._configService.getRoleList().then(data => {
+            if(data && data instanceof Array) {
+                this.roleList.push.apply( this.roleList, data );
+            }
+        });
     }
 
     setSession(key, value) {

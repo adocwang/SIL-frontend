@@ -1,5 +1,5 @@
 export default class Controller {
-  constructor($scope, $state, $validation, $uibModalInstance, toastr, AccountService, info, AppSettings, ConfigService) {
+  constructor($scope, $state, $validation, $uibModalInstance, toastr, AccountService, info, AppSettings, ConfigService, ProfileService) {
     'ngInject';
 
     this._scope = $scope;
@@ -14,9 +14,9 @@ export default class Controller {
     this._configService = ConfigService;
 
     this.roleKey = AppSettings.roleListKey;
+    this.roleList = ProfileService.getRoleList();
 
     this.info = info;
-    this.roleList = [];
     this.bankList = [];
 
     this.inputInfo = {
@@ -35,12 +35,6 @@ export default class Controller {
         return match;
       }
     }
-
-    this._service.getRoleList().then(data => {
-      if(data) {
-        this.roleList = data;
-      }
-    });
 
     this._service.getBankList().then(data => {
       this.bankList = data;
