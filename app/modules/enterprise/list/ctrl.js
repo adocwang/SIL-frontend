@@ -121,7 +121,7 @@ class ListController extends Pagination {
       this._modal.open( options );
     } else {
       this._sweet.show({
-        title: '请先分配银行',
+        title: '请先分配机构',
         showCancelButton: false,
         confirmButtonColor: "#DD6B55",
         confirmButtonText: "确定",
