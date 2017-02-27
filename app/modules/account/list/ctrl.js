@@ -49,6 +49,7 @@ class ListController extends Pagination {
   _getList() {
     let params = this._filterEmptyValue();
     params.page = this.pagination.page;
+    params.page_limit = 20;
 
     this._service.list(params).then(data => {
       this.pagination.count = data.count;

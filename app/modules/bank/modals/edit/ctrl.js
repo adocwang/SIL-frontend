@@ -15,7 +15,9 @@ export default class Controller {
     this.info = info;
 
     this.inputInfo = {
-      name: this.info.name
+      name: this.info.name,
+      phone: this.info.phone,
+      address: this.info.address
     };
 
     this.autoCompleteOptions = {
@@ -48,7 +50,8 @@ export default class Controller {
     const data = {
       id: this.info.id,
       name: this.inputInfo.name,
-      phone: this.inputInfo.phone
+      phone: this.inputInfo.phone,
+      address: this.inputInfo.address
     }
     this._service.set(data).then(data => {
       this._toastr.success('修改成功');

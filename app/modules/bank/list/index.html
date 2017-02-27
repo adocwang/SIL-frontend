@@ -1,6 +1,6 @@
 <section class="content-header">
   <button type="button" class="btn btn-success pull-right m-l-sm" style="position: relative; z-index: 2;"
-    ng-click="vm.addBank()"><i class="icon-Plus"></i> 添加
+    ng-click="vm.addBank()"><i class="icon-Plus"></i> 添加机构
   </button>
 
   <button type="button" class="btn btn-info pull-right" style="position: relative; z-index: 2;" data-toggle="modal" data-target=".pop-player"
@@ -51,7 +51,7 @@
         <th class="col-m-1 text-center">地址</th>
         <th class="col-m-1 text-center">联系电话</th>
         <th class="col-m-1 text-center">上级机构</th>
-        <th class="col-m-1 text-center" colspan="4">操作</th>
+        <th class="col-m-1 text-center" colspan="3">操作</th>
       </tr>
       <tr ng-repeat="item in vm.list">
         <td>{{item.id}}</td>
@@ -59,9 +59,9 @@
         <td>{{item.address}}</td>
         <td>{{item.phone}}</td>
         <td>{{item.superior_name}}</td>
-        <td width="90px">
+        <!-- <td width="90px">
           <a href="javascript:void(0)" ng-click="vm.setMap(item)">选取地址</a>
-        </td>
+        </td> -->
         <td width="90px">
           <a href="javascript:void(0)" ng-click="vm.setName(item)">更改资料</a>
         </td>

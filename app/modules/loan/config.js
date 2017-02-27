@@ -22,7 +22,7 @@ function Config($stateProvider) {
     .state('loan.list', {
         url: '/list',
         template: '<loan-list></loan-list>',
-        title: '贷款企业列表',
+        title: '已评价企业列表',
         sidebarMeta: {
           order: 20
         }

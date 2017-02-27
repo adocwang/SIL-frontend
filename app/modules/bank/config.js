@@ -9,7 +9,7 @@ function Config($stateProvider) {
         title: '机构管理',
         sidebarMeta: {
           icon: 'icon-sidebar_members_ic',
-          order: 300,
+          order: 10,
         }
     })
     // .state('bank.list', {

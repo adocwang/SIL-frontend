@@ -56,7 +56,7 @@
         <th class="col-m-1 text-center">企业名称</th>
         <th class="col-m-1 text-center">企业地址</th>
         <th class="col-m-1 text-center">所属机构</th>
-        <th class="col-m-1 text-center">主理</th>
+        <th class="col-m-1 text-center">评分</th>
         <th class="col-m-2 text-center">协理</th>
         <th class="col-m-1 text-center">企业状态</th>
         <th class="col-m-1 text-center">操作</th>
@@ -65,8 +65,7 @@
         <td>{{item.name}}</td>
         <td>{{item.address}}</td>
         <td>{{item.bank.name}}</td>
-        <td>{{item.role_a.true_name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_a', item)">{{item.manage_a && item.manage_a.userid? '变更': '分配'}}</button> --></td>
-        <td>{{item.role_b.true_name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_b', item)">{{item.manage_b && item.manage_b.userid? '变更': '分配'}}</button> --></td>
+        <td>{{item.loan_points}}</td>
         <td>{{item.state | filterValue: vm.enterpriseStateList}}</td>
         <td>
           <a ui-sref="loan.decision({id: item.id})">修正企业贷款信息</a>
