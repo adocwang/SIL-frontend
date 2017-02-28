@@ -11,11 +11,11 @@
     </div>
 
   <div class="options">
-    <!-- <div class="option-item option-time">
+    <div class="option-item option-time">
       <ul class="clearfix">
         <li>
           <div class="input-group search-box">
-            <input ng-model="vm.filters.keyword" type="text" placeholder="请输查询" class="form-control"
+            <input ng-model="vm.filters.name" type="text" placeholder="请输查询" class="form-control"
                     code="13" key-event="vm.reSearch();">
             <span class="input-group-btn">
               <button ng-click="vm.reSearch()" class="btn btn-default search" type="button"><i class="icon-search"></i></button>
@@ -23,8 +23,8 @@
           </div>
         </li>
       </ul>
-    </div> -->
-    <div class="option-item large">
+    </div>
+    <!-- <div class="option-item large">
       <span class="item-title text-right">所属机构：</span>
       <ul class="clearfix">
             <li>
@@ -34,7 +34,7 @@
                 </select>
             </li>
         </ul>
-    </div>
+    </div> -->
 </section>
 
 <section class="content body-content body-content-compact block-ui block-ui-message-custom" block-ui="main">
@@ -44,12 +44,12 @@
     <table class="table table-striped text-center">
       <tr>
         <th class="col-m-5 text-center">公司名称</th>
-        <th class="col-m-5 text-center">所属机构</th>
+        <th class="col-m-5 text-center">公司简称</th>
         <th class="col-m-1 text-center">状态</th>
         <!-- <th class="col-m-2 text-center">备注</th> -->
         <th class="col-m-2 text-center">操作</th>
       </tr>
-      <tr ng-repeat="item in vm.list | filter: vm.filters.agency">
+      <tr ng-repeat="item in vm.list">
         <td>{{item.name}}</td>
         <td>{{item.vc_name}}</td>
         <!-- <td>{{item.agency}}</td> -->

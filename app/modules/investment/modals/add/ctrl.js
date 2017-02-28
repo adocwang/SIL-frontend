@@ -19,16 +19,16 @@ export default class Controller {
       vc_name: ''
     };
 
-    this.autoCompleteOptions = {
-      minimumChars: 1,
-      data: function (term) {
-        term = term.toUpperCase();
-        var match = _.filter(info.agencyList, function (value) {
-            return value.startsWith(term);
-        });
-        return match;
-      }
-    }
+    // this.autoCompleteOptions = {
+    //   minimumChars: 1,
+    //   data: function (term) {
+    //     term = term.toUpperCase();
+    //     var match = _.filter(info.agencyList, function (value) {
+    //         return value.startsWith(term);
+    //     });
+    //     return match;
+    //   }
+    // }
 
   }
 

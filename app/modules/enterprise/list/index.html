@@ -16,7 +16,7 @@
         </li>
       </ul>
     </div>
-    <div class="option-item large">
+    <div class="option-item large" ng-if="vm.access['enterprise.filter.role_a_state']">
       <span class="item-title text-right">主理状态：</span>
       <ul class="clearfix">
           <!-- <li>
@@ -57,8 +57,8 @@
         <th class="col-m-1 text-center">企业名称</th>
         <th class="col-m-1 text-center">企业地址</th>
         <th class="col-m-1 text-center">所属机构</th>
-        <th class="col-m-1 text-center">主理</th>
-        <th class="col-m-2 text-center">协理</th>
+        <th class="col-m-1 text-center" ng-if="vm.access['enterprise.list.role_show']">主理</th>
+        <th class="col-m-2 text-center" ng-if="vm.access['enterprise.list.role_show']">协理</th>
         <th class="col-m-1 text-center">企业状态</th>
         <th class="col-m-1 text-center">分配状态</th>
         <th class="col-m-1 text-center">操作</th>
@@ -67,15 +67,15 @@
         <td>{{item.name}}</td>
         <td>{{item.address}}</td>
         <td>{{item.bank.name}}</td>
-        <td>{{item.role_a.true_name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_a', item)">{{item.manage_a && item.manage_a.userid? '变更': '分配'}}</button> --></td>
-        <td>{{item.role_b.true_name}}<!-- <button class="btn btn-info m-l-sm" ng-click="vm.changeManage('manage_b', item)">{{item.manage_b && item.manage_b.userid? '变更': '分配'}}</button> --></td>
+        <td ng-if="vm.access['enterprise.list.role_show']">{{item.role_a.true_name}}</td>
+        <td ng-if="vm.access['enterprise.list.role_show']">{{item.role_b.true_name}}</td>
         <td>{{item.state | filterValue: vm.enterpriseStateList}}</td>
         <td>{{item.distribute_state | filterDistributeState}}</td>
         <td>
         <!-- ng-if="vm.profile.role == 'ROLE_BRANCH_PRESIDENT'" -->
          <!-- ng-if="vm.profile.role == 'ROLE_END_PRESIDENT'" -->
-          <a href="javascript:void(0)" ng-click="vm.assignBranch(item)">分配机构</a>
-          <a href="javascript:void(0)" ng-click="vm.assign(item)">分配客户经理</a>
+          <a href="javascript:void(0)" ng-click="vm.assignBranch(item)" ng-if="vm.access['enterprise.assign.branch']">分配机构</a>
+          <a href="javascript:void(0)" ng-click="vm.assign(item)" ng-if="vm.access['enterprise.assign.role']">分配客户经理</a>
           <a ui-sref="enterprise.detail({id: item.id})">查看详情</a>
           <!-- <a href="javascript:void(0)" ng-click="vm.del(item)">删除</a>
           <a href="javascript:void(0)" ng-click="vm.frost(item)">冻结</a> -->
