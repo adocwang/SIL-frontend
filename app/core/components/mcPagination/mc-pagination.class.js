@@ -7,7 +7,7 @@ export default class Pagination {
 
     this.pagination = {
       count: 0,
-      pageSize: 18
+      pageSize: 20
     };
 
     this._initPage();
