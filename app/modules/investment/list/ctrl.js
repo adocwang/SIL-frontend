@@ -58,12 +58,6 @@ class ListController extends Pagination {
       }
     });
 
-    // this.list = [
-    //             {id: 1, agency: '投资机构名称名称', sub_company: '投资子公司名称'},
-    //             {id: 1, agency: '投资机构名称名称', sub_company: '投资子公司名称'},
-    //             ];
-    // this.pagination.count = 20;
-
   }
 
   _formatAgency(data) {
