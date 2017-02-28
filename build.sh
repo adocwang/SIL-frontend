@@ -1,6 +1,7 @@
 #!/bin/bash
 rm -rf build
 git checkout gh-pages
+git checkout .
 git pull --rebase
 git merge master -m 'merge master to gh-pages'
 npm run build
