@@ -49,12 +49,13 @@ class ListController extends Pagination {
     params.page = this.pagination.page;
 
     this._service.getList(params).then(data => {
-      if(!data instanceof Array) {
-        data = [];
+      if(data instanceof Array) {
+        this.list = data;
+      } else {
+        // this._formatAgency(data);
+        this.list = data.vc_companies;
+        this.pagination.count = data.page_count * this.pagination.pageSize;
       }
-      this._formatAgency(data);
-      this.list = data;
-      // this.pagination.count = 1;
     });
 
     // this.list = [
