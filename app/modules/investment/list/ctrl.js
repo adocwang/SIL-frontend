@@ -38,7 +38,7 @@ class ListController extends Pagination {
     // this.pagination.page = +stateParams.page;
     this.filters.gender = +stateParams.gender || void(0);
 
-    this.filters.keyword = stateParams.keyword || void(0);
+    this.filters.name = stateParams.name || void(0);
 
   }
   
@@ -66,12 +66,12 @@ class ListController extends Pagination {
   }
 
   _formatAgency(data) {
-    const tmpArr = [];
-    _.each(data, item => {
-      tmpArr.push(item.vc_name);
-    });
+    // const tmpArr = [];
+    // _.each(data, item => {
+    //   tmpArr.push(item.vc_name);
+    // });
 
-    this.agencyList = _.uniq(tmpArr)
+    // this.agencyList = _.uniq(tmpArr)
   }
 
   changeAgency() {
