@@ -61,8 +61,6 @@ class Controller {
         if (msg.length > 0) {
           this._toastr.success(msg);
         }
-      } else {
-        this.initCollectInfo();
       }
     });
   }
@@ -77,16 +75,11 @@ class Controller {
 
   saveFunc() {
     var data = {
-      id: 1,
+      id: this.id,
       data: angular.toJson(this.loanList)
     };
     this._service.set(data).then(data => {
-      if(data && !jQuery.isEmptyObject(data)) {
-        this.loanList = data;
         this._toastr.success('保存成功');
-      } else {
-        this.initCollectInfo();
-      }
     });
   }
 
