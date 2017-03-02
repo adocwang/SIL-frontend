@@ -39,7 +39,7 @@
           {{vm.inputInfo.bank_name}}
           <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" style="height:210px; overflow:scroll;">
           <li ng-repeat="bank in vm.bankList"><a ng-click="vm.inputInfo.bank_name=bank.name;vm.inputInfo.bank_id=bank.id" href="javascript:void(0)">{{bank.name}}</a></li>
         </ul>
       </div>
