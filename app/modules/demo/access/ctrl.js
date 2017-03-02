@@ -20,6 +20,7 @@ class ListController {
     // this.roleList = [];
     this.getMenuItems();
     this._get();
+
   }
 
   _get() {
@@ -57,7 +58,8 @@ class ListController {
     // });
 
     // this.list = menuItems.concat(this.staticMenuItems);
-    this.list = states;
+    let extend  = this._getEnterpriseAccess();
+    this.list = states.concat(extend);
 
   }
 
@@ -90,6 +92,27 @@ class ListController {
     //     return (a.level - b.level) * 100 + a.order - b.order;
     //   });
 
+  }
+
+  _getEnterpriseAccess() {
+    return [
+      {
+        name: 'enterprise.filter.role_a_state',
+        title: '主理状态筛选'
+      },
+      {
+        name: 'enterprise.list.role_show',
+        title: '列表显示客户经理'
+      },
+      {
+        name: 'enterprise.assign.role',
+        title: '分配客户经理'
+      },
+      {
+        name: 'enterprise.assign.branch',
+        title: '分配机构'
+      },
+    ]
   }
 
 

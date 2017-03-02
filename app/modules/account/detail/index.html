@@ -1,31 +1,31 @@
-<section class="content-header clearfix">
+<section class="content-header col-sm-7 clearfix">
     <h4>资料设置</h4>
     <a href="javascript:void(0)" class="btn btn-default pull-right" ng-click="$root.back();">返回</a>
 </section>
-<section class="content body-content" block-ui="main">
+<section class="content body-content col-sm-6" block-ui="main">
 
-    <div class="form-horizontal">
-        <div class="form-group">
-            <label for="inputName" class="col-sm-2 control-label">姓名</label>
-            <div class="col-sm-2">
+    <div class="form-horizontal col-sm-10">
+        <div class="form-group col-sm-12">
+            <label for="inputName" class="col-sm-3 control-label">姓名</label>
+            <div class="col-sm-9">
                 <input type="text" class="form-control" id="inputName" ng-model="vm.person.true_name" placeholder="">
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputPhone" class="col-sm-2 control-label">手机号</label>
-            <div class="col-sm-4">
+        <div class="form-group col-sm-12">
+            <label for="inputPhone" class="col-sm-3 control-label">手机号</label>
+            <div class="col-sm-9">
                 <input type="text" class="form-control" id="inputPhone" ng-model="vm.person.phone" placeholder="">
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputPwd" class="col-sm-2 control-label">新密码</label>
-            <div class="col-sm-4">
+        <div class="form-group col-sm-12">
+            <label for="inputPwd" class="col-sm-3 control-label">新密码</label>
+            <div class="col-sm-9">
                 <input type="text" class="form-control" id="inputPwd" ng-model="vm.person.new_password" placeholder="">
             </div>
         </div>
-        <div class="form-group">
-            <label for="" class="col-sm-2 control-label">角色信息</label>
-            <div class="btn-group col-sm-2">
+        <div class="form-group col-sm-12">
+            <label for="" class="col-sm-3 control-label">角色信息</label>
+            <div class="btn-group col-sm-9">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{vm.person.role_name}}
                 <span class="caret"></span>
@@ -35,9 +35,9 @@
               </ul>
             </div>
         </div>
-        <div class="form-group">
-            <label for="" class="col-sm-2 control-label">用户状态</label>
-            <div class="btn-group col-sm-2">
+        <div class="form-group col-sm-12">
+            <label for="" class="col-sm-3 control-label">用户状态</label>
+            <div class="btn-group col-sm-9">
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{vm.stateArr[vm.person.state]}}
                 <span class="caret"></span>

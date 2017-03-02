@@ -38,7 +38,7 @@ class ListController extends Pagination {
     // this.pagination.page = +stateParams.page;
     this.filters.gender = +stateParams.gender || void(0);
 
-    this.filters.keyword = stateParams.keyword || void(0);
+    this.filters.name = stateParams.name || void(0);
 
   }
   
@@ -49,29 +49,24 @@ class ListController extends Pagination {
     params.page = this.pagination.page;
 
     this._service.getList(params).then(data => {
-      if(!data instanceof Array) {
-        data = [];
+      if(data instanceof Array) {
+        this.list = data;
+      } else {
+        // this._formatAgency(data);
+        this.list = data.vc_companies;
+        this.pagination.count = data.page_count * this.pagination.pageSize;
       }
-      this._formatAgency(data);
-      this.list = data;
-      // this.pagination.count = 1;
     });
-
-    // this.list = [
-    //             {id: 1, agency: '投资机构名称名称', sub_company: '投资子公司名称'},
-    //             {id: 1, agency: '投资机构名称名称', sub_company: '投资子公司名称'},
-    //             ];
-    // this.pagination.count = 20;
 
   }
 
   _formatAgency(data) {
-    const tmpArr = [];
-    _.each(data, item => {
-      tmpArr.push(item.vc_name);
-    });
+    // const tmpArr = [];
+    // _.each(data, item => {
+    //   tmpArr.push(item.vc_name);
+    // });
 
-    this.agencyList = _.uniq(tmpArr)
+    // this.agencyList = _.uniq(tmpArr)
   }
 
   changeAgency() {

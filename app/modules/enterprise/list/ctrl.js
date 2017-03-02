@@ -20,6 +20,7 @@ class ListController extends Pagination {
     this._service = EnterpriseService;
 
     this.profile = ProfileService.getInfo();
+    this.access = ProfileService.access;
 
     this.roleMainStatus = [
       {

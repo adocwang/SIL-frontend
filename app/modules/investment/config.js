@@ -3,7 +3,7 @@ function Config($stateProvider) {
 
   $stateProvider
     .state('investment', {
-        url: '/investment',
+        url: '/investment?page&name',
         // abstract: true,
         template : '<ui-view><investment-list></investment-list></ui-view>',
         title: '投资机构',

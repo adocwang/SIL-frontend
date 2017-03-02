@@ -80,7 +80,7 @@ class Controller {
       id: 1,
       data: angular.toJson(this.loanList)
     };
-    this._service.get(data).then(data => {
+    this._service.set(data).then(data => {
       if(data && !jQuery.isEmptyObject(data)) {
         this.loanList = data;
         this._toastr.success('保存成功');
